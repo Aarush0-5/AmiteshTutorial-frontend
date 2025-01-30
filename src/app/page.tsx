@@ -5,7 +5,7 @@ import Link from "next/link";
 import HorizontalScrollCarousel from "./components/imageslider";
 import HorizontalScrollCarouselAnnoucement from "./components/announcementslider";
 import Form from "./components/form";
-{/*import LogIn from "./components/login";*/}
+import LogIn from "./components/login";
 import Image from "next/image";
 
 const Home: React.FC = () => {
