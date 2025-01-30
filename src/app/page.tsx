@@ -3,9 +3,10 @@
 import React, {useState} from "react";
 import Link from "next/link";
 import HorizontalScrollCarousel from "./components/imageslider";
+import HorizontalScrollCarouselAnnoucement from "./components/announcementslider";
 import Form from "./components/form";
 import LogIn from "./components/login";
-
+import Image from "next/image";
 
 const Home: React.FC = () => {
    const [showForm, setShowForm]= useState(false);
@@ -14,7 +15,8 @@ const Home: React.FC = () => {
    const handleOnCLick = () => {
     setShowForm(!showForm)
    };
-   const handleOnCLickLI = () => {
+
+  const handleOnCLickLI = () => {
     setShowLogIn(!showLogIn)
    };
 
@@ -30,11 +32,17 @@ const Home: React.FC = () => {
   <div>
     <header className="bg-blue-800 text-white flex flex-col items-center p-3 text-xl lg:flex-row lg:text-3xl lg:justify-between">
   <div className="w-full flex justify-center lg:justify-between items-center">
-    <img src="/logo.jpg" alt="logo" className="hidden lg:block lg:w-1/6 h-auto" />
+    <Image src="/logo.jpg" alt="logo" className="hidden lg:block lg:w-1/6 h-auto" width={100} height={100} />
     <div className="flex flex-row justify-end items-center">
       <Link href="/gallery" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8">Gallery</Link>
       <Link href="/about" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 whitespace-nowrap">Our Journey</Link>
-      <a href="https://www.instagram.com/amiteshtutorials/"><img src="/instagramm.png" alt="insta's logo" /></a>
+      <div >
+       <button onClick={handleOnCLickLI}> LogIn </button>
+       {showLogIn && <LogIn showLogIn={showLogIn} onClose={handleOnCloseLI} />}
+      </div>
+      <a href="https://www.instagram.com/amiteshtutorials/">
+        <Image src="/instagramm.png" alt="insta's logo" width={50} height={50} className="ml-2"/>
+      </a>
     </div>
   </div>
 </header>
@@ -42,7 +50,7 @@ const Home: React.FC = () => {
 
      <main > 
 
-       <img src="/logo.jpg" alt="logo" className="lg:hidden  lg:w-1/6 h-auto" />
+       <Image src="/logo.jpg" alt="logo" className="lg:hidden w-full" width={100} height={100} />
 
       <div className="mt-5 mb-5"> <HorizontalScrollCarousel/> </div>
 
@@ -89,9 +97,8 @@ const Home: React.FC = () => {
           
           <div className="bg-blue-600 ">
             <h2 className="text-center underline underline-offset-4 text-4xl font-bold">Announcements! </h2>
-            <div className="flex flex-col  lg:space-x-2 lg:flex-row justify-center h-1/2 w-auto p-10 ">  
-              <div><img src="/offer1.jpg" alt="offerpic1"   /></div>
-              <div><img src="/offer2.jpg" alt="offerpic1"  /></div>
+            <div className=" p-4 ">  
+              <HorizontalScrollCarouselAnnoucement />
             </div>
           </div>
           
@@ -127,7 +134,4 @@ const Home: React.FC = () => {
 
 export default Home;
 
-{/*<div >
-       <button onClick={handleOnCLickLI}> LogIn </button>
-       {showLogIn && <LogIn showLogIn={showLogIn} onClose={handleOnCloseLI} />}
-      </div>*/}
+

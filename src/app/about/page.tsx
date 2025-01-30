@@ -1,20 +1,20 @@
-
+import Image from "next/image";
 
 const About: React.FC = () => {
  return (
   <div>
    <header className="flex flex-row justify-center lg:justify-between bg-blue-600 items-center">
    <h2 className="text-4xl lg:text-5xl font-bold text-start p-8 whitespace-nowrap text-white mb-4">Our Journey</h2>
-   <a  href="https://www.instagram.com/amiteshtutorials/"><img src="/instagramm.png" alt="insta's logo" /></a>
+   <a  href="https://www.instagram.com/amiteshtutorials/"><Image src="/instagramm.png" alt="insta's logo" width={70} height={70} /></a>
    </header>
 
    <main>
      <div className="flex justify-center w-full h-auto">
-      <img src="/logo.jpg" alt="Logo" />
+      <Image src="/logo.jpg" alt="Logo" width={500} height={500}/>
      </div>
      <h2 className="font-bold text-3xl lg:text-5xl underline underline-offset-4 text-black text-center p-3 bg-yellow-400">Meet The Founder</h2>
      <div className="flex flex-col lg:flex-row text-black bg-yellow-400 p-3">
-       <img src="/founder.jpg" alt="founder's image" className="lg:w-1/3 h-auto mb-4" />
+       <img src="/founder.jpg" alt="founder's image" className=" lg:w-1/3 h-auto mb-4"/>
        <div className="flex flex-col justify-center items-center lg:w-2/3 ">
         <p className="font-semibold text-xl text-center mb-7">Founded by Amitesh Tripathi, an experienced educator with a passion for teaching, Amitesh Tutorials offers specialized coaching in various subjects, including Mathematics, Science, and English. Our team of qualified instructors brings a wealth of knowledge and experience, ensuring that students receive the best possible support on their academic journey.</p>
         <p className="font-semibold italic text-xl text-center">“As you embark on this educational journey, remember that every   challenge is an opportunity for growth. Keep pushing forward!” <span className="whitespace-nowrap">-Amitesh  Tripathi</span></p>

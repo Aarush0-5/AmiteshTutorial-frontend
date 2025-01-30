@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from "next/image";
 
 const HorizontalScrollCarousel: React.FC = () => {
 
@@ -35,12 +36,14 @@ const HorizontalScrollCarousel: React.FC = () => {
       className="overflow-hidden flex lg:space-x-4"
       style={{ scrollBehavior: 'smooth', width: '100%' }}
     >
-      <img src="/images/pic1.jpg" alt="Image 1" className="w-full md:w-1/4 object-cover" />
-      <img src="/images/pic2.jpg" alt="Image 2" className="w-full md:w-1/4 object-cover" />
-      <img src="/images/pic3.jpg" alt="Image 3" className="w-full md:w-1/4 object-cover" />
-      <img src="/images/pic4.jpg" alt="Image 4" className="w-full md:w-1/4 object-cover" />
-      <img src="/images/pic5.jpg" alt="Image 5" className="w-full md:w-1/4 object-cover" />
-      <img src="/images/pic6.jpg" alt="Image 6" className="w-full md:w-1/4 object-cover" />
+      <Image src="/images/pic1.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic2.jpg" alt="Image 2" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic3.jpg" alt="Image 3" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic4.jpg" alt="Image 4" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic5.jpg" alt="Image 5" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic6.jpg" alt="Image 6" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/gallery/img6.jpg" alt="Image 7" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/gallery/img7.jpg" alt="Image 8" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
     </div>
   );
 };
