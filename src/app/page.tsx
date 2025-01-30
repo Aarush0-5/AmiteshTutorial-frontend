@@ -5,28 +5,23 @@ import Link from "next/link";
 import HorizontalScrollCarousel from "./components/imageslider";
 import HorizontalScrollCarouselAnnoucement from "./components/announcementslider";
 import Form from "./components/form";
-import LogIn from "./components/login";
+{/*import LogIn from "./components/login";*/}
 import Image from "next/image";
 
 const Home: React.FC = () => {
-   const [showForm, setShowForm]= useState(false);
-   const [showLogIn, setShowLogIn]= useState(false);
-
+  const [showForm, setShowForm]= useState(false);
+   
    const handleOnCLick = () => {
     setShowForm(!showForm)
    };
 
-  const handleOnCLickLI = () => {
-    setShowLogIn(!showLogIn)
-   };
+  
 
    const handleOnClose= () => {
     setShowForm(false);
    };
 
-   const handleOnCloseLI= () => {
-    setShowLogIn(false);
-   };
+
 
  return (
   <div>
@@ -37,11 +32,10 @@ const Home: React.FC = () => {
       <Link href="/gallery" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8">Gallery</Link>
       <Link href="/about" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 whitespace-nowrap">Our Journey</Link>
       <div >
-       <button onClick={handleOnCLickLI}> LogIn </button>
-       {showLogIn && <LogIn showLogIn={showLogIn} onClose={handleOnCloseLI} />}
+       <button > LogIn </button>
       </div>
       <a href="https://www.instagram.com/amiteshtutorials/">
-        <Image src="/instagramm.png" alt="insta's logo" width={50} height={50} className="ml-2"/>
+        <Image src="/instagramm.png" alt="instas logo" width={50} height={50} className="ml-2"/>
       </a>
     </div>
   </div>
@@ -57,7 +51,7 @@ const Home: React.FC = () => {
       <h2 className="text-center bg-blue-600 text-white lg:text-black p-3 font-bold text-3xl ">Welcome to Amitesh Tutorials
       </h2>
 
-      <p className="text-center bg-blue-600 text-white lg:text-black p-3 font-semibold text-2xl">A dedicated coaching center committed to nurturing the minds of young learners. Our mission is to provide high-quality educational guidance tailored to meet each student's unique needs and aspirations.</p>
+      <p className="text-center bg-blue-600 text-white lg:text-black p-3 font-semibold text-2xl">A dedicated coaching center committed to nurturing the minds of young learners. Our mission is to provide high-quality educational guidance tailored to meet each students unique needs and aspirations.</p>
       
       <div className="p-5 text-white bg-blue-600 flex flex-col mt-5 ">
            <h2 className="font-bold text-4xl underline underline-offset-4 text-black text-center mb-3">Programs Offered</h2>
