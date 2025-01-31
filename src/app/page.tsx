@@ -30,9 +30,8 @@ const Home: React.FC = () => {
     <div className="flex flex-row justify-end items-center">
       <Link href="/gallery" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8">Gallery</Link>
       <Link href="/about" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 whitespace-nowrap">Our Journey</Link>
-      <div >
-       <button > LogIn </button>
-      </div>
+      <Link href="/login" className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 whitespace-nowrap">LogIn</Link>
+      
       <a href="https://www.instagram.com/amiteshtutorials/">
         <Image src="/instagramm.png" alt="instas logo" width={50} height={50} className="ml-2"/>
       </a>
