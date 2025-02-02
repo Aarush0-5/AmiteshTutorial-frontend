@@ -19,7 +19,11 @@ const Login = () => {
       });
 
       if (response.status === 201) {
-        console.log('Login success');
+        alert("Welcome")
+        const accessToken = response.data.accessToken;
+        
+        localStorage.setItem('accessToken', accessToken);
+        
         router.push('/dashboard');
       }
     } catch (error) {

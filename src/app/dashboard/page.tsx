@@ -1,47 +1,97 @@
-'use client'
+'use client';
 
-
- const Dashboard: React.FC =() => {
-    return (
-        "welcome"
-    )
- }
-
-export default Dashboard
-
-{/*import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Dashboard = () => {
-  const [username, setUsername] = useState('');
-  const [className, setClassName] = useState();
-  const [scores, setScores] = useState<any[]>([]);
-  const [timetable, setTimetable] = useState<any[]>([]);
-  const [studyMaterial, setStudyMaterial] = useState<any[]>([]);
+interface User {
+  username: string;
+  class: number;
+  marks: Mark[];
+  role: 'STUDENT' | 'TEACHER';
+}
 
- {/*} useEffect(() => {
-    // Fetch data from backend
-    // Example API calls to fetch data for the three sections
-    const fetchScores = async () => {
-      const response = await axios.get('/api/scores');
-      setScores(response.data);
+interface Mark {
+  subject: string;
+  marks: number;
+}
+
+const Dashboard: React.FC = () => {
+  const [username, setUsername] = useState<string>('');
+  const [className, setClassName] = useState<number>();
+  const [marks, setMarks] = useState<Mark[]>([]);
+  const [role, setRole] = useState<'STUDENT' | 'TEACHER'>();
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      window.location.href = '/login';
+      alert('NOPE! LOGIN FIRST');
+      return;
+    }
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/dashboard', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        const data: User = response.data;
+        setUsername(data.username);
+        setRole(data.role);
+        setClassName(data.class);
+        setMarks(data.marks);
+        console.log(data);
+
+      } catch (error) {
+        console.error('Error fetching dashboard data', error);
+      }
     };
 
-    const fetchTimetable = async () => {
-      const response = await axios.get('/api/timetable');
-      setTimetable(response.data);
-    };
+    fetchData();
+  }, []);   
 
-    const fetchStudyMaterial = async () => {
-      const response = await axios.get('/api/study-material');
-      setStudyMaterial(response.data);
-    };
+    const handleLogout = () => {
+      localStorage.removeItem("accessToken");
+      window.location.href = '/login';
+    }
+    
+    const timetable = (className: number | undefined) => {
+      if(className === undefined){
+        return null;
+      }
 
-    fetchScores();
-    fetchTimetable();
-    fetchStudyMaterial();
-  }, []);
-   
+      if (className === 6) {
+        return (
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">
+            4-5 pm - Amitesh Sir
+          </div>
+        );
+      } else if (className === 7) {
+        return (
+          <>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Aarush Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Aarush Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Aarush Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Amitesh Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Amitesh Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Amitesh Sir</div>
+          </>
+        );
+      } else if (className === 8) {
+        return (
+          <>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Amitesh Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Amitesh Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Amitesh Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Aarush Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Aarush Sir</div>
+            <div className="p-2  text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Aarush Sir</div>
+          </>
+        );
+      }
+      return null;
+    }
+    
+
   
 
   return (
@@ -49,61 +99,63 @@ const Dashboard = () => {
       <header className="bg-white shadow p-4 mb-6 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
         <div>
-          <span className="text-gray-700 font-semibold">{username}</span> |
-          <span className="text-gray-600 ml-2">{className}</span>
+          <span className="text-2xl text-gray-700 font-semibold">{username}</span> 
+          {role === 'STUDENT' && <span className="text-2xl text-gray-600 ml-2">{className}</span>}
         </div>
+        <button  onClick={handleLogout}  className="text-2xl p-3 border-black border-solid bg-red-600 font-semibold text-black hover:text-white">LogOut</button>
       </header>
 
-      <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <section className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-4">Scores</h2>
-          <div className="space-y-2">
-            {scores.length > 0 ? (
-              scores.map((score, index) => (
-                <div key={index} className="p-2 bg-gray-50 rounded-lg">
-                  {score.subject}: {score.marks}
-                </div>
-              ))
-            ) : (
-              <p>No scores available</p>
-            )}
+      <main >
+        {role === 'STUDENT' && (
+          <div className="grid gap-6 md:flex-row lg:grid-cols-2">
+             <section className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-3xl text-center font-bold mb-4">Marks</h2>
+            <div className="space-y-2">
+              {marks.length > 0 ? (
+                marks.map((mark, index) => (
+                  <div key={index} className="p-2 bg-gray-50 rounded-lg">
+                    {mark.subject}: {mark.marks}
+                  </div>
+                ))
+              ) : (
+                <p className='text-center text-xl'>Well, No marks at the moment!</p>
+              )}
+            </div>
+          </section>
+          <section className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-3xl text-center font-bold mb-4">TimeTable</h2>
+            <div>
+            {timetable(className)}
+            </div> 
+          </section>
+          <section className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-3xl text-center font-bold mb-4">Study Material</h2>
+            <div className="space-y-2">
+              {marks.length > 0 ? (
+                marks.map((mark, index) => (
+                  <div key={index} className="p-2 bg-gray-50 rounded-lg">
+                    {mark.subject}: {mark.marks}
+                  </div>
+                ))
+              ) : (
+                <p className='text-xl text-center'>No study material at the moment</p>
+              )}
+            </div>
+          </section>
           </div>
-        </section>
+         
+        )}
 
-        <section className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-4">Timetable</h2>
-          <div className="space-y-2">
-            {timetable.length > 0 ? (
-              timetable.map((item, index) => (
-                <div key={index} className="p-2 bg-gray-50 rounded-lg">
-                  {item.day}: {item.subject} ({item.time})
-                </div>
-              ))
-            ) : (
-              <p>No timetable available</p>
-            )}
-          </div>
-        </section>
-
-        <section className="bg-white p-4 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-4">Study Material</h2>
-          <div className="space-y-2">
-            {studyMaterial.length > 0 ? (
-              studyMaterial.map((material, index) => (
-                <div key={index} className="p-2 bg-gray-50 rounded-lg">
-                  <a href={material.link} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-                    {material.title}
-                  </a>
-                </div>
-              ))
-            ) : (
-              <p>No study material available</p>
-            )}
-          </div>
-        </section>
+        {role === 'TEACHER' && (
+          <section className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-xl font-bold mb-4">Teacher Dashboard</h2>
+            <p>Welcome, {username}! You can upload content here.</p>
+            {/* Add upload form for teachers */}
+          </section>
+        )}
       </main>
     </div>
   );
 };
 
-export default Dashboard;*/}
+export default Dashboard;

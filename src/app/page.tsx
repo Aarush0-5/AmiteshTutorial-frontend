@@ -95,7 +95,7 @@ const Home: React.FC = () => {
           </div>
           
 
-      <div className="  flex justify-center text-3xl p-10">
+      <div className="  flex justify-center text-2xl p-10">
        <button onClick={handleOnCLick} className="p-3 bg-red-600 lg:w-1/6 hover:underline hover:text-white"> ENROLL NOW </button>
        {showForm && <Form showForm={showForm} onClose={handleOnClose} />}
       </div>
