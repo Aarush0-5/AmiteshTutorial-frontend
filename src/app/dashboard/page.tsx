@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
     }
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://at-backend-cbom.onrender.com', {
+        const response = await axios.get('https://at-backend-cbom.onrender.com/api/dashboard', {
           headers: { Authorization: `Bearer ${token}` },
         });
 

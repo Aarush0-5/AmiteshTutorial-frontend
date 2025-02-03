@@ -13,7 +13,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://at-backend-cbom.onrender.com', {
+      const response = await axios.post('https://at-backend-cbom.onrender.com/api/login', {
         username,
         password,
       });
