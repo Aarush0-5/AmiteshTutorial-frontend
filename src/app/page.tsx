@@ -52,37 +52,37 @@ const Home: React.FC = () => {
       <p className="text-center bg-blue-600 text-white lg:text-black p-3 font-semibold text-2xl">A dedicated coaching center committed to nurturing the minds of young learners. Our mission is to provide high-quality educational guidance tailored to meet each students unique needs and aspirations.</p>
       
       <div className="p-5 text-white bg-blue-600 flex flex-col mt-5 ">
-           <h2 className="font-bold text-4xl underline underline-offset-4 text-black text-center mb-3">Programs Offered</h2>
+           <h2 className="font-bold text-3xl lg:text-4xl underline underline-offset-4 text-black text-center mb-3">Programs Offered</h2>
            <div className="flex flex-col text-center gap-x-3 p-5 h-1/3 lg:flex-row ">
             <div className="border border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Individual Tutoring</h2>
-              <p className="text-2xl">Tailored one-on-one sessions to address specific learning needs.</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Individual Tutoring</h2>
+              <p className=" text-xl lg:text-2xl">Tailored one-on-one sessions to address specific learning needs.</p>
             </div>
             <div  className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Group Classes</h2>
-              <p className="text-2xl">Interactive classes encouraging peer learning and collaboration.</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Group Classes</h2>
+              <p className="text-xl lg:text-2xl">Interactive classes encouraging peer learning and collaboration.</p>
             </div>
             <div  className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Exam Preparation</h2>
-              <p className="text-2xl">Focused coaching for competitive exams and school assessments</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Exam Preparation</h2>
+              <p className="text-xl lg:text-2xl">Focused coaching for competitive exams and school assessments</p>
             </div>
            </div>
           </div>
 
           <div className="p-5 text-white bg-blue-600 flex flex-col mb-5">
-           <h2 className="font-bold text-4xl underline underline-offset-4 text-black text-center mb-3">Key features</h2>
+           <h2 className="font-bold text-3xl lg:text-4xl underline underline-offset-4 text-black text-center mb-3">Key features</h2>
            <div className="flex flex-col text-center gap-x-3 p-5 lg:flex-row ">
             <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Personalized Learning Plans</h2>
-              <p className="text-2xl">Customized programs based on individual assessments.</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Personalized Learning Plans</h2>
+              <p className="text-xl lg:text-2xl">Customized programs based on individual assessments.</p>
             </div>
             <div  className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Regular Progress Tracking</h2>
-              <p className="text-2xl">Frequent evaluations to monitor student development.</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Regular Progress Tracking</h2>
+              <p className="text-xl lg:text-2xl">Frequent evaluations to monitor student development.</p>
             </div>
             <div  className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-              <h2 className="text-3xl mb-4 hover:underline hover:underline-offset-4" >Interactive Learning Environment</h2>
-              <p className="text-2xl">Utilizing modern teaching methods and technology</p>
+              <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4" >Interactive Learning Environment</h2>
+              <p className="text-xl lg:text-2xl">Utilizing modern teaching methods and technology</p>
             </div>
            </div>
           </div>

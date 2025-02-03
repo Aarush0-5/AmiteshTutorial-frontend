@@ -30,6 +30,7 @@ const Login = () => {
       if (axios.isAxiosError(error)) {
         console.error('Login failed:', error.response?.data || error.message);
       } else {
+        alert("Invalid Credentials")
         console.error('Login failed:', error);
       }
     }
