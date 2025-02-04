@@ -7,10 +7,12 @@ import { useRouter } from 'next/navigation';
 const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+    setLoading(true);
 
     try {
       const response = await axios.post('https://at-backend-cbom.onrender.com/api/login', {
@@ -25,6 +27,8 @@ const Login = () => {
         localStorage.setItem('accessToken', accessToken);
         
         router.push('/dashboard');
+      } else if (response.status === 401) {
+        alert("Invalid credentials")
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -33,6 +37,8 @@ const Login = () => {
         alert("Invalid Credentials")
         console.error('Login failed:', error);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,7 +79,7 @@ const Login = () => {
           type="submit"
           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
         >
-          Login
+          {loading ? 'Loading...' : 'Login'}
         </button>
       </form>
     </div>
