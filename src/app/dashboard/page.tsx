@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
   const [className, setClassName] = useState<number>();
   const [marks, setMarks] = useState<Mark[]>([]);
   const [role, setRole] = useState<'STUDENT' | 'TEACHER'>();
-  const [students, setStudents]= useState<User[]>([])
+  {/*const [students, setStudents]= useState<User[]>([])*/}
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
