@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
-  const handleError = (error: any) => {
+  const handleError = (error: AxiosError) => {
     if (error.response) {
       console.error (`Login Failed : status = ${error.response.status}` )
     }
@@ -43,8 +43,6 @@ const Login = () => {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         handleError(error);
-      } else {
-       handleError(error)
       }
     }
   };
