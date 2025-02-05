@@ -49,6 +49,7 @@ const Dashboard: React.FC = () => {
             headers: { Authorization: `Bearer ${token}` },
           })
           setStudents(allStudents.data)
+          console.log(allStudents.data)
         }
       } catch (error) {
         console.error('Error fetching dashboard data', error);
