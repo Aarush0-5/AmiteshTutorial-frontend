@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
   const [className, setClassName] = useState<number>();
   const [marks, setMarks] = useState<Mark[]>([]);
   const [role, setRole] = useState<'STUDENT' | 'TEACHER'>();
-  {/*const [students, setStudents]= useState<User[]>([])*/}
+  const [students, setStudents]= useState<User[]>([])
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -41,14 +41,15 @@ const Dashboard: React.FC = () => {
         setRole(data.role);
         setClassName(data.class);
         setMarks(data.marks);
+        
          
-        {/*if(data.role === 'TEACHER'){
+        if(data.role === 'TEACHER'){
           const backendGetStudents= process.env.NEXT_PUBLIC_BACKEND_GET_STUDENTS
           const allStudents = await axios.get(`${backendGetStudents}`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           setStudents(allStudents.data)
-        }*/}
+        }
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -100,7 +101,7 @@ const Dashboard: React.FC = () => {
   }
 
    
- {/*} const groupBy = <T, K extends keyof T>(arr: T[], key: K) => {
+  const groupBy = <T, K extends keyof T>(arr: T[], key: K) => {
     return arr.reduce((acc, curr) => {
       const group = curr[key] as unknown as string | number | symbol;
       if (!acc[group]) {
@@ -109,7 +110,7 @@ const Dashboard: React.FC = () => {
       acc[group].push(curr);
       return acc;
     }, {} as Record<string | number | symbol, T[]>);
-  };*/}
+  };
   
   
 
@@ -167,7 +168,7 @@ const Dashboard: React.FC = () => {
           </div>
         )}
 
-       {/*  {role === 'TEACHER' && (
+        {role === 'TEACHER' && (
           <section className="bg-white p-4 rounded-lg shadow">
             <h2 className="text-3xl text-center font-bold mb-4">Classes</h2>
             {students.length > 0 ? (
@@ -188,7 +189,7 @@ const Dashboard: React.FC = () => {
               <p className='text-center text-xl'>No student data available.</p>
             )}
           </section>
-        )}*/}
+        )}
       </main>
     </div>
   );
