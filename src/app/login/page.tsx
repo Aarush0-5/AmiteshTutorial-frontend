@@ -12,6 +12,15 @@ const Login = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
+  const handleError = (error: any) => {
+    if (error.response) {
+      console.error (`Login Failed : status = ${error.response.status}` )
+    }
+    else {
+      console.error ("Unexpected error occured, contact the owner")
+    }
+  }
+
     try {
       const backendPost= process.env.NEXT_PUBLIC_BACKEND_POST
       const response = await axios.post( `${backendPost}`, {
@@ -33,10 +42,9 @@ const Login = () => {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error('Login failed:', error.response?.data || error.message);
+        handleError(error);
       } else {
-        alert("Invalid Credentials")
-        console.error('Login failed:', error);
+       handleError(error)
       }
     }
   };
