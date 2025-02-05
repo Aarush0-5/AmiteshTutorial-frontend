@@ -20,6 +20,7 @@ const Dashboard: React.FC = () => {
   const [className, setClassName] = useState<number>();
   const [marks, setMarks] = useState<Mark[]>([]);
   const [role, setRole] = useState<'STUDENT' | 'TEACHER'>();
+  const [students, setStudents]= useState<User[]>([])
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -40,8 +41,14 @@ const Dashboard: React.FC = () => {
         setRole(data.role);
         setClassName(data.class);
         setMarks(data.marks);
-        console.log(data);
-
+         
+        if(data.role === 'TEACHER'){
+          const backendGetStudents= process.env.NEXT_PUBLIC_BACKEND_GET_STUDENTS
+          const allStudents = await axios.get(`${backendGetStudents}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+          setStudents(allStudents.data)
+        }
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -91,6 +98,20 @@ const Dashboard: React.FC = () => {
     }
     return null;
   }
+
+   
+  const groupBy = <T, K extends keyof T>(arr: T[], key: K) => {
+    return arr.reduce((acc, curr) => {
+      const group = curr[key] as unknown as string | number | symbol;
+      if (!acc[group]) {
+        acc[group] = [];
+      }
+      acc[group].push(curr);
+      return acc;
+    }, {} as Record<string | number | symbol, T[]>);
+  };
+  
+  
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
@@ -146,11 +167,26 @@ const Dashboard: React.FC = () => {
           </div>
         )}
 
-        {role === 'TEACHER' && (
+         {role === 'TEACHER' && (
           <section className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-3xl text-center font-bold mb-4">Teacher Dashboard</h2>
-            <p>Welcome, {username}! You can upload content here.</p>
-            {/* Add upload form for teachers */}
+            <h2 className="text-3xl text-center font-bold mb-4">Classes</h2>
+            {students.length > 0 ? (
+              Object.entries(groupBy(students, 'class')).map(([className, classStudents], index) => (
+                <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                  <h3 className="text-xl font-semibold">{`Class: ${className}`}</h3>
+                  <div className="space-y-2">
+                    {classStudents.map((student, studentIndex) => (
+                      <div key={studentIndex} className="p-2 bg-white rounded-lg">
+                        <p>{`Name: ${student.username}`}</p>
+                        <p>{`Marks: ${student.marks.map(mark => `${mark.subject}: ${mark.marks}`).join(', ')}`}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className='text-center text-xl'>No student data available.</p>
+            )}
           </section>
         )}
       </main>
