@@ -43,14 +43,19 @@ const Dashboard: React.FC = () => {
         setMarks(data.marks);
         
          
-        if(data.role === 'TEACHER'){
-          const backendGetStudents= process.env.NEXT_PUBLIC_BACKEND_GET_STUDENTS
-          const allStudents = await axios.get(`${backendGetStudents}`, {
-            headers: { Authorization: `Bearer ${token}` },
-          })
-          setStudents(allStudents.data)
-          console.log(allStudents.data)
+        if (data.role === 'TEACHER') {
+          try {
+            const backendGetStudents = process.env.NEXT_PUBLIC_BACKEND_GET_STUDENTS;
+            const allStudents = await axios.get(`${backendGetStudents}/students`, {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            setStudents(allStudents.data);
+            console.log(allStudents.data);
+          } catch (error) {
+            console.error('Error fetching students data', error);
+          }
         }
+        
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -191,6 +196,8 @@ const Dashboard: React.FC = () => {
             )}
           </section>
         )}
+
+
       </main>
     </div>
   );
