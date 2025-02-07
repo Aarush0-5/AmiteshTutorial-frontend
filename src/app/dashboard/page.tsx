@@ -6,13 +6,13 @@ import axios from 'axios';
 interface User {
   username: string;
   class: number;
-  marks: Mark[];
+  mark: Mark[];
   role: 'STUDENT' | 'TEACHER';
 }
 
 interface Mark {
   subject: string;
-  marks: number;
+  mark: number;
 }
 
 const Dashboard: React.FC = () => {
@@ -38,7 +38,8 @@ const Dashboard: React.FC = () => {
         setUsername(data.username);
         setRole(data.role);
         setClassName(data.class);
-        setMarks(data.marks);
+        setMarks(data.mark);
+        console.log(data)
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -110,7 +111,7 @@ const Dashboard: React.FC = () => {
                 {marks.length > 0 ? (
                   marks.map((mark, index) => (
                     <div key={index} className="p-2 bg-gray-50 rounded-lg">
-                      {mark.subject}: {mark.marks}
+                      {mark.subject}: {mark.mark}
                     </div>
                   ))
                 ) : (
@@ -129,15 +130,7 @@ const Dashboard: React.FC = () => {
             <section className="bg-white p-4 rounded-lg shadow">
               <h2 className="text-3xl text-center font-bold mb-4">Study Material</h2>
               <div className="space-y-2">
-                {marks.length > 0 ? (
-                  marks.map((mark, index) => (
-                    <div key={index} className="p-2 bg-gray-50 rounded-lg">
-                      {mark.subject}: {mark.marks}
-                    </div>
-                  ))
-                ) : (
-                  <p className='text-xl text-center'>No study material at the moment</p>
-                )}
+               <p>No Study Material at the moment! </p>
               </div>
             </section>
           </div>
