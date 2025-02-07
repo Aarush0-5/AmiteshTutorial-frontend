@@ -113,7 +113,7 @@ const Dashboard: React.FC = () => {
               <div className="space-y-2">
                 {marks.length > 0 ? (
                   marks.map((mark, index) => (
-                    <div key={index} className="p-2 bg-gray-50 rounded-lg">
+                    <div key={index} className="p-2 bg-gray-50 text-xl text- center rounded-lg">
                       {mark.subject}: {mark.mark}
                     </div>
                   ))
