@@ -14,11 +14,6 @@ interface Student {
 
 
 const DashboardTeacher = () => {
-   const [username, setUsername]= useState('');
-   const [classname, setClassname]= useState();
-   const [studentId, setStudentId]= useState();
-   const [subject, setSubject]= useState("");
-   const [marks, setMarks]= useState<number | string>('');
   const [students, setStudents] =useState<Student[]>([]);
 
   useEffect(() => {
@@ -35,9 +30,6 @@ const DashboardTeacher = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStudents(response.data);
-        setUsername(response.data.StudentName)
-        setClassname(response.data.Class)
-        setStudentId(response.data.StudentId)
       } catch (error) {
         if ( axios.isAxiosError(error) && error.response) {
           console.error('Error fetching students data:', error.response.status);
