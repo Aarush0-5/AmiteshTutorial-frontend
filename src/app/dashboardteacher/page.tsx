@@ -3,10 +3,15 @@
 import { FormEvent, useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+interface Mark {
+  subject: string;
+  mark: number;
+}
 interface Student {
   StudentName: string;
   Class: string;
-  Marks: any[];
+  Marks: Mark[];
   StudentId: number;
   Subject?: string;
   Numbers?: number | string;
