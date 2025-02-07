@@ -20,7 +20,6 @@ const Dashboard: React.FC = () => {
   const [className, setClassName] = useState<number>();
   const [marks, setMarks] = useState<Mark[]>([]);
   const [role, setRole] = useState<'STUDENT' | 'TEACHER'>();
-  const [students, setStudents]= useState<User[]>([])
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -35,27 +34,12 @@ const Dashboard: React.FC = () => {
         const response = await axios.get( `${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-
         const data: User = response.data;
         setUsername(data.username);
         setRole(data.role);
         setClassName(data.class);
         setMarks(data.marks);
-        
-         
-        if (data.role === 'TEACHER') {
-          try {
-            const backendGetStudents = process.env.NEXT_PUBLIC_BACKEND_GET_STUDENTS;
-            const allStudents = await axios.get(`${backendGetStudents}`, {
-              headers: { Authorization: `Bearer ${token}` },
-            });
-            setStudents(allStudents.data);
-            console.log(allStudents.data);
-          } catch (error) {
-            console.error('Error fetching students data', error);
-          }
-        }
-        
+        console.log(response.data)
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -159,23 +143,6 @@ const Dashboard: React.FC = () => {
             </section>
           </div>
         )}
-
-        {role === 'TEACHER' && (
-          <section className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-3xl text-center font-bold mb-4">All Students</h2>
-            {students.length > 0 ? (
-              students.map((student, index) => (
-                <div key={index} className="p-4 bg-gray-50 rounded-lg mb-2">
-                  <p className="font-bold">{`Name: ${student.username}`}</p>
-                  <p>{`Class: ${student.class}`}</p>
-                </div>
-              ))
-            ) : (
-              <p className='text-center text-xl'>No student data available.</p>
-            )}
-          </section>
-        )}
-
       </main>
     </div>
   );

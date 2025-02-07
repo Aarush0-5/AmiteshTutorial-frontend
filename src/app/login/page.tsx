@@ -27,18 +27,25 @@ const Login = () => {
         username,
         password,
       });
-
       if (response.status === 201) {
         alert("Welcome")
         const accessToken = response.data.accessToken;
         
         localStorage.setItem('accessToken', accessToken);
-        
+
+        const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
+        const userResponse = await axios.get(`${backendGet}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+      const role = userResponse.data.role
+      console.log(role)
+      if (role === "STUDENT") {
         router.push('/dashboard');
+      } else  {
+        router.push('/dashboardteacher');
       }
-      if (response.status === 401) {
-        alert("Invalid credentials")
-        
+      } else if (response.status === 401) {
+        alert('Invalid credentials');
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
