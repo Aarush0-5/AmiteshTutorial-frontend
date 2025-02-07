@@ -39,7 +39,6 @@ const Dashboard: React.FC = () => {
         setRole(data.role);
         setClassName(data.class);
         setMarks(data.marks);
-        console.log(response.data)
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }

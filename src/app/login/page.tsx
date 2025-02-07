@@ -38,7 +38,6 @@ const Login = () => {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
       const role = userResponse.data.role
-      console.log(role)
       if (role === "STUDENT") {
         router.push('/dashboard');
       } else  {
