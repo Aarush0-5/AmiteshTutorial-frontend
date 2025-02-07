@@ -6,7 +6,7 @@ import axios from 'axios';
 
 interface Mark {
   subject: string;
-  mark: number;
+  mark: string;
 }
 interface Student {
   StudentName: string;
@@ -14,7 +14,7 @@ interface Student {
   Marks: Mark[];
   StudentId: number;
   Subject?: string;
-  Numbers?: number | string;
+  Numbers?:  string;
 }
 
 
@@ -71,7 +71,7 @@ const DashboardTeacher = () => {
           `${backendPostStudents}`,
           {
             subject: student.Subject,
-            mark: Number(student.Numbers),
+            mark: student.Numbers,
             studentId,
           },  {
           headers: { Authorization: `Bearer ${token}` },
@@ -120,7 +120,7 @@ const DashboardTeacher = () => {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
               />
               <input
-                type="number"
+                type="text"
                 id="mark"
                 placeholder='Marks'
                 value={student.Numbers ?? ""}
