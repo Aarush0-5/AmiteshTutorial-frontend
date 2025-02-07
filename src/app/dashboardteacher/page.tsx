@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useState } from 'react';
-import axios, {AxiosError} from 'axios';
+import axios from 'axios';
 
 interface Student {
   StudentName: string;
