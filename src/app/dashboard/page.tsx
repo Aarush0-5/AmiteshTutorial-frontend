@@ -6,13 +6,15 @@ import axios from 'axios';
 interface User {
   username: string;
   class: number;
-  mark: Mark[];
+  marks: Mark[];
   role: 'STUDENT' | 'TEACHER';
 }
 
 interface Mark {
+  id: number;
   subject: string;
   mark: number;
+  studentId: number;
 }
 
 const Dashboard: React.FC = () => {
@@ -30,31 +32,30 @@ const Dashboard: React.FC = () => {
     }
     const fetchData = async () => {
       try {
-        const backendGet= process.env.NEXT_PUBLIC_BACKEND_GET
-        const response = await axios.get( `${backendGet}`, {
+        const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
+        const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data: User = response.data;
         setUsername(data.username);
         setRole(data.role);
         setClassName(data.class);
-        setMarks(data.mark);
-        console.log(data)
+        setMarks(data.marks);  // Set the marks array directly
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
     };
 
     fetchData();
-  }, []);   
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem('accessToken');
     window.location.href = '/login';
-  }
-    
+  };
+
   const timetable = (className: number | undefined) => {
-    if(className === undefined){
+    if (className === undefined) {
       return null;
     }
 
@@ -88,19 +89,21 @@ const Dashboard: React.FC = () => {
       );
     }
     return null;
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <header className="bg-white shadow p-4 mb-6 flex flex-col justify-between items-center md:items-start">
         <div className="w-full flex justify-between items-center mb-4 md:mb-0">
           <div>
-          <span className="text-2xl text-gray-700 font-semibold">{username}</span> 
-          {role === 'STUDENT' && <span className="text-2xl text-gray-600 ml-2">{className}</span>}
+            <span className="text-2xl text-gray-700 font-semibold">{username}</span>
+            {role === 'STUDENT' && <span className="text-2xl text-gray-600 ml-2">{className}</span>}
           </div>
-          <button onClick={handleLogout} className="text-2xl p-3 border-black border-solid lg:bg-red-600 font-semibold text-black lg:hover:text-white">LogOut</button>
+          <button onClick={handleLogout} className="text-2xl p-3 border-black border-solid lg:bg-red-600 font-semibold text-black lg:hover:text-white">
+            LogOut
+          </button>
         </div>
-    </header>
+      </header>
 
       <main>
         {role === 'STUDENT' && (
@@ -115,22 +118,20 @@ const Dashboard: React.FC = () => {
                     </div>
                   ))
                 ) : (
-                  <p className='text-center text-xl'>Well, No marks at the moment!</p>
+                  <p className="text-center text-xl">Well, No marks at the moment!</p>
                 )}
               </div>
             </section>
-            
+
             <section className="bg-white p-4 rounded-lg shadow">
               <h2 className="text-3xl text-center font-bold mb-4">TimeTable</h2>
-              <div>
-                {timetable(className)}
-              </div>
+              <div>{timetable(className)}</div>
             </section>
-            
+
             <section className="bg-white p-4 rounded-lg shadow">
               <h2 className="text-3xl text-center font-bold mb-4">Study Material</h2>
               <div className="space-y-2">
-               <p>No Study Material at the moment! </p>
+                <p>No Study Material for now!</p>
               </div>
             </section>
           </div>
