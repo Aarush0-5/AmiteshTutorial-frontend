@@ -1,102 +1,81 @@
-import Image from "next/image"
+"use client";
 
-const gallery: React.FC = () => {
-  return (<div>
-    <header>
-      <h2 className="bg-black text-white font-bold text-5xl p-3 text-center mt-2 mb-5">Gallery</h2>
-   </header>
+import React, { useState } from 'react';
+import Image from 'next/image';
 
-   <main>
-     <div className="bg-gradient-to-br from-white via-green-400 to-green-600 p-4 ">
- <h2 className="text-start text-3xl font-bold underline">Christmas 2024</h2>
- <div className="flex flex-col lg:grid lg:grid-cols-2 p-10 ">
-   <div >
-     <Image
-       src="/gallery/img7.jpg"
-       alt="1st pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
-   <div >
-     <Image
-       src="/gallery/img3.jpg"
-       alt="3rd pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
-   <div >
-     <Image
-       src="/gallery/img2.jpg"
-       alt="2nd pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
-   <div >
-     <Image
-       src="/gallery/img4.jpg"
-       alt="4th pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
-   <div >
-     <Image
-       src="/gallery/img5.jpg"
-       alt="5th pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
-   <div >
-     <Image
-       src="/gallery/img1.jpg"
-       alt="6th pic"
-       className=" shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-110"
-       width={500}
-       height={500}
-     />
-   </div>
- </div>
-</div>
-
-
-     <div className="bg-gradient-to-br from-orange-600 via-white to-green-600 p-4  mt-5">
-     <h2 className="text-start text-3xl font-bold underline">Republic Day 2025</h2>
-     <div className="flex flex-col lg:grid lg:grid-cols-2 p-10">
-        <div className=" transition-transform duration-300 ease-in-out transform hover:scale-110 ">
-          <Image src="/gallery/rep42025.jpg" alt="1st pic" width={500} height={500} />
-        </div>
-        <div className=" transition-transform duration-300 ease-in-out transform hover:scale-110 ">
-          <Image src="/gallery/rep22025.jpg" alt="3rd pic" width={500} height={500} />
-        </div>
-        <div className=" transition-transform duration-300 ease-in-out transform hover:scale-110 ">
-          <Image src="/gallery/rep2025.jpg" alt="2nd pic" width={500} height={500} />
-        </div>
-        <div className=" transition-transform duration-300 ease-in-out transform hover:scale-110 ">
-          <Image src="/gallery/rep32025.jpg" alt="4th pic" width={500} height={500} />
-        </div>
-    </div>
-     </div>
-    
-   </main>
-
-   <footer>
-     <a href="https://www.instagram.com/amiteshtutorials/" className=" mt-4 flex flex-row justify-center items-center text-3xl text-center font-semibold bg-gray-700 text-white ">More on: 
-       <Image src="/instagramm.png" alt="Insta's logo" width={70} height={70} />
-     </a>
-   </footer>
-  
-  </div>
-  
-  )
+interface Occasion {
+  name: string;
+  photos: string[];
 }
 
-export default gallery;
+const data: Occasion[] = [
+  {
+    name: 'Christmas 2024',
+    photos: ['/gallery/img7.jpg', '/gallery/img3.jpg', '/gallery/img2.jpg', '/gallery/img4.jpg', '/gallery/img5.jpg', '/gallery/img1.jpg'],
+  },
+  {
+    name: 'Republic Day 2025',
+    photos: ['/gallery/rep42025.jpg', '/gallery/rep22025.jpg', '/gallery/rep2025.jpg', '/gallery/rep32025.jpg'],
+  },
+  {
+    name: 'Vasant Panchmi 2025',
+    photos: ['/gallery/vp20258.jpg','/gallery/vp20252.jpg', '/gallery/vp20253.jpg', '/gallery/vp20254.jpg', '/gallery/vp20257.jpg', '/gallery/vp20256.jpg' , '/gallery/vp20251.jpg'],
+  },
+];
+
+const Gallery: React.FC = () => {
+  const [selectedOccasion, setSelectedOccasion] = useState<string | null>(null);
+
+  const handleOccasionClick = (occasion: string) => {
+    setSelectedOccasion(selectedOccasion === occasion ? null : occasion);
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <h1 className="text-center text-4xl font-bold bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
+      <div className="flex flex-col lg:flex-row flex-grow">
+        <aside className="w-full lg:w-1/4 p-4 overflow-y-auto bg-gray-500">
+          <ul>
+            {data.map((occasion) => (
+              <li key={occasion.name}>
+                <h2
+                  className="cursor-pointer bg-black text-white font-bold text-xl p-3 mb-2"
+                  onClick={() => handleOccasionClick(occasion.name)}
+                >
+                  {occasion.name}
+                </h2>
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <main className="w-full lg:w-3/4 p-4 bg-gray-200 flex-grow">
+          {selectedOccasion === null && (
+            <div className="flex justify-center items-center h-full text-3xl text-gray-500">
+              Choose an occasion
+            </div>
+          )}
+          {data.map((occasion) => (
+            <div
+              key={occasion.name}
+              className={`mt-5 bg-gray-100 p-4 rounded-lg shadow-lg ${selectedOccasion === occasion.name ? 'block' : 'hidden'}`}
+            >
+              <h2 className="text-3xl text-center font-bold underline mb-8">{occasion.name}</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {occasion.photos.map((photo, index) => (
+                  <div key={index} className="transition-transform duration-300 ease-in-out transform hover:scale-110">
+                    <Image src={photo} alt={`${occasion.name} ${index + 1}`} width={500} height={500} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </main>
+      </div>
+      <footer className="mt-4 flex flex-row justify-center items-center text-3xl text-center font-semibold bg-blue-600 text-white p-4">
+        More on: <a href="https://www.instagram.com/amiteshtutorials/" className="ml-2"><Image src="/instagramm.png" alt="Insta's logo" width={70} height={70} /></a>
+      </footer>
+    </div>
+  );
+};
+
+export default Gallery;
