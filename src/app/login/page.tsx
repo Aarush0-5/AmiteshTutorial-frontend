@@ -46,14 +46,17 @@ const Login = () => {
         router.push('/dashboardteacher');
       }
       }
-    } catch (error: any) {
-      if (error.response.status === 401 ){
-        alert("Invalid credentials!")
-      } else(axios.isAxiosError(error)) 
-      {
-        handleError(error);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        if (error.response && error.response.status === 401) {
+          alert("Invalid credentials!");
+        } else {
+          handleError(error);
+        }
+      } else {
+        console.error("An unexpected error occurred:", error);
       }
-    }
+    }     
     setLoggingIn(false);
   };
 
