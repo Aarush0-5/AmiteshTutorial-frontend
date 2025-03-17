@@ -96,9 +96,10 @@ const Login = () => {
         <button
           type="submit"
           disabled={loggingIn}
-          title={loggingIn ? "Logging in..." : "Login"}
           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-        />
+        >
+          {loggingIn ? "Logging in..." : "Login"}
+        </button>
       </form>
     </div>
   );
