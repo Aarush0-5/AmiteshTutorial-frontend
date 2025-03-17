@@ -59,13 +59,13 @@ const Dashboard: React.FC = () => {
       return null;
     }
 
-    if (className === 6) {
+    if (className === 7) {
       return (
         <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">
           4-5 pm - Amitesh Sir
         </div>
       );
-    } else if (className === 7) {
+    } else if (className === 9) {
       return (
         <>
           <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Aarush Sir</div>

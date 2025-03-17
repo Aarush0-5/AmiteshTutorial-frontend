@@ -7,11 +7,12 @@ import { useRouter } from 'next/navigation';
 const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [loggingIn, setLoggingIn] = useState<boolean>(false);
   const router = useRouter();
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
+    
   const handleError = (error: AxiosError) => {
     if (error.response) {
       console.error (`Login Failed : status = ${error.response.status}` )
@@ -22,6 +23,7 @@ const Login = () => {
   }
 
     try {
+      setLoggingIn(true);
       const backendPost= process.env.NEXT_PUBLIC_BACKEND_POST
       const response = await axios.post( `${backendPost}`, {
         username,
@@ -43,14 +45,16 @@ const Login = () => {
       } else  {
         router.push('/dashboardteacher');
       }
-      } else if (response.status === 401) {
-        alert('Invalid credentials');
       }
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
+    } catch (error: any) {
+      if (error.response.status === 401 ){
+        alert("Invalid credentials!")
+      } else(axios.isAxiosError(error)) 
+      {
         handleError(error);
       }
     }
+    setLoggingIn(false);
   };
 
   return (
@@ -88,10 +92,10 @@ const Login = () => {
         </div>
         <button
           type="submit"
+          disabled={loggingIn}
+          title={loggingIn ? "Logging in..." : "Login"}
           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-        >
-          Login
-        </button>
+        />
       </form>
     </div>
   );
