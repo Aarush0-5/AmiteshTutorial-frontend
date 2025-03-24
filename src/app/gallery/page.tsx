@@ -32,14 +32,14 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <h1 className="text-center whitespace-nowrap text-4xl font-bold bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
+      <h1 className="text-center whitespace-nowrap text-4xl font-bold font-serif bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
       <div className="flex flex-col lg:flex-row flex-grow">
         <aside className="w-full lg:w-1/4 p-4 overflow-y-auto bg-gray-500">
           <ul>
             {data.map((occasion) => (
               <li key={occasion.name}>
                 <h2
-                  className="cursor-pointer bg-black text-white font-bold text-xl p-3 mb-2"
+                  className="cursor-pointer font-serif bg-black text-white font-bold text-xl p-3 mb-2"
                   onClick={() => handleOccasionClick(occasion.name)}
                 >
                   {occasion.name}
