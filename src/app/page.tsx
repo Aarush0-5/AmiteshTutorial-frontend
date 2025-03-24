@@ -95,15 +95,16 @@ const Home: React.FC = () => {
             height={100}
           />
 
-          <div>
-            <Image
-              src="/images/pic7.jpg"
-              alt="Centre Display"
-              className="p-1 mt-4"
-              width={window.innerWidth}
-              height={window.innerHeight}
-            />
-          </div>
+       <div className="mt-5">
+       <Image
+        src="/images/pic7.jpg"
+        alt="Centre Display"
+        layout="responsive"
+        width={100}
+        height={50}
+        />
+      </div>
+
 
           <div className="mt-5 mb-5">
             <HorizontalScrollCarousel />
