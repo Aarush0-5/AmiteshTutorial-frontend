@@ -21,6 +21,10 @@ const data: Occasion[] = [
     name: 'Vasant Panchmi 2025',
     photos: ['/gallery/vp20258.jpg','/gallery/vp20252.jpg', '/gallery/vp20253.jpg', '/gallery/vp20254.jpg', '/gallery/vp20257.jpg', '/gallery/vp20256.jpg' , '/gallery/vp20251.jpg'],
   },
+  {
+    name: 'ScholarShip Exam 2025',
+    photos: ['/gallery/st25.jpg','/gallery/st251.jpg', '/gallery/st252.jpg', '/gallery/st253.jpg', '/gallery/st254.jpg', '/gallery/st255.jpg' , '/gallery/st256.jpg', '/gallery/st257.jpg', '/gallery/st258.jpg'],
+  },
 ];
 
 const Gallery: React.FC = () => {
