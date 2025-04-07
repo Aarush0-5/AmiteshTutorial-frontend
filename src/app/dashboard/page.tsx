@@ -59,32 +59,74 @@ const Dashboard: React.FC = () => {
       return null;
     }
 
-    if (className === 7) {
+    if (className === 5) {
       return (
         <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">
-          4-5 pm - Amitesh Sir
+          4-5 pm Everyday
         </div>
       );
-    } else if (className === 9) {
+    } else if (className === 6) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Aarush Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Aarush Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Aarush Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Amitesh Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Amitesh Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Amitesh Sir</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">4-5 Pm , Everyday</div>
+        </>
+      );
+    } else if (className === 7) {
+      return (
+        <>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Sci/SST/Eng</div>
         </>
       );
     } else if (className === 8) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Amitesh Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Amitesh Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Amitesh Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Aarush Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Aarush Sir</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Aarush Sir</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Maths</div>
+        </>
+      );
+    }
+     else if (className === 9) {
+      return (
+        <>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Maths</div>
+        </>
+      );
+    }
+     else if (className === 10) {
+      return (
+        <>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 7-8 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 7-8 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 7-8 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 7-8 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 7-8 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 7-8 pm - Sci/SST</div>
+        </>
+      );
+    }
+     else if (className === 12) {
+      return (
+        <>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Chemistry</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Chemistry</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Chemistry</div>
         </>
       );
     }
