@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
       return null;
     }
 
-    if (className === 5) {
+    if (className === 5 || 2 || 1 || 4 || 3) {
       return (
         <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">
           4-5 pm Everyday
