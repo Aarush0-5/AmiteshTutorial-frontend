@@ -74,59 +74,64 @@ const Dashboard: React.FC = () => {
     } else if (className === 7) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Sci/SST/Eng</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Sci/SST/Eng</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Time - 5 to 6 Pm everyday</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - Sci/SST/Eng</div>
         </>
       );
     } else if (className === 8) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 5-6 pm - Sci/SST/Eng</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 5-6 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 5-6 pm - Sci/SST/Eng</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 5-6 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 5-6 pm - Sci/SST/Eng</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 5-6 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Time - 5 to 6 Pm everyday</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - Sci/SST/Eng</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - Maths</div>
         </>
       );
     }
      else if (className === 9) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Sci/SST</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Sci/SST</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Sci/SST</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Time- 6-7 Pm everyday</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday -Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday -Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday -Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday -Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday -Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday -Maths</div>
         </>
       );
     }
      else if (className === 10) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 7-8 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 7-8 pm - Sci/SST</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 7-8 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 7-8 pm - Sci/SST</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 7-8 pm - Maths</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 7-8 pm - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Time -7 to 8 Pm everyday</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - Sci/SST</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - Maths</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - Sci/SST</div>
         </>
       );
     }
      else if (className === 12) {
       return (
         <>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - 6-7 pm - Physics</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - 6-7 pm - Chemistry</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - 6-7 pm - Physics</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - 6-7 pm - Chemistry</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - 6-7 pm - Physics</div>
-          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - 6-7 pm - Chemistry</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Time- 6 to 7 Pm everyday</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Monday - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Tuesday - Chemistry</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Wednesday - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Thursday - Chemistry</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Friday - Physics</div>
+          <div className="p-2 text-xl font-semibold text-center bg-blue-50 rounded-lg">Saturday - Chemistry</div>
         </>
       );
     }
