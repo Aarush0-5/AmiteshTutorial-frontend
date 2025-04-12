@@ -142,9 +142,9 @@ const Dashboard: React.FC = () => {
   return (
     <>
     <Head>
-          <title>Student's Dashboard</title>
-          <meta name="description" content="Student's dashboard of amitesh tutorials: coaching/tutorials in lucknow"/>
-          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, dashboard, student's dashboard"/>
+          <title>Student Dashboard</title>
+          <meta name="description" content="Students dashboard of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, dashboard, student dashboard"/>
     </Head>
     <div className="min-h-screen bg-gray-100 p-4">
       <header className="bg-white shadow p-4 mb-6 flex flex-col justify-between items-center md:items-start">

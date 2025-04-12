@@ -100,9 +100,9 @@ const DashboardTeacher = () => {
   return ( 
     <>
     <Head>
-          <title>Teacher's Dashboard</title>
-          <meta name="description" content="Teacher's dashboard page of amitesh tutorials: coaching/tutorials in lucknow"/>
-          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, teacher's dashboard"/>
+          <title>Teacher Dashboard</title>
+          <meta name="description" content="Teacher dashboard page of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, teacher dashboard"/>
     </Head>
     <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen  bg-gray-500">
       <section className="bg-white  p-4 rounded-lg shadow w-full ">

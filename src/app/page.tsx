@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                 href="/login"
                 className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 font-serif whitespace-nowrap"
               >
-                Student's Portal
+                Student Portal
               </Link>
 
               <a href="https://www.instagram.com/amiteshtutorials/">
