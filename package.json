@@ -12,6 +12,7 @@
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.487.0",
     "mongoose": "^8.9.5",
     "next": "15.1.5",
     "next-auth": "^4.24.11",

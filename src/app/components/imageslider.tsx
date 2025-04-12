@@ -39,10 +39,10 @@ const HorizontalScrollCarousel: React.FC = () => {
       <Image src="/images/pic1.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/gallery/img6.jpg" alt="Image 3" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic4.jpg" alt="Image 4" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
-      <Image src="/gallery/rep2025.jpg" alt="Image 5" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic8.jpg" alt="Image 5" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic6.jpg" alt="Image 6" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic3.jpg" alt="Image 7" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
-      <Image src="/gallery/img7.jpg" alt="Image 8" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/gallery/st256.jpg" alt="Image 8" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
     </div>
   );
 };

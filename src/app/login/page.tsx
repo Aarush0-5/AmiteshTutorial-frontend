@@ -3,6 +3,7 @@
 import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
+import Head from "next/head"
 
 const Login = () => {
   const [username, setUsername] = useState<string>('');
@@ -61,13 +62,19 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-teal-400">
+    <> 
+    <Head>
+          <title>LogIn</title>
+          <meta name="description" content="The login page of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, login"/>
+    </Head>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105"
       >
         <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Login
+          LogIn
         </h2>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="username">
@@ -102,6 +109,7 @@ const Login = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 

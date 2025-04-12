@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Head from "next/head"
 
 interface Occasion {
   name: string;
@@ -35,12 +36,18 @@ const Gallery: React.FC = () => {
   };
 
   return (
+    <>
+    <Head>
+          <title>Gallery</title>
+          <meta name="description" content="The Gallery section of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, gallery"/>
+   </Head>
     <div className="flex flex-col min-h-screen">
       <h1 className="text-center whitespace-nowrap text-4xl font-bold font-serif bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
       <div className="flex flex-col lg:flex-row flex-grow">
         <aside className="w-full lg:w-1/4 p-4 overflow-y-auto bg-gray-500">
           <ul>
-            {data.map((occasion) => (
+            {data.slice().reverse().map((occasion) => (
               <li key={occasion.name}>
                 <h2
                   className="cursor-pointer font-serif bg-black text-white font-bold text-xl p-3 mb-2"
@@ -79,6 +86,7 @@ const Gallery: React.FC = () => {
         More on: <a href="https://www.instagram.com/amiteshtutorials/" className="ml-2"><Image src="/instagramm.png" alt="Insta's logo" width={70} height={70} /></a>
       </footer>
     </div>
+    </>
   );
 };
 

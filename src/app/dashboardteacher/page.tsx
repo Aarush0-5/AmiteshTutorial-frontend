@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Head from "next/head"
 
 interface Mark {
   subject: string;
@@ -94,10 +94,16 @@ const DashboardTeacher = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
-    window.location.href = '/login';
+    window.location.href = '/';
   }
     
   return ( 
+    <>
+    <Head>
+          <title>Teacher's Dashboard</title>
+          <meta name="description" content="Teacher's dashboard page of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, teacher's dashboard"/>
+    </Head>
     <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen  bg-gray-500">
       <section className="bg-white  p-4 rounded-lg shadow w-full ">
         <div className='flex justify-between'>
@@ -140,6 +146,7 @@ const DashboardTeacher = () => {
         )}
       </section>
     </div>
+    </>
   );
 };
 

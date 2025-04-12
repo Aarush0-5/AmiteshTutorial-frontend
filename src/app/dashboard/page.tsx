@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Head from "next/head"
 
 interface User {
   username: string;
@@ -51,7 +52,7 @@ const Dashboard: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    window.location.href = '/login';
+    window.location.href = '/';
   };
 
   const timetable = (className: number | undefined) => {
@@ -139,6 +140,12 @@ const Dashboard: React.FC = () => {
   };
 
   return (
+    <>
+    <Head>
+          <title>Student's Dashboard</title>
+          <meta name="description" content="Student's dashboard of amitesh tutorials: coaching/tutorials in lucknow"/>
+          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, dashboard, student's dashboard"/>
+    </Head>
     <div className="min-h-screen bg-gray-100 p-4">
       <header className="bg-white shadow p-4 mb-6 flex flex-col justify-between items-center md:items-start">
         <div className="w-full flex justify-between items-center mb-4 md:mb-0">
@@ -146,7 +153,7 @@ const Dashboard: React.FC = () => {
             <span className="text-2xl text-gray-700 font-semibold">{username}</span>
             {role === 'STUDENT' && <span className="text-2xl text-gray-600 ml-2">{className}</span>}
           </div>
-          <button onClick={handleLogout} className="text-2xl p-3 border-black border-solid lg:bg-red-600 font-semibold text-black lg:hover:text-white">
+          <button onClick={handleLogout} className="text-2xl p-3 border-black border-solid lg:bg-red-600 font-semibold text-black lg:hover:text-white"> 
             LogOut
           </button>
         </div>
@@ -185,6 +192,7 @@ const Dashboard: React.FC = () => {
         )}
       </main>
     </div>
+    </>
   );
 };
 

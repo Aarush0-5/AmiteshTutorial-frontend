@@ -1,7 +1,14 @@
 import Image from "next/image";
+import Head from "next/head"
 
 const About: React.FC = () => {
  return (
+  <>
+  <Head>
+        <title>Amitesh Tutorials | About Us</title>
+        <meta name="description" content="The about page of amitesh tutorials: coaching/tutorials in lucknow"/>
+        <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, about us , our journey"/>
+  </Head>
   <div>
    <header className="flex flex-row justify-center lg:justify-between bg-blue-600 items-center">
    <h2 className="text-4xl font-serif lg:text-5xl font-bold text-start p-8 whitespace-nowrap text-white mb-4">Our Journey</h2>
@@ -45,7 +52,7 @@ const About: React.FC = () => {
      </footer>
 
   </div>
- )
+ </>)
 }
 
 export default About;

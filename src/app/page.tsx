@@ -5,10 +5,25 @@ import Link from "next/link";
 import HorizontalScrollCarousel from "./components/imageslider";
 import HorizontalScrollCarouselAnnoucement from "./components/announcementslider";
 import Image from "next/image";
+import Head from "next/head";
+import {MoreVertical , X} from "lucide-react"
 
 const Home: React.FC = () => {
   const [showPopUp, setShowPopUp] = useState(true);
+  const [showroutes, setShowRoutes] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
+
+  const routes = [
+    {name: "Gallery", href: "/gallery"},
+    {name: "Study Material", href: "/knowledge"},
+    {name: "Our Journey", href: "/about"},
+    {name: "Contact", href: "/contact"},
+  ]
+
+  const toggleRoutes = () => {
+    setShowRoutes(!showroutes);
+  };
+
 
   const handleClickOutside = (event: MouseEvent) => {
     if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -17,7 +32,7 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    // Add click listener to detect clicks outside the popup
+    
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
@@ -25,6 +40,12 @@ const Home: React.FC = () => {
   }, []);
 
   return (
+    <>
+    <Head>
+      <title>Amitesh Tutorials</title>
+      <meta name="description" content="The home page of amitesh tutorials: coaching/tutorials in lucknow"/>
+      <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials"/>
+    </Head>
     <div>
       {showPopUp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -44,8 +65,8 @@ const Home: React.FC = () => {
       )}
 
       <div>
-        <header className="bg-blue-800 text-white flex flex-col items-center p-3 text-xl lg:flex-row lg:text-3xl lg:justify-between">
-          <div className="w-full flex justify-center lg:justify-between items-center">
+        <header className="bg-blue-800 text-white flex flex-col items-center p-3 text-xl lg:flex-row lg:text-xl ">
+          <div className="w-full flex justify-center items-center lg:justify-between">
             <Image
               src="/logo.jpg"
               alt="logo"
@@ -53,24 +74,12 @@ const Home: React.FC = () => {
               width={100}
               height={100}
             />
-            <div className="flex flex-row justify-end items-center">
-              <Link
-                href="/gallery"
-                className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 font-serif"
-              >
-                Gallery
-              </Link>
-              <Link
-                href="/about"
-                className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 font-serif whitespace-nowrap"
-              >
-                Our Journey
-              </Link>
+            <div className="flex flex-row justify-center items-center">
               <Link
                 href="/login"
                 className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 font-serif whitespace-nowrap"
               >
-                LogIn
+                Student's Portal
               </Link>
 
               <a href="https://www.instagram.com/amiteshtutorials/">
@@ -82,6 +91,36 @@ const Home: React.FC = () => {
                   className="ml-2"
                 />
               </a>
+        <nav className= "hidden lg:flex gap-2">
+        {routes.map(route => (
+          <Link key={route.href} href={route.href} className="text-white hover:text-yellow-400 hover:underline hover:underline-offset-8">
+            {route.name}
+          </Link>
+        ))}
+      </nav>
+
+      <div className= "lg:hidden" >
+        <button onClick={toggleRoutes} className="p-2">
+          {showroutes ? <X className="w-6 h-6" /> : <MoreVertical className="w-6 h-6" />}
+        </button>
+
+        {showroutes && (
+          <div className="absolute right-4 top-14 bg-blue-700 shadow-lg rounded-lg p-4 w-48 z-50 flex flex-col gap-2">
+            {routes.map(route => (
+              <Link
+                key={route.href}
+                href={route.href}
+                onClick={() => setShowRoutes(false)}
+                className="text-gray-800 hover:bg-gray-100 px-2 py-1 rounded"
+              >
+                {route.name}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+  
+   {/* ------------------------------------------------------------------------------------*/}
             </div>
           </div>
         </header>
@@ -221,6 +260,7 @@ const Home: React.FC = () => {
               <h2 className="text-center bg-gray-800 text-white p-4">&copy; Amitesh tutorials 2025</h2>
                </footer> 
             </div> 
-        </div> ) }
+        </div> 
+       </> ) }
 
   export default Home;
