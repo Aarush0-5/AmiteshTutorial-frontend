@@ -1,78 +1,78 @@
 [
     {
-        "question" : "Explain two modes of reproduction with examples.",
-        "answer" : "There are two modes of reproduction:Sexual reproduction: This type of reproduction takes place by fusion of male and female gametes; e.g., Human beings, mammals like cow, buffalo, etc.Asexual reproduction: This mode of reproduction involves only a single parent; e.g., Hydra, Amoeba, yeast, etc.",
+        "question": "Explain two modes of reproduction with examples.",
+        "answer": "There are two modes of reproduction:Sexual reproduction: This type of reproduction takes place by fusion of male and female gametes; e.g., Human beings, mammals like cow, buffalo, etc.Asexual reproduction: This mode of reproduction involves only a single parent; e.g., Hydra, Amoeba, yeast, etc."
     },
     {
-        "question" : "Explain the process of fertilisation in brief.",
-        "answer" : "Fusion of the male and female gamete, i.e., sperm and egg is called fertilisation. During fertilisation, the nuclei of the sperm and the egg fuse to form a single nucleus resulting in the formation of a fertilised egg or zygote."
+        "question": "Explain the process of fertilisation in brief.",
+        "answer": "Fusion of the male and female gamete, i.e., sperm and egg is called fertilisation. During fertilisation, the nuclei of the sperm and the egg fuse to form a single nucleus resulting in the formation of a fertilised egg or zygote."
     },
     {
-        "question" : "What is internal fertilisation? Explain briefly.",
-        "answer" : "Fertilisation which takes place inside the female body is called internal fertilisation. In this a smaller number of ova or eggs are produced. Offsprings have high chance of survival. It occurs mostly in mam¬mals; e.g., in human being, cow, buffalo, etc"
+        "question": "What is internal fertilisation? Explain briefly.",
+        "answer": "Fertilisation which takes place inside the female body is called internal fertilisation. In this a smaller number of ova or eggs are produced. Offsprings have high chance of survival. It occurs mostly in mam¬mals; e.g., in human being, cow, buffalo, etc"
     },
     {
-        "question" : "Explain briefly the external fertilisation.",
-        "answer" : "In external fertilisation, fusion of male and female gametes take place outside the female body. The female discharge many eggs in the water and the male discharge sperms. The sperms swim to the eggs and fertilise them. It occurs in most of the aquatic animals like frog, fish, starfish, etc."
+        "question": "Explain briefly the external fertilisation.",
+        "answer": "In external fertilisation, fusion of male and female gametes take place outside the female body. The female discharge many eggs in the water and the male discharge sperms. The sperms swim to the eggs and fertilise them. It occurs in most of the aquatic animals like frog, fish, starfish, etc."
     },
     {
-        "question" : "How is an embryo developed?",
-        "answer" : "Fertilisation results in the formation of zygote. The zygote divides repeatedly to give rise to a ball of cells which then begin to form groups that develop into different tissues and organs of the body. This developing structure is called an embryo. It gets embedded in the wall of the uterus for further development."
+        "question": "How is an embryo developed?",
+        "answer": "Fertilisation results in the formation of zygote. The zygote divides repeatedly to give rise to a ball of cells which then begin to form groups that develop into different tissues and organs of the body. This developing structure is called an embryo. It gets embedded in the wall of the uterus for further development."
     },
     {
-        "question" : "Explain what is foetus",
-        "answer" : "The embryo continues to develop in the uterus. It gradually develops different body parts such as hands, legs, head, eyes, etc. The stage of the embryo in which all the body parts can be identified is called a foetus. After its development is complete, the mother gives birth to the baby."
+        "question": "Explain what is foetus",
+        "answer": "The embryo continues to develop in the uterus. It gradually develops different body parts such as hands, legs, head, eyes, etc. The stage of the embryo in which all the body parts can be identified is called a foetus. After its development is complete, the mother gives birth to the baby."
     },
     {
-        "question" : "What are viviparous and oviparous animals?"
-        "answer" : "The animals which give birth to young ones are called viviparous animals and those which lay eggs are called oviparous animals. For example, Mammals including human beings are viviparous animals and hen, lizards, all birds, etc., are oviparous animals."
+        "question": "What are viviparous and oviparous animals?",
+        "answer": "The animals which give birth to young ones are called viviparous animals and those which lay eggs are called oviparous animals. For example, Mammals including human beings are viviparous animals and hen, lizards, all birds, etc., are oviparous animals."
     },
     {
-        "question" : "What are sperm and ovum? Explain",
-        "answer" : "The male gamete is called sperm. It is produced by male reproductive organ, testes. Structurally, it consists of a head attached to a long tail. The tail helps the sperm to move around. The head bears the small nucleus.Ovum are the female gamete. They are also called egg. They are produced by the female reproductive organ. They consist of larger nucleus.Both sperm and ovum are reproductive cells and contain single cell."
+        "question": "What are sperm and ovum? Explain",
+        "answer": "The male gamete is called sperm. It is produced by male reproductive organ, testes. Structurally, it consists of a head attached to a long tail. The tail helps the sperm to move around. The head bears the small nucleus.Ovum are the female gamete. They are also called egg. They are produced by the female reproductive organ. They consist of larger nucleus.Both sperm and ovum are reproductive cells and contain single cell."
     },
     {
-        "question" : "Explain briefly the life cycle of a frog.",
-        "answer" : "There are mainly three distinct stages in the life cycle of a frog, i.e., egg → tadpole (larva) -> adult. Tadpoles look different from the adults. After sometime tadpoles are converted into an adult frog."
+        "question": "Explain briefly the life cycle of a frog.",
+        "answer": "There are mainly three distinct stages in the life cycle of a frog, i.e., egg → tadpole (larva) -> adult. Tadpoles look different from the adults. After sometime tadpoles are converted into an adult frog."
     },
     {
-        "question" : "Explain in short life cycle of silkworm.",
-        "answer" : "The life cycle of silkworm is completed in four stages.Egg → Larva or Caterpillar → Pupa → Adult.In silkworm the caterpillar or pupa looks very different from the adult moth"
+        "question": "Explain in short life cycle of silkworm.",
+        "answer": "The life cycle of silkworm is completed in four stages.Egg → Larva or Caterpillar → Pupa → Adult.In silkworm the caterpillar or pupa looks very different from the adult moth"
     },
     {
-        "question" : "What do you mean by reproduction? Describe various modes of reproduction",
-        "answer" : "Reproduction is an important process which is responsible for the continuity of life on the planet earth. In this process, an individual produces young ones of the same species. It helps in increasing the population of the same species on the earth, generation after generation. This is the fundamental feature which ensures the existence of all life forms on the earth. There are two modes of reproduction:Sexual reproduction: In this type of reproduction, both male and female parents are involved and they produce different gametes called male gametes or sperms and female gametes or ova (egg) respectively. Both fuse to form zygote which finally develops into foetus. For example, mammals including human beings higher invertebrates and all vertebrates undergo sexual reproduction.Asexual reproduction: In this type of reproduction, only single parent is involved and gametes or sex cells are not produced. Budding, binary fission, etc., are different methods of asexual reproduc¬tion. Lower organisms like Hydra, Amoeba, yeast, etc., undergo asexual reproduction"
+        "question": "What do you mean by reproduction? Describe various modes of reproduction",
+        "answer": "Reproduction is an important process which is responsible for the continuity of life on the planet earth. In this process, an individual produces young ones of the same species. It helps in increasing the population of the same species on the earth, generation after generation. This is the fundamental feature which ensures the existence of all life forms on the earth. There are two modes of reproduction:Sexual reproduction: In this type of reproduction, both male and female parents are involved and they produce different gametes called male gametes or sperms and female gametes or ova (egg) respectively. Both fuse to form zygote which finally develops into foetus. For example, mammals including human beings higher invertebrates and all vertebrates undergo sexual reproduction.Asexual reproduction: In this type of reproduction, only single parent is involved and gametes or sex cells are not produced. Budding, binary fission, etc., are different methods of asexual reproduc¬tion. Lower organisms like Hydra, Amoeba, yeast, etc., undergo asexual reproduction"
     },
     {
-        "question" : "What do you mean by metamorphosis? How does metamorphosis take place in frog? Explain with a diagram.",
-        "answer" : "The transformation of the larva into an adult through drastic (sudden or abrupt) changes is called metamorphosis. For example, a moth emerging out of the cocoon, an adult frog from a tadpole, etc., undergo metamorphosis.Frog undergoes through three stages during its life cycle in which eggs laid down by frogs transform into tadpoles (larva) and finally into an adult following the process of metamorphosis. The following diagram clearly shows this process."
+        "question": "What do you mean by metamorphosis? How does metamorphosis take place in frog? Explain with a diagram.",
+        "answer": "The transformation of the larva into an adult through drastic (sudden or abrupt) changes is called metamorphosis. For example, a moth emerging out of the cocoon, an adult frog from a tadpole, etc., undergo metamorphosis.Frog undergoes through three stages during its life cycle in which eggs laid down by frogs transform into tadpoles (larva) and finally into an adult following the process of metamorphosis. The following diagram clearly shows this process."
     },
     {
-        "question" : "Describe the male reproductive organs with the help of a labelled diagram.",
-        "answer" : "The male reproductive organs mainly consist of a pair of testes, two sperm ducts (vas deferens) and a penis. Male gametes called sperms are produced by the testes. Though the sperms are very small in size, each has a head, a middle piece and a tail. It is unicelled with all the usual cell components."    
+        "question": "Describe the male reproductive organs with the help of a labelled diagram.",
+        "answer": "The male reproductive organs mainly consist of a pair of testes, two sperm ducts (vas deferens) and a penis. Male gametes called sperms are produced by the testes. Though the sperms are very small in size, each has a head, a middle piece and a tail. It is unicelled with all the usual cell components."
     },
     {
-        "question" : "What is sexual reproduction? What are its advantages?",
-        "answer" : "Sexual reproduction can be defined as the production of offspring due to fusion of male and female sex cells.Advantages include-The offsprings show variations from the parent plants.They do not lose their vigour after many generations.They show more resistance to diseases as compared to vegetatively reproduced plants.Their seeds are dispersed and hence do not cause overcrowding.
+        "question": "What is sexual reproduction? What are its advantages?",
+        "answer": "Sexual reproduction can be defined as the production of offspring due to fusion of male and female sex cells.Advantages include-The offsprings show variations from the parent plants.They do not lose their vigour after many generations.They show more resistance to diseases as compared to vegetatively reproduced plants.Their seeds are dispersed and hence do not cause overcrowding"
     },
     {
-        "question" : "List the different types of asexual reproduction in plants giving one example of each",
-        "answer" : "Binary fission and Multiple fission — Euglena and Chlorella, Budding — yeast,Fragmentation — Spirogyra,Spore formation — Rhizopus,Vegetative propagation by natural methods,By underground stem — Potato,By aerial stem — Strawberry,By root — Dahlia,By leaves — Bryophyllum,Vegetative propagation by artificial methods,Cutting — Sugarcane,Layering — Rose,Grafting — Mango,Tissue Culture — Orchids"
+        "question": "List the different types of asexual reproduction in plants giving one example of each",
+        "answer": "Binary fission and Multiple fission — Euglena and Chlorella, Budding — yeast,Fragmentation — Spirogyra,Spore formation — Rhizopus,Vegetative propagation by natural methods,By underground stem — Potato,By aerial stem — Strawberry,By root — Dahlia,By leaves — Bryophyllum,Vegetative propagation by artificial methods,Cutting — Sugarcane,Layering — Rose,Grafting — Mango,Tissue Culture — Orchids"
     },
     {
-        "question" : "What are the advantages of vegetative propagation?",
-        "answer" : "Vegetative propagation is faster method of growing plants than growing them from seeds.Plants produced by vegetative propagation bear flowers earlier than those produced from seeds.Vegetative propagation is extremely useful for production of seedless plants such as banana, grapes and sugarcane.New plants produced via vegetative propagation are exactly the same as the parent plant and survive even in unfavourable conditions"
+        "question": "What are the advantages of vegetative propagation?",
+        "answer": "Vegetative propagation is faster method of growing plants than growing them from seeds.Plants produced by vegetative propagation bear flowers earlier than those produced from seeds.Vegetative propagation is extremely useful for production of seedless plants such as banana, grapes and sugarcane.New plants produced via vegetative propagation are exactly the same as the parent plant and survive even in unfavourable conditions"
     },
     {
-        "question" : "Describe different types of pollination.",
-        "answer" : "Pollination can be either Natural or Artificial.Natural Pollination is of two types —Self pollination — The process of transfer of pollen grains from the anthers to the stigma of the same flower, or another flower of the same plant is called self pollination.Cross pollination — The process of transfer of pollen grains from the anthers of a flower to the stigma of a flower of another plane of the same species is called cross pollination. Depending on the external agents involved, cross pollination is classified as Pollination by insects(entomophily), Pollination by wind(anemophily), pollination by water(hydrophilly) and Pollination by animals.Artificial pollination is performed by experts to produce new varieties of plants having desired characteristics. In this process two different varieties of a plant are selected and artificially pollinated to get a hybrid variety of that species. This is called hybridization."
+        "question": "Describe different types of pollination.",
+        "answer": "Pollination can be either Natural or Artificial.Natural Pollination is of two types —Self pollination — The process of transfer of pollen grains from the anthers to the stigma of the same flower, or another flower of the same plant is called self pollination.Cross pollination — The process of transfer of pollen grains from the anthers of a flower to the stigma of a flower of another plane of the same species is called cross pollination. Depending on the external agents involved, cross pollination is classified as Pollination by insects(entomophily), Pollination by wind(anemophily), pollination by water(hydrophilly) and Pollination by animals.Artificial pollination is performed by experts to produce new varieties of plants having desired characteristics. In this process two different varieties of a plant are selected and artificially pollinated to get a hybrid variety of that species. This is called hybridization."
     },
     {
-        "question" : "Write the features of a flower pollinated by wind.",
-        "answer" : "Most wind-pollinated flowers are small.They have dry and light pollen grains which can be easily carried by wind.Pollen grains are produced in very large quantities so that at least some have a chance to reach the stigma.The style projects out and has a large, feathery stigma so that the pollen flying in the wind can be easily received."
+        "question": "Write the features of a flower pollinated by wind.",
+        "answer": "Most wind-pollinated flowers are small.They have dry and light pollen grains which can be easily carried by wind.Pollen grains are produced in very large quantities so that at least some have a chance to reach the stigma.The style projects out and has a large, feathery stigma so that the pollen flying in the wind can be easily received."
     },
     {
-        "question" : "Explain the process of hybridization.",
-        "answer" : "The process of hybridization is used to produce new varieties of plants with desired characteristics. In this process two different varieties of a crop plant with the desired characteristics are selected. After selection of these varieties, cross-breeding is done by artificial pollination to get a variety of plants which has both the desired characteristics from the parent varieties. This is called hybridization. The new variety formed is called a hybrid."
+        "question": "Explain the process of hybridization.",
+        "answer": "The process of hybridization is used to produce new varieties of plants with desired characteristics. In this process two different varieties of a crop plant with the desired characteristics are selected. After selection of these varieties, cross-breeding is done by artificial pollination to get a variety of plants which has both the desired characteristics from the parent varieties. This is called hybridization. The new variety formed is called a hybrid."
     }
 ]
