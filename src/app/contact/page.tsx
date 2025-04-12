@@ -8,6 +8,7 @@ const Contact: NextPage = () => {
        <title>Contact us</title>
        <meta name="description" content="The about page of amitesh tutorials: coaching/tutorials in lucknow"/>
        <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, contact us , our journey"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
     <div className="min-h-screen bg-blue-500 flex items-center justify-center px-4 py-16">
       <div className="bg-yellow-400 shadow-xl rounded-2xl p-8 max-w-md w-full text-center space-y-6">

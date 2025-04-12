@@ -63,6 +63,7 @@ const FlashcardPage: NextPage = () => {
         <div className="flex flex-col gap-4">
           <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)} className="border p-2 rounded">
             <option value="">Select Class</option>
+            <option value="8">Class 8</option>
             <option value="9">Class 9</option>
           </select>
 
