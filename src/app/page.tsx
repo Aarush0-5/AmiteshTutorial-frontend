@@ -45,6 +45,7 @@ const Home: React.FC = () => {
       <title>Amitesh Tutorials</title>
       <meta name="description" content="The home page of amitesh tutorials: coaching/tutorials in lucknow"/>
       <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials"/>
+      <meta name="google-site-verification" content="Qi0A94H9ZZKhlBdkyDOaWK-wS8sKffBC2kV4iEmN3nw" />
     </Head>
     <div>
       {showPopUp && (
@@ -88,10 +89,10 @@ const Home: React.FC = () => {
                   alt="instas logo"
                   width={50}
                   height={50}
-                  className="ml-2"
+                  className="mr-2 lg:hidden"
                 />
               </a>
-        <nav className= "hidden lg:flex gap-2">
+        <nav className= "hidden lg:flex gap-3">
         {routes.map(route => (
           <Link key={route.href} href={route.href} className="text-white hover:text-yellow-400 hover:underline hover:underline-offset-8">
             {route.name}
@@ -111,7 +112,7 @@ const Home: React.FC = () => {
                 key={route.href}
                 href={route.href}
                 onClick={() => setShowRoutes(false)}
-                className="text-gray-800 hover:bg-gray-100 px-2 py-1 rounded"
+                className="text-white hover:text-yellow-500 px-2 py-1 rounded"
               >
                 {route.name}
               </Link>
@@ -119,9 +120,16 @@ const Home: React.FC = () => {
           </div>
         )}
       </div>
-  
-   {/* ------------------------------------------------------------------------------------*/}
-            </div>
+      <a href="https://www.instagram.com/amiteshtutorials/">
+          <Image
+            src="/instagramm.png"
+            alt="instas logo"
+            width={50}
+            height={50}
+            className="lg:ml-2 hidden lg:block"
+          />
+      </a>
+    </div>
           </div>
         </header>
 
@@ -224,8 +232,7 @@ const Home: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
-
+          </div> 
           <div className="bg-blue-600 ">
             <h2 className="text-center underline underline-offset-4 text-4xl font-bold font-serif">
               Announcements!{" "}

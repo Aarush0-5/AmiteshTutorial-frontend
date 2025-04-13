@@ -181,13 +181,6 @@ const Dashboard: React.FC = () => {
               <h2 className="text-3xl text-center font-bold mb-4">TimeTable</h2>
               <div>{timetable(className)}</div>
             </section>
-
-            <section className="bg-white p-4 rounded-lg shadow">
-              <h2 className="text-3xl text-center font-bold mb-4">Study Material</h2>
-              <div className="space-y-2">
-                <p className="text-center text-xl">No Study Material for now!</p>
-              </div>
-            </section>
           </div>
         )}
       </main>
