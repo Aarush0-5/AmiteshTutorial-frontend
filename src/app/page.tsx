@@ -15,6 +15,7 @@ const Home: React.FC = () => {
 
   const routes = [
     {name: "Gallery", href: "/gallery"},
+    {name: "Shop", href: "/shop"},
     {name: "Study Material", href: "/knowledge"},
     {name: "Our Journey", href: "/about"},
     {name: "Contact", href: "/contact"},
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
       <title>Amitesh Tutorials</title>
       <meta name="description" content="The home page of amitesh tutorials: coaching/tutorials in lucknow"/>
       <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials"/>
-      <meta name="google-site-verification" content="Qi0A94H9ZZKhlBdkyDOaWK-wS8sKffBC2kV4iEmN3nw" />
+     
     </Head>
     <div>
       {showPopUp && (
