@@ -38,6 +38,7 @@ export default function ShopPage() {
       setPayment("Cash on delivery");
     }
     if (!cod) {
+      setCod(false);
       setSelectedqr(true)
       setSelectedcod(false)
       setQRshow(true)
@@ -127,7 +128,7 @@ export default function ShopPage() {
               />
               <div className="flex flex-col gap-y-2">
                 <h3 className="text-center">Choose a payment method :  </h3>
-                <button type="button" onClick={() => handlePayment( cod )} className = {selectedcod ? "text-green-600" :"text-black"} >Cash On delivary </button>
+                <button type="button" onClick={() => handlePayment( cod )} className = {selectedcod ? "text-green-600" :"text-black"} >Cash On delivery </button>
                 <button type="button" onClick={() => handlePayment( !cod )} className = {selectedqr ? "text-green-600" : "text-black"}>QR code scan </button>
               </div>
               {QRshow && 
