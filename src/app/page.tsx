@@ -242,7 +242,7 @@ const Home: React.FC = () => {
               </div>
               <div className="text-xl lg:text-2xl">
                 <p className="p-5 font-semibold">
-                  Swatic charitable trust is a public registered NGO under the Indian trust act 1882 which primarily focuses on child development, education and literacy, SHGs, rural development and women development and empowerment
+                  Swastic charitable trust is a public registered NGO under the Indian trust act 1882 which primarily focuses on child development, education and literacy, SHGs, rural development and women development and empowerment
                 </p> 
                 <Link className="flex justify-center" href ="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#">To know more, Click here</Link>
               </div>
