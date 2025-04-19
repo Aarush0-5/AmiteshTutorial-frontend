@@ -235,7 +235,7 @@ const Home: React.FC = () => {
             </div>
           </div> 
           <div className="bg-blue-600 mb-5 p-10"> 
-            <h2 className=" text-2xl lg:text-4xl text-center mb-6 font-semibold"> We are also partnered with <span className=" font-bold underline underline-offset-8 font-serif"> Swastic Charitable Trust </span> </h2>
+            <h2 className=" text-2xl lg:text-4xl text-center mb-6 font-semibold"> We are also partnered with <span className=" whitespace-nowrap font-bold underline underline-offset-8 font-serif"> Swastic Charitable Trust </span> </h2>
             <div className="flex flex-col lg:flex-row">
               <div className="h-2/4 w-2/4 flex justify-center items-center mx-auto lg:mx-0"> 
                 <Image src="/trust.jpg" alt="Trust's logo" height={197} width={199} layout="intrinsic" />
@@ -244,7 +244,7 @@ const Home: React.FC = () => {
                 <p className="p-5 font-semibold">
                   Swatic charitable trust is a public registered NGO under the Indian trust act 1882 which primarily focuses on child development, education and literacy, SHGs, rural development and women development and empowerment
                 </p> 
-                <Link className="flex justify-center" href ="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#">To know more about it , Click here</Link>
+                <Link className="flex justify-center" href ="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#">To know more, Click here</Link>
               </div>
             </div> 
           </div>
