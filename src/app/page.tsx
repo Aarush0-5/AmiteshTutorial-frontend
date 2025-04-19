@@ -73,8 +73,8 @@ const Home: React.FC = () => {
               src="/logo.jpg"
               alt="logo"
               className="hidden lg:block lg:w-1/6 h-auto"
-              width={100}
-              height={100}
+              width={767}
+              height={816}
             />
             <div className="flex flex-row justify-center items-center">
               <Link
@@ -234,8 +234,22 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div> 
+          <div className="bg-blue-600 mb-5 p-10"> 
+            <h2 className=" text-2xl lg:text-4xl text-center mb-6 font-semibold"> We are also partnered with <span className=" font-bold underline underline-offset-8 font-serif"> Swastic Charitable Trust </span> </h2>
+            <div className="flex flex-col lg:flex-row">
+              <div className="h-2/4 w-2/4 flex justify-center items-center mx-auto lg:mx-0"> 
+                <Image src="/trust.jpg" alt="Trust's logo" height={197} width={199} layout="intrinsic" />
+              </div>
+              <div className="text-xl lg:text-2xl">
+                <p className="p-5 font-semibold">
+                  Swatic charitable trust is a public registered NGO under the Indian trust act 1882 which primarily focuses on child development, education and literacy, SHGs, rural development and women development and empowerment
+                </p> 
+                <Link className="flex justify-center" href ="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#">To know more about it , Click here</Link>
+              </div>
+            </div> 
+          </div>
           <div className="bg-blue-600 ">
-            <h2 className="text-center underline underline-offset-4 text-4xl font-bold font-serif">
+            <h2 className="text-center underline underline-offset-4 text-4xl font-bold font-serif mt-6">
               Announcements!{" "}
             </h2>
             <div className=" p-4 ">

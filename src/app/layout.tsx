@@ -15,6 +15,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Amitesh Tutorials | Lucknow",
   description: "coaching | tutorials provided ",
+  icons : 
+  {
+    icon : "/logo.jpg"
+  },
+  keywords : "amitesh tutorials, Amitesh tutorials ",
+  openGraph: {
+    type: "website",
+    url: "https://amiteshtutorials.netlify.app",
+    title: "Amitesh Tutorials | Lucknow",
+    description: "Coaching | tutorials provided",
+  }
 };
 
 export default function RootLayout({

@@ -12,7 +12,7 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: 'T-shirt',
+    name: 'Polo colour premium T-shirt',
     price: 149,
     image: '/shop/tshirt.jpg',
   },
