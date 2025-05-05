@@ -13,7 +13,7 @@ const products: Product[] = [
   {
     id: 1,
     name: 'Polo colour premium T-shirt',
-    price: 149,
+    price: 450,
     image: '/shop/tshirt.jpg',
   },
 ];

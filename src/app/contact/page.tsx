@@ -18,7 +18,7 @@ const Contact: NextPage = () => {
         <div className="space-y-4 text-left">
           <div>
             <p className="text-sm text-black font-bold">Email 📧</p>
-            <p className="text-lg text-gray-700 font-semi-bold">amiteshtutorials.gmail.com</p>
+            <p className="text-lg text-gray-700 font-semi-bold">amiteshtutorials@gmail.com</p>
           </div>
 
           <div>

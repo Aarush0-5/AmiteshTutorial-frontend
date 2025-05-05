@@ -26,6 +26,10 @@ const data: Occasion[] = [
     name: 'ScholarShip Exam 2025',
     photos: ['/gallery/st25.jpg','/gallery/st251.jpg', '/gallery/st252.jpg', '/gallery/st253.jpg', '/gallery/st254.jpg', '/gallery/st255.jpg' , '/gallery/st256.jpg', '/gallery/st257.jpg', '/gallery/st258.jpg'],
   },
+  {
+    name: 'Annual Sports Day 2025',
+    photos: ['/gallery/sd25.jpg','/gallery/sd251.jpg', '/gallery/sd253.jpg', '/gallery/sd254.jpg', '/gallery/sd255.jpg', '/gallery/sd256.jpg' , '/gallery/sd258.jpg', '/gallery/sd259.jpg','/gallery/sd2510.jpg','/gallery/sd2511.jpg','/gallery/sd2512.jpg','/gallery/sd2513.jpg','/gallery/sd2514.jpg','/gallery/sd2515.jpg','/gallery/sd2516.jpg','/gallery/sd2517.jpg','/gallery/sd2518.jpg'],
+  },
 ];
 
 const Gallery: React.FC = () => {
