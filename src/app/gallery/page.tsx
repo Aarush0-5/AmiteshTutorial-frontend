@@ -28,7 +28,7 @@ const data: Occasion[] = [
   },
   {
     name: 'Annual Sports Day 2025',
-    photos: ['/gallery/sd25.jpg','/gallery/sd251.jpg', '/gallery/sd253.jpg', '/gallery/sd254.jpg', '/gallery/sd255.jpg', '/gallery/sd256.jpg' , '/gallery/sd258.jpg', '/gallery/sd259.jpg','/gallery/sd2510.jpg','/gallery/sd2511.jpg','/gallery/sd2512.jpg','/gallery/sd2513.jpg','/gallery/sd2514.jpg','/gallery/sd2515.jpg','/gallery/sd2516.jpg','/gallery/sd2517.jpg','/gallery/sd2518.jpg'],
+    photos: ['/gallery/sd251.jpg', '/gallery/sd253.jpg', '/gallery/sd254.jpg', '/gallery/sd255.jpg', '/gallery/sd256.jpg' , '/gallery/sd258.jpg', '/gallery/sd259.jpg','/gallery/sd2510.jpg','/gallery/sd2512.jpg','/gallery/sd2513.jpg','/gallery/sd2514.jpg','/gallery/sd2515.jpg','/gallery/sd2516.jpg','/gallery/sd2517.jpg','/gallery/sd2518.jpg'],
   },
 ];
 
