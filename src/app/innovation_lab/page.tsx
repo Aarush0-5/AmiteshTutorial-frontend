@@ -1,6 +1,10 @@
+"use client";
+
+
+
 import React, { useState } from 'react';
 
-// Define TypeScript interfaces for our data structures
+
 interface Book {
   id: string;
   title: string;
