@@ -139,7 +139,6 @@ const InnovationLab: React.FC = () => {
         <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 pb-2">
           Innovation Lab
         </h1>
-        <p className="mt-2 text-xl text-gray-300">Explore cutting-edge concepts</p>
       </header>
 
       <main className="container mx-auto px-4 py-8">
