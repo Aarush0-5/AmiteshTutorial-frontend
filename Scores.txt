@@ -1,0 +1,6 @@
+StudentName,Class,Test1,Test1Total,Test2,Test2Total,Test3,Test3Total
+Anvi,8,10,20,12,20,13,20
+Dev,8,12,20,13,20,18,20
+Aradhy,8,19,20,20,20,13,20
+Tedu,8,18,20,17,20,13,20
+Cookie,8,10,20,17,20,18,20

@@ -14,6 +14,7 @@ const Home: React.FC = () => {
   const popupRef = useRef<HTMLDivElement>(null);
 
   const routes = [
+    {name: "Innovation Lab", href: "/innovation_lab"}
     {name: "Gallery", href: "/gallery"},
     {name: "Shop", href: "/shop"},
     {name: "Study Material", href: "/knowledge"},
