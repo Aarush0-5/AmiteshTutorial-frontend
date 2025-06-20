@@ -47,7 +47,7 @@ const Gallery: React.FC = () => {
           <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, gallery"/>
    </Head>
     <div className="flex flex-col min-h-screen">
-      <h1 className="text-center whitespace-nowrap text-4xl font-bold font-serif bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
+      <h1 className="text-center whitespace-nowrap text-3xl lg:text-4xl font-bold font-serif bg-blue-600 underline underline-offset-4 text-white mb-5 p-5">Welcome to Gallery!</h1>
       <div className="flex flex-col lg:flex-row flex-grow">
         <aside className="w-full lg:w-1/4 p-4 overflow-y-auto bg-gray-500">
           <ul>
