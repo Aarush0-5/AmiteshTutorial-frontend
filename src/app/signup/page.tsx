@@ -3,7 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import Head from "next/head";
+
 
 const signUp = () => {
     const [username, setUsername] = useState<string>("");
