@@ -39,7 +39,7 @@ const SignUp = () => {
     return (
         <div className="flex h-screen w-full bg-black items-center justify-center">
         <div className="w-full max-w-md p-6 bg-blue-600 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold mb-6">Only to be accessed by the owner!</h2>
+            <h2 className="text-xl text-center text-red-600 font-bold mb-6">Only to be accessed by the owner!</h2>
             <h2 className="text-l italic font-semibold mb-6">your ip address will be stored</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
             <div className="mb-4">
