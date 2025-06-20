@@ -46,16 +46,15 @@ const BookCard: React.FC<BookCardProps> = ({ book, onClick }) => {
     <div
       className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer p-4 flex flex-col items-center transform hover:scale-105"
       onClick={() => onClick(book.id)}
-      role="button" // Semantic role for clickable element
-      tabIndex={0} // Makes it focusable
-      aria-label={`Open chapters for ${book.title}`} // Accessibility label
+      role="button" 
+      tabIndex={0} 
+      aria-label={`Open chapters for ${book.title}`} 
     >
       <img
         src={book.imageUrl}
         alt={book.title}
         className="w-48 h-64 object-cover rounded-lg mb-4 shadow-md"
         onError={(e) => {
-          // Fallback for image loading errors
           e.currentTarget.src = `https://placehold.co/300x400/CCCCCC/666666?text=Image+Error`;
           e.currentTarget.alt = "Image not available";
         }}
@@ -90,15 +89,14 @@ const ChapterViewer: React.FC<ChapterViewerProps> = ({ chapters, onClose, bookTi
         <h2 className="text-3xl font-bold mb-6 text-center text-blue-300">{bookTitle} - Chapters</h2>
 
         
-        <div className="flex flex-grow overflow-x-auto overflow-y-hidden space-x-6 pb-4 items-center justify-start hide-scrollbar">
+        <div className="flex flex-grow  oxerflow-x-hidden overflow-y-hidden space-x-6 pb-4 items-center justify-start hide-scrollbar">
           {chapters.map((chapterImg, index) => (
-            <div key={index} className="flex-shrink-0 flex flex-col items-center justify-center h-full">
+            <div key={index} className="flex-shrink-0  flex flex-col items-center justify-center h-full">
               <img
                 src={chapterImg}
                 alt={`${bookTitle} Chapter ${index + 1}`}
                 className="max-h-full max-w-full object-contain rounded-lg shadow-xl border-2 border-gray-700"
                 onError={(e) => {
-                  // Fallback for image loading errors
                   e.currentTarget.src = `https://placehold.co/800x600/999999/FFFFFF?text=Chapter+Image+Error`;
                   e.currentTarget.alt = "Chapter image not available";
                 }}

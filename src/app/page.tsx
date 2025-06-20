@@ -49,7 +49,7 @@ const Home: React.FC = () => {
       <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials"/>
      
     </Head>
-    <div>
+    <div className='bg-blue-600'>
       {showPopUp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
@@ -144,26 +144,27 @@ const Home: React.FC = () => {
             height={100}
           />
 
-       <div className="mt-5">
+       <div className=''>
        <Image
         src="/images/pic7.jpg"
         alt="Centre Display"
         layout="responsive"
         width={100}
         height={50}
+    
         />
       </div>
 
 
-          <div className="mt-5 mb-5">
+          <div className=" border border-black border-solid bg-white mb-5">
             <HorizontalScrollCarousel />
           </div>
 
-          <h2 className="text-center bg-blue-600 text-white font-serif lg:text-black p-3 font-bold text-3xl">
+          <h2 className="text-center bg-blue-600 text-white font-serif lg:text-black p-3 underline underline-offset-8 font-bold text-2xl lg:text-3xl">
             Welcome to Amitesh Tutorials
           </h2>
 
-          <p className="text-center bg-blue-600 text-white font-mono lg:text-black p-3 font-semibold text-2xl">
+          <p className="text-center bg-blue-600 text-white font-mono lg:text-black p-3  font-semibold text-xl lg:text-2xl">
             A dedicated coaching center committed to nurturing the minds of
             young learners. Our mission is to provide high-quality educational
             guidance tailored to meet each students unique needs and
