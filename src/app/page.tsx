@@ -146,7 +146,7 @@ const Home: React.FC = () => {
           />
           <div className="flex lg:hidden flex-col justify-center items-center" >
              <h2 className="text-xl underline underline-offset-4 font-bold text-yellow-300">AMITESH TUTORIALS</h2>
-             <p className="font-semibold">Manas Garden, Uttardhona</p>
+             <p className="text-white font-semibold">Manas Garden, Uttardhona</p>
           </div>
           </div>
           
