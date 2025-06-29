@@ -136,15 +136,22 @@ const Home: React.FC = () => {
         </header>
 
         <main>
-          <Image
+          <div className="flex flex-row gap-x-6 ">
+            <Image
             src="/logo.jpg"
             alt="logo"
-            className="lg:hidden w-full"
-            width={100}
+            className="lg:hidden w-1/4"
+            width={50}
             height={100}
           />
+          <div className="flex lg:hidden flex-col justify-center items-center" >
+             <h2 className="text-xl underline underline-offset-4 font-bold text-yellow-300">AMITESH TUTORIALS</h2>
+             <p className="font-semibold">Manas Garden, Near BBD University</p>
+          </div>
+          </div>
+          
 
-       <div className=''>
+       <div className='hidden lg:block'>
        <Image
         src="/images/pic7.jpg"
         alt="Centre Display"
@@ -273,7 +280,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between p-3 bg-gray-600">
             <div className="text-center">
               <h2>REGISTERED BRANCH:</h2>
-              <p> Near BBD UNIVERSITY,</p> 
+              <a href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5"> Near BBD UNIVERSITY,</a> 
               <p>LUCKNOW</p> 
               </div> 
               <div className="flex flex-col justify-center items-center"> 
