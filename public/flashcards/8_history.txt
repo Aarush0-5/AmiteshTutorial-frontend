@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Who granted the English East India Company the exclusive right to trade with the East ?",
+    "answer": "The Queen of England, Elizabeth I, granted the Company the exclusive right to trade with the East."
+  },
+  {
+    "question": "Name the British trading settlements in (a) Madras (b) Calcutta.",
+    "answer": "(a) Madras was given to the British by a local ruler. They established a trading settlement which they fortified and named Fort St. George.\n\n(b) Calcutta In 1690 CE, a British trading settlement was established and fortified in Calcutta. It was named Fort William."
+  },
+  {
+    "question": "What important right did the Mughal emperor Farrukhsiyar grant the English East India Company ?",
+    "answer": "In 1717, the Mughal Emperor, Farrukhsiyar, granted the Company the right to carry on duty-free trade in Bengal, Bihar and Orissa (now Odisha). The Company made enormous profits."
+  },
+  {
+    "question": "Why were European traders attracted to the Bengal province in the 18th century?",
+    "answer": "Bengal was the richest and the most fertile province in India at that time. It was known as the paradise of the earth and this province attracted traders from many European countries."
+  },
+  {
+    "question": "What privileges did the farman of 1717 confer on the English East India Company?",
+    "answer": "By the ‘Farman” of 1717, the English East India company was granted the right to carry on duty-free trade in Bengal. They were allowed to export and import goods from and to Bengal without paying any taxes to the government. They were given the right to issue passes or dastaks for the free movement of their goods."
+  },
+  {
+    "question": "Why did the farman of 1717 become a bone of contention between the nawabs of Bengal and the British Company?",
+    "answer": "The Nawabs of Bengal wanted British company to pay taxes on trade like the Indians. But the Britishers refused to do so. This created conflict between both the parties and resulted in wars between both of them."
+  },
+  {
+    "question": "Why did the British fortify their trade settlement in Calcutta?",
+    "answer": "Siraj-ud-Daulah ordered the British to pay taxes to him like all other Indian merchants. The British refused to do so. This angered the young nawab. In anticipation of a war with the French, who had a trading settlement in Chandemagore, the British began to fortify Calcutta."
+  },
+  {
+    "question": "Why did Siraj-ud-Daulah attack Calcutta in 1756?",
+    "answer": "When the Britishers tried to fortify Calcutta, Siraj-ud-Daulah ordered both the British and the French to dismantle their fortifcations and not to fight private wars on his territory. The French agreed but the British refused. This enraged the Nawab and he attacked Calcutta’with a large army and captured Fort William."
+  },
+  {
+    "question": "What important trading right was granted to the English East India Company after their victory in the Battle of Plassey?",
+    "answer": "The English East India Company was granted die undisputed right to free trade in Bengal, Bihar and Orissa.\nThe Company was given die zamindari of the 24 Parganas."
+  },
+  {
+    "question": "State the political significance of the Battle of Buxar.",
+    "answer": "It gave them political influence and control over Awadh and the Mughal emperor.\nIt laid the foundation of British rule in India."
+  },
+  {
+    "question": "Name the Indian signatories of the Treaty of Allahabad.",
+    "answer": "Shuja-ud-Daulah and Shah Alam II."
+  },
+  {
+    "question": "In which year was the Dual Government abolished and by whom?",
+    "answer": "In 1772, Warren Hastings abolished die Dual Government"
+  },
+  {
+    "question": "The Battle of Plassey was a major turning point in the history of India. In this context answer the following questions:\n(a) Give an account of the events leading from the conspiracy to replace Siraj-ud-Daulah to his eventual defeat in the Battle of Plassey.\n(b) State the results of the Battle of Plassey.\n(c) Why is this battle considered a major turning point in the history of India?",
+    "answer": "(a) A major part of the nawab’s army under the command of Mir Jafar did not take any part in die battle. Realizing that he had been betrayed, the nawab fled from the battlefield .He was captured and put to death.\n(b) Results of Battle of Plasey:\n\nThe English East India company was granted the undisputed right to free trade in Bengal, Bihar and Orissa.\nThe Company was given the zamindari of the 24 parganas.\nMir Jafar paid the Company and its officials over 300 lakh rupees.\n(c) The Battle of Plassey was a major turning point in the history of India.\n\nIt paved the way for the establishment of British rule in Bengal and, eventually, the rest of India.\nIt transformed a trading company into a political power.\nIt provided the British the vast resources of Bengal, which helped them to win the Third camatic war and other expeditions in India."
+  },
+  {
+    "question": "Mir Qasim was a competent ruler, determined to free himself from foreign control. In this context answer the following:\n(a) What steps did Mir Qasim take to strengthen his position? Why did he abolish all duties on internal trade?\n(b) Trace the events from the outbreak of war (1763) between Mir Qasim and the British up to the Battle of Buxar in 1764.\n(c) Explain the importance of the Battle of Buxar.",
+    "answer": "(a)\nTo strengthen his position, Mir Qasim improved the financial position of Bengal and raised a modem, disciplined and well-equipped army trained by the Europeans. The employers of the company misused their trade privileges.\nThey sold their duty-free trade points to Indian merchants who also used them to carry on duty-free trade. This deprived the Nawab fo large revenues. To put an end to the corrupt practices of the British, Mir Qasim abolished all duties on internal trade.\n(b)\nThe employees of the Company misused their trade privileges. They sold their duty-free trade permits to Indian merchants who also used them to carry on duty-free trade.This deprived the nawab of large revenues and was unfair to those local merchants who had to pay heavy duties. ” To put an end to the corrupt practices of the British, Mir Qasim abolished all duties on internal trade. This made the British furious. They refused to accept an equal status with j the Indian merchants.\nIn 1763, war broke out between Mir Qasim and the British. The nawab was defeated. Mir Jafar was reinstated on the throne.\nMir Qasim was determined to recover his throne. He escaped to Awadh, where he formed an alliance with Shuja-ud-Daulah, the nawab of Awadh, and the Mughal emperor, Shah Alam II.\nThe combined forces of the three allies clashed with the Company’s troops at Buxar in 1764, and were decisively defeated by the British.\n(c)\n\nThe victory of the British in the Battle of Buxar firmly established them as masters of Bengal, Bihar and Orissa.\nIt gave them political influence and control over Awadh and the Mughal emperor.\nIt laid the foundation of British rule in India.\nAt this time, Robert Clive returned to India as the governor of Bengal."
+  },
+  {
+    "question": "With reference to the Treaty of Allahabad and its impact, answer the following:\n(a) Mention the terms of agreement between Robert Clive and Shuja-ud-Daulah in this treaty.\n(b) Explain how the treaty between Robert Clive and the Mughal emperor Shah Alam II legalized the English East India’s Company’s control over Bengal.\n(c) Give an account of the events that followed the death of Mir Jafar, leading to the establishment of the Company as the real ruler of Bengal.",
+    "answer": "(a)\n\nAwadh was returned to Shuja-ud-Daulah. However, the two districts of Kora and Allahabad were taken away from the Nawab.\nThe nawab of Awadh had to pay a war indemnity of 50 lakh rupees to the Company.\nThe British agreed to defend the nawab of Awadh against his enemies. The nawab would have to pay for the cost of the British troops. Awadh became a buffer state between the British possessions in Bengal and the Marathas.\n(b)\nThe British gave Shah Alam II the districts of Kora and Allahabad and an annual pension of 26 lakh rupees. In return, the emperor (the nominal head of the Mughal empire) granted the Company the Diwani of Bengal, Bihar and Orissa, e., the right to collect revenue from these provinces and judge civil cases. The Company’s control over Bengal was made legal.\n(c)\nAfter Mir Jafar’s death in 1765, his son was made the nawab of Bengal. He had to sign a treaty with Clive, according to which he had to disband most of his army.\nHe also had to transfer the ‘Nizamat’ powers (general administration and criminal justice) to a deputy nawab appointed by the British. The deputy nawab could not be dismissed by the nawab. The nawab was given an allowance of 53 lakh rupees which was subsequently reduced. Thus, the English East India Company became the real ruler of Bengal from 1765."
+  },
+  {
+    "question": "With reference to the establishment of Dual Government in Bengal (1765-72) answer the following:\n(a) Why was the government introduced in Bengal by Robert Clive referred to as ‘Dual Government’?\n(b) What were the advantages and disadvantages of this system for the Company and the nawab respectively?\n(c) The evils of the Dual Government led to the collapse of the administration and the economy. Explain.",
+    "answer": "(a)\nRobert Clive introduced Dual Government in Bengal in 1765.Bengal now had two masters-the nawab and the Company .The Nawab was responsible for general administration, maintenance of law and order and justice {i.e., criminal cases). The Company had military power and the right to collect and use the revenue of Bengal. This arrangement was known as Dual Government.\n(b)\nThe Company enjoyed power without any responsibilities.The nawab, on the other hand, was burdened with the responsibility of administration without the resources necessary for running it efficiently i.e., responsibility without power.\nThe revenue was collected by Indian officials appointed by the Company. The greed, corruption and oppression of these officials reduced the peasants to conditions of utter misery. The Company took no interest in the welfare of the people.\n(c)\nThe conditions of the people worsened when Bengal was hit by a terrible famine in which one third of the population perished. Nobody cared, neither the Company nor the nawab, who in any case had neither the authority nor the resources to lessen the miseries of the people. The Company, through its power to nominate the deputy nawab, only interfered in the general administration without assuming any responsibility.The evils of the Dual Government began to manifest themselves. The administration and economy collapsed. In 1772, the Court of Directors of the Company appointed Warren Hastings as the Governor of Bengal. In 1773, by the Regulating Act, he was made the Governor General of British territories in India. The Governor General was now the most important functionary of the East India Company."
+  }
+]

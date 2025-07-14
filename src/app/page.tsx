@@ -153,7 +153,7 @@ const Home: React.FC = () => {
 
        <div className='hidden lg:block'>
        <Image
-        src="/images/pic7.jpg"
+        src="/centerimage.jpg"
         alt="Centre Display"
         layout="responsive"
         width={100}
@@ -243,6 +243,38 @@ const Home: React.FC = () => {
               </div>
             </div>
           </div> 
+
+          <div className="flex flex-col md:flex-row justify-center items-center 
+                      space-y-4 md:space-y-0 md:space-x-6 
+                      p-4 sm:p-8
+                      max-w-full overflow-hidden mx-auto">
+            <a 
+              href="/prospectus.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="View Prospectus in a new tab"
+              className="block w-full md:w-auto text-center 
+                    px-6 py-3 sm:px-8 sm:py-4 bg-indigo-600 text-white text-xl font-semibold rounded-lg shadow-lg 
+                    hover:bg-indigo-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 
+                    focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50"
+            >
+              Prospectus
+            </a>
+            <a 
+              href="/timeschedule.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="View Timeschedule in a new tab"
+              className="block w-full md:w-auto text-center 
+                    px-6 py-3 sm:px-8 sm:py-4 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg 
+                    hover:bg-teal-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 
+                    focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50"
+            >
+              Timeschedule
+            </a>
+          </div>
+
+
           <div className="bg-blue-600 mb-5 p-10"> 
             <h2 className=" text-2xl lg:text-4xl text-center mb-6 font-semibold"> We are also partnered with <span className=" whitespace-nowrap font-bold underline underline-offset-8 font-serif"> Swastic Charitable Trust </span> </h2>
             <div className="flex flex-col lg:flex-row">

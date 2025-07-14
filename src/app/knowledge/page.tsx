@@ -72,6 +72,7 @@ const FlashcardPage: NextPage = () => {
             <option value="">Select Subject</option>
             <option value="biology">Biology</option>
             <option value="socialscience">Social science</option>
+            <option value="history">History</option>
           </select>
 
           <button
