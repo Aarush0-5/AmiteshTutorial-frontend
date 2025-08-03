@@ -15,7 +15,7 @@ const products: Product[] = [
     id: 1,
     name: 'Polo colour premium T-shirt',
     discount_price: '₹ 450 Only',
-    image: ['/shop/tshirt.jpg', '/shop/T-shirt2.0.jpeg'],
+    image: ['/shop/tshirt.jpg', '/shop/tshirtback.png'],
   },
   {
     id: 2,
