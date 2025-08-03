@@ -5,17 +5,25 @@ import { useState } from 'react';
 interface Product {
   id: number;
   name: string;
-  image: string;
-  price: number;
+  image: string[];
+  actual_price?: string;
+  discount_price: string;
 }
 
 const products: Product[] = [
   {
     id: 1,
     name: 'Polo colour premium T-shirt',
-    price: 450,
-    image: '/shop/tshirt.jpg',
+    discount_price: '₹ 450 Only',
+    image: ['/shop/tshirt.jpg', '/shop/T-shirt2.0.jpeg'],
   },
+  {
+    id: 2,
+    name: 'Unruled A4 Premium Notebook (150pg)',
+    actual_price: '₹ 150',
+    discount_price: '₹ 99 Only',
+    image: ['/shop/notebook.png']
+  }
 ];
 
 export default function ShopPage() {
@@ -78,13 +86,14 @@ export default function ShopPage() {
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         {products.map((product) => (
           <div key={product.id} className="bg-white shadow-lg rounded-xl p-4 space-y-4">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-80 object-cover rounded-md"
-            />
-            <h2 className="text-xl text-center font-semibold">{product.name}</h2>
-            <h2 className="text-xl text-center font-semibold">₹ {product.price} only !</h2>
+            <div className='w-full h-80 overflow-y-scroll rounded-md border border-gray-200'>
+             {product.image.map((image, index) => (
+              <img key={index} src={image} alt="Image not available for now" />
+             ))}
+            </div>
+            <h2 className="text-xl text-center font-semibold whitespace-nowrap">{product.name}</h2>
+            <h2 className='text-2xl text-center font-semibold line-through'>{product.actual_price}</h2>
+            <h2 className="text-xl text-center font-semibold text-red-600 ">{product.discount_price} only !</h2>
             <button
               className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
               onClick={() => {

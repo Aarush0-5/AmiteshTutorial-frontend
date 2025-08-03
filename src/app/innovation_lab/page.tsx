@@ -16,7 +16,7 @@ interface Book {
 const books: Book[] = [
   {
     id: 'book1',
-    title: 'The Silent Enigma',
+    title: 'The Silent Enigma Chp-1',
     imageUrl: './Innovation_lab/Chp-1/Silent_enigma.jpeg',
     chapterImages: [
       './Innovation_lab/Chp-1/1.jpeg',
@@ -32,7 +32,22 @@ const books: Book[] = [
       './Innovation_lab/Chp-1/11.jpeg',
       './Innovation_lab/Chp-1/12.jpeg',
       ]
-      ,}
+      ,},
+     {
+      id: 'book2',
+      title: 'The Silent Engima Chp-2',
+      imageUrl: './Innovation_lab/Chp-2/1.0.jpeg',
+      chapterImages: [
+        './Innovation_lab/Chp-2/2.0.jpeg',
+        './Innovation_lab/Chp-2/3.0.jpeg',
+        './Innovation_lab/Chp-2/4.0.jpeg',
+        './Innovation_lab/Chp-2/5.0.jpeg',
+        './Innovation_lab/Chp-2/6.0.jpeg',
+        './Innovation_lab/Chp-2/7.0.jpeg',
+        './Innovation_lab/Chp-2/8.0.jpeg',
+        './Innovation_lab/Chp-2/9.0.jpeg'
+      ]
+     } 
 ];
 
 
