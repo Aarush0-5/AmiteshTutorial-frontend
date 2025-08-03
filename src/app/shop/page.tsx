@@ -91,7 +91,7 @@ export default function ShopPage() {
               <img key={index} src={image} alt="Image not available for now" />
              ))}
             </div>
-            <h2 className="text-xl text-center font-semibold whitespace-nowrap">{product.name}</h2>
+            <h2 className="text-xl text-center font-semibold">{product.name}</h2>
             <h2 className='text-2xl text-center font-semibold line-through'>{product.actual_price}</h2>
             <h2 className="text-xl text-center font-semibold text-red-600 ">{product.discount_price} only !</h2>
             <button
