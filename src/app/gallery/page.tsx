@@ -30,6 +30,10 @@ const data: Occasion[] = [
     name: 'Annual Sports Day 2025',
     photos: ['/gallery/sd251.jpg', '/gallery/sd253.jpg', '/gallery/sd2518.jpg', '/gallery/sd255.jpg', '/gallery/sd256.jpg' , '/gallery/sd258.jpg', '/gallery/sd259.jpg','/gallery/sd2510.jpg','/gallery/sd2512.jpg','/gallery/sd2513.jpg','/gallery/sd2514.jpg','/gallery/sd2515.jpg','/gallery/sd2516.jpg','/gallery/sd2517.jpg','/gallery/sd254.jpg'],
   },
+  {
+    name: 'Independence Day 2025',
+    photos: ['/gallery/ID250.jpg', '/gallery/ID251.jpg', '/gallery/ID252.jpg', '/gallery/ID253.jpg', '/gallery/ID254.jpg', '/gallery/ID255.jpg', '/gallery/ID256.jpg', '/gallery/ID257.jpg' ]
+  },
 ];
 
 const Gallery: React.FC = () => {

@@ -120,13 +120,15 @@ export default function ShopPage() {
                 className="w-full border px-3 py-2 rounded"
                 required
               />
-              <input
-                type="text"
-                placeholder="Size"
-                onChange={(e) => setSize(e.target.value)}
-                className="w-full border px-3 py-2 rounded"
-                required
-              />
+              {selectedProduct.name === "Polo colour premium T-shirt" && (
+               <input
+               type="text"
+               placeholder="Size"
+               onChange={(e) => setSize(e.target.value)}
+               className="w-full border px-3 py-2 rounded"
+               required
+               />
+               )}
               <input
                 type="number"
                 min={1}
