@@ -41,14 +41,25 @@ const Quiz = () => {
       const rawData = response.data;
       let questionArray: Question[] = [];
 
-      if (typeof rawData === 'string') {
-        const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
-        questionArray = JSON.parse(cleanedData);
-      } else if (Array.isArray(rawData)) {
-        questionArray = rawData;
-      } else if (rawData.questions && Array.isArray(rawData.questions)) {
-        questionArray = rawData.questions;
-      }
+if (typeof rawData === 'string') {
+  const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
+  
+  if (cleanedData) {
+    try {
+      questionArray = JSON.parse(cleanedData);
+    } catch (parseError) {
+      console.error("Failed to parse questions JSON:", parseError, cleanedData);
+      questionArray = [];
+    }
+  } else {
+    console.warn("Received empty quiz data from backend.");
+  }
+} else if (Array.isArray(rawData)) {
+  questionArray = rawData;
+} else if (rawData.questions && Array.isArray(rawData.questions)) {
+  questionArray = rawData.questions;
+}
+
       setQuestions(questionArray);
       setQuizStarted(true);
       
