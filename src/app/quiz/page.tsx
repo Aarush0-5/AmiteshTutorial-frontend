@@ -38,7 +38,9 @@ const Quiz = ()=> {
       });
       if (response.status === 201 || response.status === 200) {
         alert("Lets Play The Quiz !")
-        const data=JSON.parse(response.data || [])
+        let data = response.data;
+        data = data.replace(/```json/g, '').replace(/```/g, '').trim();
+        data=JSON.parse(response.data || [])
         console.log(data)
         setQuestions(Array.isArray(data) ? data : []);
         setQuizStarted(true);
