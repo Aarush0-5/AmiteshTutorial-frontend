@@ -64,8 +64,8 @@ const Quiz = ()=> {
 
    return (
     <>
-    <div className=" bg-gradient-to-br from-black via-purple-600 to-black flex flex-col items-center justify-center min-h-screen text-white">
-       <form onSubmit={handleSubmit} className="flex flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg">
+    <div className=" bg-gradient-to-br from-black via-purple-600 to-black flex flex-col items-center justify-center min-h-screen text-black p-4">
+       <form onSubmit={handleSubmit} className="flex  flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg ">
          <h2>Welcome to the Quiz Section</h2>
         <input id="topic" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
         <input id="difficulty" type="text" placeholder="Choose the difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
