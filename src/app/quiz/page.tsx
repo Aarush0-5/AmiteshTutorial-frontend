@@ -1,4 +1,4 @@
-'use client'
+{/*'use client'
 
 import React, { useState } from "react"
 import axios from "axios"
@@ -27,8 +27,9 @@ const Quiz = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const backendQuiz = process.env.NEXT_PUBLIC_BACKEND_QUIZ;
+    const backendQuiz = process.env.NEXT_PUBLIC_BACKEND_QUIZ
     setLoading(true);
+    setQuizStarted(false); // reset quiz view
     setQuestions([]);
     setResult(null);
 
@@ -36,17 +37,21 @@ const Quiz = () => {
       const response = await axios.post(`${backendQuiz}`, { topic, difficulty, numQuestions });
 
       if (response.status === 200 || response.status === 201) {
-        let questionArray: Question[] = [];
+        alert("Let's Play The Quiz!");
 
         const rawData = response.data;
+        let questionArray: Question[] = [];
+
         if (typeof rawData === 'string') {
-          const cleanedData = rawData.replace(/``````/g, '').trim();
+          const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
           if (cleanedData) {
             try {
               questionArray = JSON.parse(cleanedData);
             } catch (parseError) {
               console.error("Failed to parse questions JSON:", parseError, cleanedData);
             }
+          } else {
+            console.warn("Received empty quiz data from backend.");
           }
         } else if (Array.isArray(rawData)) {
           questionArray = rawData;
@@ -54,20 +59,13 @@ const Quiz = () => {
           questionArray = rawData.questions;
         }
 
-        if (Array.isArray(questionArray) && questionArray.length > 0) {
-          setQuestions(questionArray);
-          setLoading(false);        // [!] Set loading to false before starting quiz
-          setQuizStarted(true);     // [!] Now, show questions
-          console.log("Questions set:", questionArray);
-          alert("Let's Play The Quiz!");
-        } else {
-          setLoading(false);
-          console.warn("No valid questions received from backend.");
-        }
+        setQuestions([...questionArray]); // ensure new array reference
+        setQuizStarted(true);
       }
     } catch (error) {
-      setLoading(false);
       console.error("An unexpected error occurred:", error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -93,41 +91,41 @@ const Quiz = () => {
         </form>
       </div>
 
-      {quizStarted && !loading && (
+      {quizStarted && (
         <div className="mt-8 p-4 border rounded-lg bg-black/50 backdrop-blur-md shadow-lg text-white max-w-2xl mx-auto">
-          {questions.map((q, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">{`Q${index + 1}: ${q.question}`}</h3>
-              <ul className="list-disc list-inside">
-                {q.options.map((option, idx) => (
-                  <li key={idx} className="mb-1">
-                    <button
-                      type="button"
-                      onClick={() => setAnswers({ ...answers, [index]: option })}
-                      className={`px-4 py-2 rounded-lg w-full text-left ${
-                        answers[index] === option ? "bg-purple-700" : "bg-gray-700"
-                      } hover:bg-purple-600 transition`}
-                    >
-                      {option}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <button
-            type="button"
-            onClick={handleFinish}
-            className="mt-4 px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition"
-          >
-            Finish
-          </button>
-        </div>
-      )}
-
-      {loading && (
-        <div className="mt-8 text-white text-center">
-          <p>Loading questions...</p>
+          {loading ? (
+            <p>Loading questions...</p>
+          ) : (
+            <>
+              {questions.map((q, index) => (
+                <div key={index} className="mb-6">
+                  <h3 className="text-lg font-semibold mb-2">{`Q${index + 1}: ${q.question}`}</h3>
+                  <ul className="list-disc list-inside">
+                    {q.options.map((option, idx) => (
+                      <li key={idx} className="mb-1">
+                        <button
+                          type="button"
+                          onClick={() => setAnswers({ ...answers, [index]: option })}
+                          className={`px-4 py-2 rounded-lg w-full text-left ${
+                            answers[index] === option ? "bg-purple-700" : "bg-gray-700"
+                          } hover:bg-purple-600 transition`}
+                        >
+                          {option}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={handleFinish}
+                className="mt-4 px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition"
+              >
+                Finish
+              </button>
+            </>
+          )}
         </div>
       )}
 
@@ -148,3 +146,4 @@ const Quiz = () => {
 }
 
 export default Quiz
+*/}
