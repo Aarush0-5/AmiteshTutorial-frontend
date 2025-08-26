@@ -86,38 +86,45 @@ const Quiz = () => {
         </form>
       </div>
 
-      {quizStarted && (
-        <div className="mt-8 p-4 border rounded-lg bg-black/50 backdrop-blur-md shadow-lg text-white">
-          {loading ? (
-            <p>Loading questions...</p>
-          ) : (
-            questions.map((q, index) => (
-              <div key={index} className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">{`Q${index + 1}: ${q.question}`}</h3>
-                <ul className="list-disc list-inside">
-                  {q.options.map((option, idx) => (
-                    <li key={idx} className="mb-1">
-                      <button
-                        type="button"
-                        onClick={() => setAnswers({ ...answers, [index]: option })}
-                        className={`px-4 py-2 rounded-lg w-full text-left ${answers[index] === option ? "bg-purple-700" : "bg-gray-700"} hover:bg-purple-600 transition`}
-                      >
-                        {option}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))
-          )}
-          <button 
-            type="button"
-            onClick={handleFinish}
-            className="mt-4 px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition">
-            Finish?
-          </button>
-        </div>
-      )}
+       {quizStarted && (
+  <div className="mt-8 p-4 border rounded-lg bg-black/50 backdrop-blur-md shadow-lg text-white">
+    {loading ? (
+      <p>Loading questions...</p>
+    ) : (
+      <>
+        {questions.map((q, index) => (
+          <div key={index} className="mb-6">
+            <h3 className="text-lg font-semibold mb-2">{`Q${index + 1}: ${q.question}`}</h3>
+            <ul className="list-disc list-inside">
+              {q.options.map((option, idx) => (
+                <li key={idx} className="mb-1">
+                  <button
+                    type="button"
+                    onClick={() => setAnswers({ ...answers, [index]: option })}
+                    className={`px-4 py-2 rounded-lg w-full text-left ${
+                      answers[index] === option ? "bg-purple-700" : "bg-gray-700"
+                    } hover:bg-purple-600 transition`}
+                  >
+                    {option}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <button
+          type="button"
+          onClick={handleFinish}
+          className="mt-4 px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition"
+        >
+          Finish?
+        </button>
+      </>
+    )}
+  </div>
+)}
+
 
       {result && (
         <div className="mt-6 p-4 bg-black/60 rounded-lg shadow-lg">
