@@ -10,6 +10,11 @@ type Question = {
   correct_answer: string
 }
 
+type QuizResult = {
+  score: number
+  feedback: string
+}
+
 const Quiz = ()=> {
     const [topic, setTopic] = useState<string>('');
     const [difficulty, setDifficulty] = useState<string>('');
@@ -18,7 +23,7 @@ const Quiz = ()=> {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [answers, setAnswers] = useState<{ [key: number]: string }>({})
-    const [result, setResult] = useState<string || number>(null)
+    const [result, setResult] = useState<QuizResult | null>(null)
 
    const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
