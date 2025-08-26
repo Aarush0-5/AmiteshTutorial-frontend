@@ -38,8 +38,8 @@ const Quiz = ()=> {
       });
       if (response.status === 201 || response.status === 200) {
         alert("Lets Play The Quiz !")
-        const data=response.data
-        setQuestions(data);
+        const data=JSON.parse(response.data || [])
+        setQuestions(Array.isArray(data) ? data : []);
         setQuizStarted(true);
         setLoading(false);
       }
