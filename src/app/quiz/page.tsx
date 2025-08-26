@@ -35,7 +35,7 @@ const Quiz = () => {
         difficulty,
         numQuestions,
       });
-      if (response.status !== 200) {
+      if (response.status == 200) {
       alert("Let's Play The Quiz!");
 
       const rawData = response.data;
