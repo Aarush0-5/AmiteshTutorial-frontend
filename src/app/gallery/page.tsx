@@ -32,7 +32,7 @@ const data: Occasion[] = [
   },
   {
     name: 'Independence Day 2025',
-    photos: ['/gallery/ID250.jpg', '/gallery/ID251.jpg', '/gallery/ID252.jpg', '/gallery/ID253.jpg', '/gallery/ID254.jpg', '/gallery/ID255.jpg', '/gallery/ID256.jpg', '/gallery/ID257.jpg' ]
+    photos: ['/gallery/ID250.jpg', '/gallery/ID251.jpg', '/gallery/ID252.jpg', '/gallery/ID253.jpg', '/gallery/ID254.jpg', '/gallery/ID255.jpg' ]
   },
 ];
 
