@@ -7,12 +7,13 @@ import { useState } from "react"
 type Question = {
   question: string
   options: string[]
-  correct_answer: string
+  corrct_answer: string
 }
 
 type QuizResult = {
   score: number
   feedback: string
+  correctAnswers: string[]
 }
 
 const Quiz = ()=> {
