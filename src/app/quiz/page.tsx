@@ -35,7 +35,7 @@ const Quiz = () => {
         difficulty,
         numQuestions,
       });
-
+      if (response.status !== 200) {
       alert("Let's Play The Quiz!");
 
       const rawData = response.data;
@@ -49,12 +49,10 @@ const Quiz = () => {
       } else if (rawData.questions && Array.isArray(rawData.questions)) {
         questionArray = rawData.questions;
       }
-
-      console.log("Parsed questions:", questionArray);
-
       setQuestions(questionArray);
       setQuizStarted(true);
       setLoading(false);
+      }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
       setLoading(false);
