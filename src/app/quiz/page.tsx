@@ -38,16 +38,16 @@ const Quiz = () => {
 
       alert("Let's Play The Quiz!");
 
+      const rawData = response.data;
       let questionArray: Question[] = [];
 
-  
-      if (typeof response.data === 'string') {
-        let data = response.data.replace(/```json/g, '').replace(/```/g, '').trim();
-        questionArray = JSON.parse(data);
-      } else if (Array.isArray(response.data)) {
-        questionArray = response.data;
-      } else if (response.data.questions && Array.isArray(response.data.questions)) {
-        questionArray = response.data.questions;
+      if (typeof rawData === 'string') {
+        const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
+        questionArray = JSON.parse(cleanedData);
+      } else if (Array.isArray(rawData)) {
+        questionArray = rawData;
+      } else if (rawData.questions && Array.isArray(rawData.questions)) {
+        questionArray = rawData.questions;
       }
 
       console.log("Parsed questions:", questionArray);
