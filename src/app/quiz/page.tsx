@@ -51,8 +51,9 @@ const Quiz = () => {
       }
       setQuestions(questionArray);
       setQuizStarted(true);
-      setLoading(false);
+      
       }
+      setLoading(false);
     } catch (error) {
       console.error("An unexpected error occurred:", error);
       setLoading(false);
