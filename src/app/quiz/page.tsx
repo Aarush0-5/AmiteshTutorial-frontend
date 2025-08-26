@@ -18,7 +18,7 @@ const Quiz = ()=> {
     const [questions, setQuestions] = useState<Question[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [answers, setAnswers] = useState<{ [key: number]: string }>({})
-    const [result, setResult] = useState<any>(null)
+    const [result, setResult] = useState<string || number>(null)
 
    const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
