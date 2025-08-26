@@ -36,17 +36,25 @@ const Quiz = () => {
         numQuestions,
       });
 
-      if (response.status === 201 || response.status === 200) {
-        alert("Let's Play The Quiz!");
+      alert("Let's Play The Quiz!");
 
-        let data: string = response.data;
-        data = data.replace(/```json/g, '').replace(/```/g, '').trim();
-        const questionArray: Question[] = JSON.parse(data);
+      let questionArray: Question[] = [];
 
-        setQuestions(Array.isArray(questionArray) ? questionArray : []);
-        setQuizStarted(true);
-        setLoading(false);
+  
+      if (typeof response.data === 'string') {
+        let data = response.data.replace(/```json/g, '').replace(/```/g, '').trim();
+        questionArray = JSON.parse(data);
+      } else if (Array.isArray(response.data)) {
+        questionArray = response.data;
+      } else if (response.data.questions && Array.isArray(response.data.questions)) {
+        questionArray = response.data.questions;
       }
+
+      console.log("Parsed questions:", questionArray);
+
+      setQuestions(questionArray);
+      setQuizStarted(true);
+      setLoading(false);
     } catch (error) {
       console.error("An unexpected error occurred:", error);
       setLoading(false);
@@ -60,8 +68,8 @@ const Quiz = () => {
         quiz: questions,
         answers: answers,
       });
-      const evalData: QuizResult = response.data;
 
+      const evalData: QuizResult = response.data;
       setResult(evalData);
     } catch (error) {
       console.error("Error evaluating quiz:", error)
