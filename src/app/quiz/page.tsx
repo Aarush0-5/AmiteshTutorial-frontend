@@ -1,4 +1,4 @@
-{/*'use client'
+'use client'
 
 import React, { useState } from "react"
 import axios from "axios"
@@ -25,49 +25,52 @@ const Quiz = () => {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({})
   const [result, setResult] = useState<QuizResult | null>(null)
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    const backendQuiz = process.env.NEXT_PUBLIC_BACKEND_QUIZ
-    setLoading(true);
-    setQuizStarted(false); // reset quiz view
-    setQuestions([]);
-    setResult(null);
+const handleSubmit = async (event: React.FormEvent) => {
+  event.preventDefault();
+  const backendQuiz = process.env.NEXT_PUBLIC_BACKEND_QUIZ;
 
-    try {
-      const response = await axios.post(`${backendQuiz}`, { topic, difficulty, numQuestions });
+  setLoading(true);
+  setQuizStarted(false); 
+  setQuestions([]);  
+  setResult(null);
 
-      if (response.status === 200 || response.status === 201) {
-        alert("Let's Play The Quiz!");
+  try {
+    const response = await axios.post(`${backendQuiz}`, { topic, difficulty, numQuestions });
 
-        const rawData = response.data;
-        let questionArray: Question[] = [];
+    if (response.status === 200 || response.status === 201) {
+      alert("Let's Play The Quiz!");
+      
+      const rawData = response.data;
+      let questionArray: Question[] = [];
 
-        if (typeof rawData === 'string') {
-          const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
-          if (cleanedData) {
-            try {
-              questionArray = JSON.parse(cleanedData);
-            } catch (parseError) {
-              console.error("Failed to parse questions JSON:", parseError, cleanedData);
-            }
-          } else {
-            console.warn("Received empty quiz data from backend.");
+      if (typeof rawData === 'string') {
+        const cleanedData = rawData.replace(/```json/g, '').replace(/```/g, '').trim();
+        if (cleanedData) {
+          try {
+            questionArray = JSON.parse(cleanedData);
+          } catch (err) {
+            console.error("Failed to parse JSON:", err, cleanedData);
           }
-        } else if (Array.isArray(rawData)) {
-          questionArray = rawData;
-        } else if (rawData.questions && Array.isArray(rawData.questions)) {
-          questionArray = rawData.questions;
+        } else {
+          console.warn("Received empty quiz data from backend.");
         }
-
-        setQuestions([...questionArray]); // ensure new array reference
-        setQuizStarted(true);
+      } else if (Array.isArray(rawData)) {
+        questionArray = rawData;
+      } else if (rawData.questions && Array.isArray(rawData.questions)) {
+        questionArray = rawData.questions;
       }
-    } catch (error) {
-      console.error("An unexpected error occurred:", error);
-    } finally {
-      setLoading(false);
+
+      console.log("Parsed questions:", questionArray);
+      setQuestions(questionArray);
+      setQuizStarted(true);
     }
+  } catch (error) {
+    console.error("An unexpected error occurred:", error);
+  } finally {
+    setLoading(false);
   }
+};
+
 
   const handleFinish = async () => {
     try {
@@ -146,4 +149,3 @@ const Quiz = () => {
 }
 
 export default Quiz
-*/}
