@@ -64,9 +64,15 @@ const handleSubmit = async (event: React.FormEvent) => {
       setQuestions(questionArray);
       setQuizStarted(true);
     }
-  } catch (error) {
-    console.error("An unexpected error occurred:", error);
-  } finally {
+  }  catch (error: unknown) {
+  if (axios.isAxiosError(error)) {
+    console.error("Axios error:", error.response?.data || error.message);
+  } else if (error instanceof Error) {
+    console.error("Unexpected error:", error.message);
+  } else {
+    console.error("Unknown error:", error);
+  }
+}finally {
     setLoading(false);
   }
 };
