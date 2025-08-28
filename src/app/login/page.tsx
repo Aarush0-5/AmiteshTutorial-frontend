@@ -14,7 +14,17 @@ const Login = () => {
   
    useEffect(() => {
     if (localStorage.getItem("accessToken")) {
-      setLoggedIn(true);
+      router.push('/dashboard')
+      const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
+        const userResponse = await axios.get(`${backendGet}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+      const role = userResponse.data.role
+      if (role === "STUDENT") {
+        router.push('/dashboard');
+      } else  {
+        router.push('/dashboardteacher');
+      }
     }
   }, []);
 
@@ -75,14 +85,7 @@ const Login = () => {
           <meta name="description" content="The login page of amitesh tutorials: coaching/tutorials in lucknow"/>
           <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, login"/>
     </Head>
-    {loggedIn ? 
-       <div>
-        <h2>You are already logged in , kindly choose a further path:</h2>
-        <div>
-          <button type="button" onClick={() => router.push('/dashboard')}>Dashboard</button>
-          <button type="button" onClick={() => router.push('/dashboard')}>Quiz Page</button>
-        </div>
-       </div>  : <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105"
@@ -123,7 +126,6 @@ const Login = () => {
         </button>
       </form>
     </div>
-    }
    
     </>
   );
