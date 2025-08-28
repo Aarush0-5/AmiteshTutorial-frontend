@@ -34,9 +34,11 @@ const Quiz = () => {
   const [result, setResult] = useState<QuizResult | null>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [username, setUsername] = useState<string>('');
+  const [mode, setMode] = useState<boolean>(false)
+  const [timer, setTimer] = useState<number>(0)
   const router = useRouter();  
 
-    useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem('accessToken');
     if (!token) {
       window.location.href = '/login';
@@ -71,7 +73,29 @@ const handleSubmit = async (event: React.FormEvent) => {
     setForm(false)
     setQuizStarted(true);
   }
+  let duration = 0;
+  if (numQuestions == 5) duration = 300;
+  else if (numQuestions == 10) duration = 600;
+  else if (numQuestions == 15) duration = 900;
+  else if (numQuestions == 20) duration = 1200;
+  else if (numQuestions == 25) duration = 1500;
+  else if (numQuestions == 30) duration = 1800;
+
+  setTimer(duration)
 };
+
+  useEffect(() => {
+  if (mode && quizStarted && timer > 0) {
+    const countdown = setInterval(() => {
+      setTimer((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(countdown);
+  }
+}, [mode, quizStarted]);
+
+
+
 
   const handleFinish = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -85,12 +109,20 @@ const handleSubmit = async (event: React.FormEvent) => {
       setEvaluated(true);
       }
     }
+ 
+ useEffect(() => {
+  if (timer === 0 && mode && quizStarted) {
+    handleFinish(); 
+  }
+}, [timer, mode, quizStarted]);
+
+
   
 
   return (
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4">
-      <h2 className="flex justify-start items-start text-white font-bold text-3xl">Start {username}</h2>
+      <h2 className="flex justify-start items-start text-white font-bold text-3xl">{username}</h2>
       { form && (
         <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
           <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
@@ -110,6 +142,7 @@ const handleSubmit = async (event: React.FormEvent) => {
             <option value="25">25</option>
             <option value="30">30</option>
           </select>
+          <button type="button" onClick={() => setMode(true)}>Enable Exam Mode</button>
           <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">Bring it on</button>
           <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"onClick={() => router.push('/')}>Home</button>
         </form> 
@@ -118,10 +151,21 @@ const handleSubmit = async (event: React.FormEvent) => {
 
 
 
-     {quizStarted && questions.length > 0 && (
-    <div className="mt-8 p-4 border rounded-lg bg-black backdrop-blur-md shadow-lg text-white max-w-2xl mx-auto">
+   {quizStarted && questions.length > 0 && (
+  <div className="mt-8 p-4 border rounded-lg bg-black backdrop-blur-md shadow-lg text-white max-w-2xl mx-auto">
+    
+    {mode ? (
+      <div className="mb-4 text-red-400 font-bold text-xl">
+        ⏱ Time Left: {timer} seconds
+      </div>
+    ) : (
+      <div className="mb-4 text-green-400 font-bold text-xl">
+        Quiz Started
+      </div>
+    )}
+
     {(() => {
-      const currentQuestion = questions[currentIndex]; 
+      const currentQuestion = questions[currentIndex];
       return (
         <div>
           <h3 className="text-lg font-semibold mb-2">
@@ -132,9 +176,13 @@ const handleSubmit = async (event: React.FormEvent) => {
               <li key={idx} className="mb-2">
                 <button
                   type="button"
-                  onClick={() => setAnswers({ ...answers, [currentIndex]: option })}
+                  onClick={() =>
+                    setAnswers({ ...answers, [currentIndex]: option })
+                  }
                   className={`px-4 py-2 rounded-lg w-full text-left ${
-                    answers[currentIndex] === option ? "bg-purple-700" : "bg-gray-700"
+                    answers[currentIndex] === option
+                      ? "bg-purple-700"
+                      : "bg-gray-700"
                   } hover:bg-purple-600 transition`}
                 >
                   {option}
@@ -146,7 +194,7 @@ const handleSubmit = async (event: React.FormEvent) => {
             {currentIndex < questions.length - 1 ? (
               <button
                 type="button"
-                onClick={() => setCurrentIndex(currentIndex + 1)} 
+                onClick={() => setCurrentIndex(currentIndex + 1)}
                 disabled={!answers[currentIndex]}
                 className="px-4 py-2 bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition disabled:bg-gray-500"
               >
@@ -166,9 +214,9 @@ const handleSubmit = async (event: React.FormEvent) => {
         </div>
       );
     })()}
-    
   </div>
 )}
+
 
 
       {evaluated && result && (
