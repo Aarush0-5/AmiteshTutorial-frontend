@@ -39,6 +39,7 @@ const Quiz = () => {
   const router = useRouter();  
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const token = localStorage.getItem('accessToken');
     if (!token) {
       window.location.href = '/login';
@@ -47,7 +48,7 @@ const Quiz = () => {
     }
     const fetchData = async () => {
       try {
-        const backendGet =  process.env.NEXT_PUBLIC_BACKEND_GET;
+        const backendGet =  process.env.NEXT_PUBLIC_QUIZ_GET_STUDENTS;
         const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -112,7 +113,18 @@ const handleSubmit = async (event: React.FormEvent) => {
  
  useEffect(() => {
   if (timer === 0 && mode && quizStarted) {
-    handleFinish(); 
+    alert("Time up !");
+    if (!answers){
+      setForm(true);
+      setEvaluated(false);
+      setResult(null);
+      setQuestions([]);
+      setAnswers({});
+      setCurrentIndex(0);
+    } 
+    else {
+      handleFinish()
+    }
   }
 }, [timer, mode, quizStarted]);
 
@@ -122,7 +134,7 @@ const handleSubmit = async (event: React.FormEvent) => {
   return (
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4">
-      <h2 className="flex justify-start items-start text-white font-bold text-3xl">{username}</h2>
+      <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
       { form && (
         <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
           <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
@@ -142,7 +154,9 @@ const handleSubmit = async (event: React.FormEvent) => {
             <option value="25">25</option>
             <option value="30">30</option>
           </select>
-          <button type="button" onClick={() => setMode(true)}>Enable Exam Mode</button>
+           <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
+            {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
+          </button>
           <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">Bring it on</button>
           <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"onClick={() => router.push('/')}>Home</button>
         </form> 
