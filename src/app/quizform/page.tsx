@@ -51,9 +51,6 @@ const Quiz = () => {
         });
         const data: User = response.data;
         setUsername(data.username);
-        setRole(data.role);
-        setClassName(data.class);
-        setMarks(data.marks);  
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
