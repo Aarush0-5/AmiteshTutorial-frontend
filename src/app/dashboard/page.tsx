@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
     }
     const fetchData = async () => {
       try {
-        const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
+        const backendGet =  process.env.NEXT_PUBLIC_BACKEND_GET;
         const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
