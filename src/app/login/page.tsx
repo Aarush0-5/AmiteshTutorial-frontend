@@ -17,7 +17,7 @@ const Login = () => {
       setLoggedIn(true);
     }
   }, []);
-   
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
    
@@ -75,7 +75,7 @@ const Login = () => {
           <meta name="description" content="The login page of amitesh tutorials: coaching/tutorials in lucknow"/>
           <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, login"/>
     </Head>
-    {LoggedIn ? 
+    {loggedIn ? 
        <div>
         <h2>You are already logged in , kindly choose a further path:</h2>
         <div>
