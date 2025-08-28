@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useState, useEffect } from 'react';
+import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import Head from "next/head"
@@ -9,7 +9,6 @@ const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
-  const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const router = useRouter();
   
 
