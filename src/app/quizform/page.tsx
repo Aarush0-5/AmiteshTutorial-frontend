@@ -36,6 +36,7 @@ const Quiz = () => {
   const [username, setUsername] = useState<string>('');
   const [mode, setMode] = useState<boolean>(false)
   const [timer, setTimer] = useState<number>(0)
+  const [loading, setLoading] useState<boolean>(false)
   const router = useRouter();  
 
   useEffect(() => {
@@ -67,12 +68,14 @@ const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
   const backendQuiz =  process.env.NEXT_PUBLIC_BACKEND_QUIZ;
   const response = await axios.post(`${backendQuiz}`, { topic, difficulty, numQuestions });
+  setLoading(true)
   if (response.status === 201) {
     const data = response.data;
     const cleanData= data.replace(/```json|```/g, '').trim();
     setQuestions(JSON.parse(cleanData))
     setForm(false)
     setQuizStarted(true);
+    setLoading(false)
   }
   let duration = 0;
   if (numQuestions == 5) duration = 300;
@@ -157,7 +160,7 @@ const handleSubmit = async (event: React.FormEvent) => {
            <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
             {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
           </button>
-          <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">Bring it on</button>
+          <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading? 'Getting Questions': 'Bring it on'}</button>
           <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"onClick={() => router.push('/')}>Home</button>
         </form> 
       )
