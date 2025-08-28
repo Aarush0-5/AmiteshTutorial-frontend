@@ -12,7 +12,7 @@ const Login = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const router = useRouter();
   
-  
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
    
@@ -70,7 +70,7 @@ const Login = () => {
           <meta name="description" content="The login page of amitesh tutorials: coaching/tutorials in lucknow"/>
           <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, login"/>
     </Head>
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-white">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105"
