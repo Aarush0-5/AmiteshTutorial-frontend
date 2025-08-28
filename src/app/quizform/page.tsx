@@ -97,8 +97,8 @@ const handleSubmit = async (event: React.FormEvent) => {
 
 
 
-  const handleFinish = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const handleFinish = async (event?: React.FormEvent) => {
+    event?.preventDefault();
     const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
     const response = await axios.post(`${backendEval}`, { quiz: questions, answers });
     if (response.status === 201) {
