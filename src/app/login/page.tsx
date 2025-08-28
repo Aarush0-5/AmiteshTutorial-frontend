@@ -12,22 +12,7 @@ const Login = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const router = useRouter();
   
-   useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
-      router.push('/dashboard')
-      const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
-        const userResponse = await axios.get(`${backendGet}`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-      const role = userResponse.data.role
-      if (role === "STUDENT") {
-        router.push('/dashboard');
-      } else  {
-        router.push('/dashboardteacher');
-      }
-    }
-  }, []);
-
+  
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
    
