@@ -50,7 +50,7 @@ const Quiz = () => {
     const fetchData = async () => {
       try {
         const backendGet =  process.env.NEXT_PUBLIC_QUIZ_GET_STUDENTS;
-        const response = await axios.get(`${backendGet}/${username}`, {
+        const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data: User = response.data;
