@@ -133,6 +133,7 @@ const handleSubmit = async (event: React.FormEvent) => {
   const handleFinish = async (event?: React.FormEvent) => {
     event?.preventDefault();
     const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
+    const token = localStorage.getItem('accessToken');
       const response = await axios.post(
       `${backendEval}`,
       { quiz: questions, answers },
