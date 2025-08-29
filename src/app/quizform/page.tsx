@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 
+
 type Question = {
   question: string
   options: string[]
@@ -20,6 +21,7 @@ type QuizResult = {
 
 type User = {
   username: string;
+  class: number
 }
 
 type LeaderboardEntry = {
@@ -31,6 +33,11 @@ type LeaderboardEntry = {
 };
 
 type LeaderboardData = LeaderboardEntry[];
+
+type SyllabusEntry = {
+  class: number;
+  topics: string[];
+};
 
 
 const Quiz = () => {
@@ -45,6 +52,7 @@ const Quiz = () => {
   const [result, setResult] = useState<QuizResult | null>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [username, setUsername] = useState<string>('');
+  const [class, setClass] = useState<number>(0)
   const [mode, setMode] = useState<boolean>(false)
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
@@ -68,6 +76,8 @@ const Quiz = () => {
         });
         const data: User = response.data;
         setUsername(data.username);
+        setClass(data.class)
+
       } catch (error) {
         console.error('Error fetching dashboard data', error);
       }
@@ -75,6 +85,21 @@ const Quiz = () => {
 
     fetchData();
   }, []);
+    
+      useEffect(() => {
+    const loadSyllabus = async () => {
+      try {
+        const res = await fetch('/syllabus.json');
+        const data: SyllabusEntry[] = await res.json();
+        setSyllabus(data);
+      } catch (error) {
+        console.error("Error loading syllabus", error);
+      }
+    };
+    loadSyllabus();
+  }, []);
+
+    const classTopics = syllabus.find(s => s.class === studentClass)?.topics || [];
 
  useEffect(() => {
     const fetchLeaderBoard = async () => {
@@ -200,7 +225,15 @@ const handleFinish = async (event?: React.FormEvent) => {
         <div className="flex flex-col lg:flex-row gap-20 w-full max-w-6xl justify-center items-start">
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
-            <input className="p-2 rounded bg-gray-800 text-white" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
+            <label className="text-white">Choose Topic</label>
+            <select value={topic} onChange={(e) => setTopic(e.target.value)}className="p-2 rounded bg-gray-800 text-white">
+            <option value="">-- Select a Topic --</option>
+            {classTopics.map((t, idx) => (
+            <option key={idx} value={t}>
+                {t}
+            </option>
+            ))}
+            </select>
             <label className="text-white">Difficulty</label>
             <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} className="p-2 rounded bg-gray-800 text-white">
               <option value="easy">Beginner</option>

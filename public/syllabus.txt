@@ -1,0 +1,117 @@
+[
+  {
+    "class": 6,
+    "topics": [
+      "Numbers",
+      "Whole Numbers",
+      "Integers",
+      "Playing with Numbers",
+      "Fractions",
+      "Basic Geometry",
+      "Angles and Their Properties",
+      "Introduction to Algebra",
+      "Linear Equation in One Variable",
+      "Practical Geometry",
+      "Decimals",
+      "Ratio and Proportions",
+      "Percentage",
+      "Data Handling",
+      "Triangles",
+      "Quadrilaterals and Circles",
+      "Recognition of Solids",
+      "Perimeter Area and Line Symmetry"
+    ]
+  },
+  {
+    "class": 7,
+    "topics": [
+      "Integers",
+      "Fractional Decimals",
+      "Rational Numbers",
+      "Ratio, Proportion and Unitary Method",
+      "Sets",
+      "Algebraic Expressions",
+      "Linear Equations in One Variable",
+      "Linear Inequality",
+      "Lines and Angles",
+      "Triangles",
+      "Speed, Distance and Rate",
+      "Percentage and Its Applications",
+      "Exponents",
+      "Frequency Distribution and Mean",
+      "Congruency of Triangles",
+      "Perimeter and Area",
+      "Representing 3D in 2D"
+    ]
+  },
+  {
+    "class": 8,
+    "topics": [
+      "Rational Numbers",
+      "Exponents",
+      "Squares and Square Roots",
+      "Cube and Cube Roots",
+      "Fundamental Concepts and Operations",
+      "Algebraic Identities",
+      "Factorisation",
+      "Percentage and Its Applications",
+      "Data Handling",
+      "Graphical Representation of Data",
+      "Quadrilaterals",
+      "Simple Interest and Compound Interest",
+      "Direct and Inverse Variation",
+      "Linear Equations in One Variable and Inequations",
+      "Areas of Rectilinear Figures",
+      "Volume and Surface Area of Solids",
+      "Sets",
+      "Coordinate Graphs",
+      "Probability"
+    ]
+  },
+  {
+    "class": 9,
+    "topics": [
+      "Expansions",
+      "Factorisation",
+      "Quadratic Equations",
+      "Simultaneous Linear Equations",
+      "Triangles",
+      "Indices",
+      "Logarithms",
+      "Rational and Irrational Numbers",
+      "Compound Interest",
+      "Mid-point Theorem",
+      "Coordinate Geometry",
+      "Pythagoras Theorem",
+      "Rectilinear Figures",
+      "Statistics",
+      "Circles",
+      "Theorems on Area",
+      "Trigonometrical Ratios",
+      "Mensuration",
+      "Polynomials",
+      "Euclid's Geometry",
+      "Lines and Angles",
+      "Quadrilaterals",
+      "Heron's Formula",
+      "Surface Area and Volume of 3D Shapes"
+    ]
+  },
+  {
+    "class": 10,
+    "topics": [
+      "Real Numbers",
+      "Polynomials",
+      "Pair of Linear Equations in Two Variables",
+      "Quadratic Equations",
+      "Arithmetic Progressions",
+      "Triangles",
+      "Coordinate Geometry",
+      "Trigonometry",
+      "Circles",
+      "Surface Areas and Volumes of Combined 3D Shapes",
+      "Probability",
+      "Statistics"
+    ]
+  }
+]
