@@ -364,6 +364,7 @@ const handleFinish = async (event?: React.FormEvent) => {
       setQuestions([]);
       setAnswers({});
       setCurrentIndex(0);
+      setShowLeaderBoard(true)
     }}
   >
     Try Again

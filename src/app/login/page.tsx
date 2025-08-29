@@ -9,20 +9,22 @@ const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
+  const [whereto, setWhereTo]= useState<boolean>(false); // controls choice popup
+  const [role, setRole] = useState<string | null>(null); // store role after login
   const router = useRouter();
   
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
    
-  const handleError = (error: AxiosError) => {
-    if (error.response) {
-      console.error (`Login Failed : status = ${error.response.status}` )
+    const handleError = (error: AxiosError) => {
+      if (error.response) {
+        console.error (`Login Failed : status = ${error.response.status}` )
+      }
+      else {
+        console.error ("Unexpected error occured, contact the owner")
+      }
     }
-    else {
-      console.error ("Unexpected error occured, contact the owner")
-    }
-  }
 
     try {
       setLoggingIn(true);
@@ -41,12 +43,11 @@ const Login = () => {
         const userResponse = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
-      const role = userResponse.data.role
-      if (role === "STUDENT") {
-        router.push('/dashboard');
-      } else  {
-        router.push('/dashboardteacher');
-      }
+        const roleFetched = userResponse.data.role;
+        setRole(roleFetched);
+
+        // instead of redirecting immediately, show choice
+        setWhereTo(true);
       }
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
@@ -60,6 +61,20 @@ const Login = () => {
       }
     }     
     setLoggingIn(false);
+  };
+
+  const goTo = (destination: "dashboard" | "quiz") => {
+    if (!role) return;
+
+    if (destination === "quiz") {
+      router.push("/quiz"); 
+    } else {
+      if (role === "STUDENT") {
+        router.push("/dashboard");
+      } else {
+        router.push("/dashboardteacher");
+      }
+    }
   };
 
   return (
@@ -109,6 +124,28 @@ const Login = () => {
           {loggingIn ? "Logging in..." : "Login"}
         </button>
       </form>
+
+      {whereto && (
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-lg font-semibold mb-4">Where do you want to go?</h3>
+            <div className="flex gap-4 justify-center">
+              <button
+                onClick={() => goTo("dashboard")}
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+              >
+                Dashboard
+              </button>
+              <button
+                onClick={() => goTo("quiz")}
+                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
+              >
+                Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
    
     </>
