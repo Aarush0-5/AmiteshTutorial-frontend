@@ -191,10 +191,6 @@ const handleFinish = async (event?: React.FormEvent) => {
   }
 }, [timer, mode, quizStarted]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    window.location.href = '/';
-  };
 
 
 
@@ -202,8 +198,6 @@ const handleFinish = async (event?: React.FormEvent) => {
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4 font-inter">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
-      <button type="button" onClick={handelogout()} className="text-white font-extrabold text-4xl mb-6"> LogOut </button>
-      
       {form && showLeaderBoard && (
         <div className="flex flex-row gap-20 w-full max-w-6xl justify-center items-start">
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
