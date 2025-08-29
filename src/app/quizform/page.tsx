@@ -77,7 +77,6 @@ const handleSubmit = async (event: React.FormEvent) => {
     setForm(false)
     setQuizStarted(true);
     setLoading(false)
-    setLeaderBoard(false)
   }
   let duration = 0;
   if (numQuestions == 5) duration = 300;
@@ -126,7 +125,7 @@ const handleSubmit = async (event: React.FormEvent) => {
       setQuestions([]);
       setAnswers({});
       setCurrentIndex(0);
-      setLeaderBoard(true)
+  
     } 
     else {
       handleFinish()
@@ -141,7 +140,7 @@ const handleSubmit = async (event: React.FormEvent) => {
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
-      { form &&  leaderboard && (
+      { form &&  (
        <div className="flex flex-row gap-20"> 
         <div>
         <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
