@@ -40,7 +40,7 @@ const Quiz = () => {
   const [leaderboard, setLeaderBoard] = useState<boolean>(true)
   const router = useRouter();  
 
-  {/*useEffect(() => {
+  useEffect(() => {
     if (typeof window === "undefined") return;
     const token = localStorage.getItem('accessToken');
     if (!token) {
@@ -63,7 +63,7 @@ const Quiz = () => {
 
     fetchData();
   }, []);
-*/}
+
 
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
