@@ -137,7 +137,7 @@ const Login = () => {
                 Dashboard
               </button>
               <button
-                onClick={() => goTo("quiz")}
+                onClick={() => goTo("quizform")}
                 className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
               >
                 Quiz
