@@ -199,7 +199,7 @@ const handleFinish = async (event?: React.FormEvent) => {
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4 font-inter">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
       {form && showLeaderBoard && (
-        <div className="flex flex-row gap-20 w-full max-w-6xl justify-center items-start">
+        <div className="flex flex-col lg:flex-col gap-20 w-full max-w-6xl justify-center items-start">
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
             <input className="p-2 rounded bg-gray-800 text-white" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
