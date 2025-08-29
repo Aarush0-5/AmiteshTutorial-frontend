@@ -154,7 +154,7 @@ const handleSubmit = async (event: React.FormEvent) => {
           throw new Error('Failed to fetch leaderboard data.');
         }
         const data: LeaderboardEntry[] = await response.json();
-        setLeaderboardData(data);
+        setLeaderBoard(data);
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
