@@ -87,6 +87,7 @@ const Quiz = () => {
         console.error('Error fetching dashboard data', error);
       }
     }
+    fetchLeaderBoard()  
  },[])
 
 const handleSubmit = async (event: React.FormEvent) => {
