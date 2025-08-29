@@ -22,6 +22,15 @@ type User = {
   username: string;
 }
 
+type LeaderboardEntry = {
+  id: string;
+  score: number;
+  student: {
+    username: string;
+  };
+};
+
+
 const Quiz = () => {
   const [topic, setTopic] = useState<string>('');
   const [difficulty, setDifficulty] = useState<string>('');
@@ -150,7 +159,6 @@ const handleSubmit = async (event: React.FormEvent) => {
         if (err instanceof Error) {
           setError(err.message);
         } else {
-          // Handle cases where the error is not a standard Error object
           setError('An unexpected error occurred.');
         }
       } finally {
