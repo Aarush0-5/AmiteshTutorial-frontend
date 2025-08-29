@@ -93,7 +93,18 @@ const Quiz = () => {
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
   const backendQuiz =  process.env.NEXT_PUBLIC_BACKEND_QUIZ;
-  const response = await axios.post(`${backendQuiz}`, { topic, difficulty, numQuestions });
+  const token = localStorage.getItem("accessToken"); 
+
+const response = await axios.post(
+  `${backendQuiz}`,
+  { topic, difficulty, numQuestions },
+  {
+    headers: {
+      "Authorization": `Bearer ${token}`, 
+    },
+  }
+);
+
   setLoading(true)
   if (response.status === 201) {
     const data = response.data;
