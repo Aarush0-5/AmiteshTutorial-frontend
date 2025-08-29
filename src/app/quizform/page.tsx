@@ -38,7 +38,7 @@ const Quiz = () => {
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
   const [leaderboard, setLeaderBoard] = useState<boolean>(true)
-  const [error, setError] = useState<string>(null)
+  const [error, setError] = useState<string>('')
   const router = useRouter();  
 
   useEffect(() => {
