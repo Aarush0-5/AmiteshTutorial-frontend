@@ -37,9 +37,10 @@ const Quiz = () => {
   const [mode, setMode] = useState<boolean>(false)
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
+  const [leaderboard, setLeaderBoard] = useState<boolean>(true)
   const router = useRouter();  
 
-  useEffect(() => {
+  {/*useEffect(() => {
     if (typeof window === "undefined") return;
     const token = localStorage.getItem('accessToken');
     if (!token) {
@@ -62,7 +63,7 @@ const Quiz = () => {
 
     fetchData();
   }, []);
-
+*/}
 
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
@@ -76,6 +77,7 @@ const handleSubmit = async (event: React.FormEvent) => {
     setForm(false)
     setQuizStarted(true);
     setLoading(false)
+    setLeaderBoard(false)
   }
   let duration = 0;
   if (numQuestions == 5) duration = 300;
@@ -124,6 +126,7 @@ const handleSubmit = async (event: React.FormEvent) => {
       setQuestions([]);
       setAnswers({});
       setCurrentIndex(0);
+      setLeaderBoard(true)
     } 
     else {
       handleFinish()
@@ -133,12 +136,34 @@ const handleSubmit = async (event: React.FormEvent) => {
 
 
   
+  useEffect(() => {
+
+    const fetchLeaderboard = async () => {
+      try {
+        const fetchUrl = process.env.NEXT_PUBLIC_BACKEND_EVALUATE
+        const response = await fetch(`${fetchUrl}`); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch leaderboard data.');
+        }
+        const data = await response.json();
+        setLeaderboard(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
 
   return (
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
-      { form && (
+      { form &&  leaderboard && (
+       <div className="flex flex-row gap-20"> 
+        <div>
         <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
           <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
           <input className="p-2 rounded bg-gray-800 text-white" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
@@ -163,6 +188,29 @@ const handleSubmit = async (event: React.FormEvent) => {
           <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading? 'Getting Questions': 'Bring it on'}</button>
           <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"onClick={() => router.push('/')}>Home</button>
         </form> 
+      </div>
+      <div>
+        <div className="flex flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
+      <h2 className="text-white font-semibold text-2xl text-center">Top Scorers Leaderboard</h2>
+       {loading ? (
+        <p className="text-gray-400 text-center">Loading leaderboard...</p>
+      ) : error ? (
+        <p className="text-red-400 text-center">{error}</p>
+      ) : leaderboard.length === 0 ? (
+        <p className="text-gray-400 text-center">No one is on the board yet! <br/> You can be the first to climb to the top.</p>
+      ) : (
+        <ul className="flex flex-col gap-2">
+          {leaderboard.map((entry, index) => (
+            <li key={entry.id} className="flex justify-between items-center bg-gray-700 p-3 rounded-md text-white">
+              <span className="font-semibold">{index + 1}. {entry.student.username}</span>
+              <span className="font-bold text-lg">{entry.score}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+      </div>
+    </div>
       )
       }
 
