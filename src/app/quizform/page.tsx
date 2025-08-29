@@ -136,31 +136,27 @@ const handleSubmit = async (event: React.FormEvent) => {
 }, [timer, mode, quizStarted]);
 
 
-  
   useEffect(() => {
-
     const fetchLeaderboard = async () => {
       try {
-        const fetchUrl = process.env.NEXT_PUBLIC_SCOREBOARD
-        const response = await fetch(`${fetchUrl}`); 
+        const fetchUrl = process.env.NEXT_PUBLIC_SCOREBOARD;
+        const response = await fetch(`${fetchUrl}`);
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard data.');
         }
-        const data = await response.json();
-        setLeaderBoard(data);
+        const data: LeaderboardEntry[] = await response.json();
+        setLeaderboardData(data);
       } catch (err: unknown) {
-  if (err instanceof Error) {
-    setError(err.message);
-  } else {
-    
-    setError('An unexpected error occurred.');
-  }
-};
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          // Handle cases where the error is not a standard Error object
+          setError('An unexpected error occurred.');
+        }
       } finally {
         setLoading(false);
       }
     };
-
     fetchLeaderboard();
   }, []);
 
