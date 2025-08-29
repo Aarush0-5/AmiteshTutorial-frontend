@@ -130,27 +130,46 @@ const handleSubmit = async (event: React.FormEvent) => {
 
 
 
-  const handleFinish = async (event?: React.FormEvent) => {
-    event?.preventDefault();
-    const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
-    const token = localStorage.getItem('accessToken');
-      const response = await axios.post(
+const handleFinish = async (event?: React.FormEvent) => {
+  event?.preventDefault();
+  const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
+  const token = localStorage.getItem('accessToken');
+
+  // Check if the token exists before making the request
+  if (!token) {
+    console.error('No access token found. Please log in.');
+    // You could also show a user-facing message here
+    return;
+  }
+
+  try {
+    const response = await axios.post(
       `${backendEval}`,
       { quiz: questions, answers },
       {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       }
     );
-    if (response.status === 201) {
+
+    // Check if the response was successful (status code is in the 2xx range)
+    if (response.status >= 200 && response.status < 300) {
       const data2 = response.data;
       const cleandata2 = data2.replace(/```json|```/g, '').trim();
       setResult(JSON.parse(cleandata2));
       setQuizStarted(false);
       setEvaluated(true);
-      }
+    } else {
+      // Handle non-successful status codes
+      console.error('Backend returned an unsuccessful status code:', response.status);
     }
+  } catch (error) {
+    // This block will catch any network errors or non-2xx status codes
+    console.error('An error occurred during quiz evaluation:', error);
+    // You could show a user-friendly modal here to indicate the failure
+  }
+};
  
  useEffect(() => {
   if (timer === 0 && mode && quizStarted) {
