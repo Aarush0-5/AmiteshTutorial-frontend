@@ -52,12 +52,13 @@ const Quiz = () => {
   const [result, setResult] = useState<QuizResult | null>(null)
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [username, setUsername] = useState<string>('');
-  const [class, setClass] = useState<number>(0)
+  const [classLevel , setClassLevel] = useState<number>(0)
   const [mode, setMode] = useState<boolean>(false)
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
   const [showLeaderBoard, setShowLeaderBoard]= useState<boolean>(true)
   const [leaderBoardData, setLeaderBoardData] = useState<LeaderboardData>([])
+  const [syllabus, setSyllabus] = useState<SyllabusEntry[]>([]) 
   const router = useRouter();  
 
   useEffect(() => {
@@ -76,7 +77,7 @@ const Quiz = () => {
         });
         const data: User = response.data;
         setUsername(data.username);
-        setClass(data.class)
+        setClassLevel(data.class)
 
       } catch (error) {
         console.error('Error fetching dashboard data', error);
@@ -99,7 +100,8 @@ const Quiz = () => {
     loadSyllabus();
   }, []);
 
-    const classTopics = syllabus.find(s => s.class === studentClass)?.topics || [];
+     const classTopics =
+    syllabus.find((s) => s.class === classLevel)?.topics || []
 
  useEffect(() => {
     const fetchLeaderBoard = async () => {
