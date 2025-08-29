@@ -148,8 +148,14 @@ const handleSubmit = async (event: React.FormEvent) => {
         }
         const data = await response.json();
         setLeaderBoard(data);
-      } catch (err) {
-        setError(err.message);
+      } catch (err: unknown) {
+  if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    
+    setError('An unexpected error occurred.');
+  }
+};
       } finally {
         setLoading(false);
       }
