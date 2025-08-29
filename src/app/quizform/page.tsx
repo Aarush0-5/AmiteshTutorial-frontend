@@ -140,7 +140,7 @@ const handleSubmit = async (event: React.FormEvent) => {
 
     const fetchLeaderboard = async () => {
       try {
-        const fetchUrl = process.env.NEXT_PUBLIC_BACKEND_EVALUATE
+        const fetchUrl = process.env.NEXT_PUBLIC_SCOREBOARD
         const response = await fetch(`${fetchUrl}`); 
         if (!response.ok) {
           throw new Error('Failed to fetch leaderboard data.');
