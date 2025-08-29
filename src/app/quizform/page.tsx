@@ -47,6 +47,7 @@ const Quiz = () => {
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
   const [leaderboard, setLeaderBoard] = useState<boolean>(true)
+  const [leaderBoardData, setLeaderBoardData ] = useState<LeaderboardEntry>(null)
   const [error, setError] = useState<string>('')
   const router = useRouter();  
 
@@ -154,7 +155,8 @@ const handleSubmit = async (event: React.FormEvent) => {
           throw new Error('Failed to fetch leaderboard data.');
         }
         const data: LeaderboardEntry[] = await response.json();
-        setLeaderBoard(data);
+        setLeaderBoard(true);
+        setLeaderBoardData(data)
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message);
