@@ -133,7 +133,15 @@ const handleSubmit = async (event: React.FormEvent) => {
   const handleFinish = async (event?: React.FormEvent) => {
     event?.preventDefault();
     const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
-    const response = await axios.post(`${backendEval}`, { quiz: questions, answers });
+      const response = await axios.post(
+      `${backendEval}`,
+      { quiz: questions, answers },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    );
     if (response.status === 201) {
       const data2 = response.data;
       const cleandata2 = data2.replace(/```json|```/g, '').trim();
