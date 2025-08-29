@@ -67,7 +67,7 @@ const Login = () => {
     if (!role) return;
 
     if (destination === "quiz") {
-      router.push("/quiz"); 
+      router.push("/quizform"); 
     } else {
       if (role === "STUDENT") {
         router.push("/dashboard");
