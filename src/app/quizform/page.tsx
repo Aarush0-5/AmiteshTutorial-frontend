@@ -22,6 +22,16 @@ type User = {
   username: string;
 }
 
+type LeaderboardEntry = {
+  id: string;
+  score: number;
+  student: {
+    username: string;
+  };
+};
+
+type LeaderboardData = LeaderboardEntry[];
+
 
 const Quiz = () => {
   const [topic, setTopic] = useState<string>('');
@@ -38,6 +48,8 @@ const Quiz = () => {
   const [mode, setMode] = useState<boolean>(false)
   const [timer, setTimer] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
+  const [showLeaderBoard, setShowLeaderBoard]= useState<boolean>(true)
+  const [leaderBoardData, setLeaderBoardData] = useState<LeaderboardData>([])
   const router = useRouter();  
 
   useEffect(() => {
@@ -64,6 +76,18 @@ const Quiz = () => {
     fetchData();
   }, []);
 
+ useEffect(() => {
+    const fetchLeaderBoard = async () => {
+      try{
+        const leaderBoardUrl = process.env.NEXT_PUBLIC_LEADERBOARD_URL;
+        const response = await axios.get(`${leaderBoardUrl}`)
+        const data = response.data
+        setLeaderBoardData(data)
+      }catch (error) {
+        console.error('Error fetching dashboard data', error);
+      }
+    }
+ },[])
 
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
@@ -75,6 +99,7 @@ const handleSubmit = async (event: React.FormEvent) => {
     const cleanData= data.replace(/```json|```/g, '').trim();
     setQuestions(JSON.parse(cleanData))
     setForm(false)
+    setShowLeaderBoard(false)
     setQuizStarted(true);
     setLoading(false)
   }
@@ -88,6 +113,8 @@ const handleSubmit = async (event: React.FormEvent) => {
 
   setTimer(duration)
 };
+
+
 
   useEffect(() => {
   if (mode && quizStarted && timer > 0) {
@@ -120,6 +147,7 @@ const handleSubmit = async (event: React.FormEvent) => {
     alert("Time up !");
     if (!answers){
       setForm(true);
+      setShowLeaderBoard(true)
       setEvaluated(false);
       setResult(null);
       setQuestions([]);
@@ -138,41 +166,67 @@ const handleSubmit = async (event: React.FormEvent) => {
 
   return (
     < >
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4 font-inter">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
-      { form &&  (
-       <div className="flex flex-row gap-20"> 
-        <div>
-        <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-lg bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
-          <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
-          <input className="p-2 rounded bg-gray-800 text-white" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
-          <label className="text-white">Difficulty</label>
-          <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}className="p-2 rounded bg-gray-800 text-white">
-            <option value="easy">Beginner</option>
-            <option value="medium">Moderate</option>
-            <option value="hard">Advanced</option>
-          </select>
-          <label className="text-white">Number Of Questions</label>
-           <select value={numQuestions} onChange={(e) => setNumQuestions(Number(e.target.value))}className="p-2 rounded bg-gray-800 text-white">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30">30</option>
-          </select>
-           <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
-            {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
-          </button>
-          <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading? 'Getting Questions': 'Bring it on'}</button>
-          <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"onClick={() => router.push('/')}>Home</button>
-        </form> 
-      </div>
-    </div>
-      )
-      }
-
-
+      
+      {form && showLeaderBoard && (
+        <div className="flex flex-row gap-20 w-full max-w-6xl justify-center items-start">
+          <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
+            <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
+            <input className="p-2 rounded bg-gray-800 text-white" type="text" placeholder="Choose the topic" value={topic} onChange={(e) => setTopic(e.target.value)} />
+            <label className="text-white">Difficulty</label>
+            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} className="p-2 rounded bg-gray-800 text-white">
+              <option value="easy">Beginner</option>
+              <option value="medium">Moderate</option>
+              <option value="hard">Advanced</option>
+            </select>
+            <label className="text-white">Number Of Questions</label>
+            <select value={numQuestions} onChange={(e) => setNumQuestions(Number(e.target.value))} className="p-2 rounded bg-gray-800 text-white">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+            </select>
+            <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
+              {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
+            </button>
+            <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading ? 'Getting Questions' : 'Bring it on'}</button>
+            <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition" onClick={() => router.push('/')}>Home</button>
+          </form>
+          
+          <div className="lex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
+            <h2 className="text-white font-semibold text-2xl text-center">LeaderBoard</h2>
+            {leaderBoardData.length > 0 ? (
+              <ul className="space-y-4">
+                {leaderBoardData.map((entry, index) => (
+                  <li
+                    key={entry.id}
+                    className="flex justify-between items-center bg-slate-700 rounded-xl p-4 transition-transform transform hover:scale-105 hover:bg-slate-600 shadow-md"
+                  >
+                    <div className="flex items-center space-x-4">
+                      <span className="text-lg font-bold w-8 text-center text-indigo-300">
+                        {index + 1}
+                      </span>
+                      <span className="text-xl font-medium">
+                        {entry.student.username}
+                      </span>
+                    </div>
+                    <span className="text-xl font-bold text-indigo-400">
+                      {entry.score}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="text-center text-slate-400 font-semibold text-xl">
+               No one's at the top now, Can you be?
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
    {quizStarted && questions.length > 0 && (
   <div className="mt-8 p-4 border rounded-lg bg-black backdrop-blur-md shadow-lg text-white max-w-2xl mx-auto">
