@@ -222,7 +222,7 @@ const handleSubmit = async (event: React.FormEvent) => {
               </ul>
             ) : (
               <div className="text-center text-slate-400 font-semibold text-xl">
-               No one's at the top now, Can you be?
+               No one is at the top now, Can you be?
               </div>
             )}
           </div>
