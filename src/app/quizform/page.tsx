@@ -134,11 +134,9 @@ const handleFinish = async (event?: React.FormEvent) => {
   event?.preventDefault();
   const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
   const token = localStorage.getItem('accessToken');
-
-  // Check if the token exists before making the request
+  
   if (!token) {
     console.error('No access token found. Please log in.');
-    // You could also show a user-facing message here
     return;
   }
 
@@ -153,21 +151,14 @@ const handleFinish = async (event?: React.FormEvent) => {
       }
     );
 
-    // Check if the response was successful (status code is in the 2xx range)
-    if (response.status >= 200 && response.status < 300) {
-      const data2 = response.data;
-      const cleandata2 = data2.replace(/```json|```/g, '').trim();
-      setResult(JSON.parse(cleandata2));
-      setQuizStarted(false);
-      setEvaluated(true);
-    } else {
-      // Handle non-successful status codes
-      console.error('Backend returned an unsuccessful status code:', response.status);
-    }
+    // The data is already an object, so you can set the state directly!
+    setResult(response.data);
+    setQuizStarted(false);
+    setEvaluated(true);
+
   } catch (error) {
-    // This block will catch any network errors or non-2xx status codes
     console.error('An error occurred during quiz evaluation:', error);
-    // You could show a user-friendly modal here to indicate the failure
+    // Add logic here to display an error to the user if the request fails
   }
 };
  
