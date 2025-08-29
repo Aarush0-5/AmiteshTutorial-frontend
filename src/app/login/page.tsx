@@ -63,10 +63,10 @@ const Login = () => {
     setLoggingIn(false);
   };
 
-  const goTo = (destination: "dashboard" | "quiz") => {
+  const goTo = (destination: "dashboard" | "quizform") => {
     if (!role) return;
 
-    if (destination === "quiz") {
+    if (destination === "quizform") {
       router.push("/quizform"); 
     } else {
       if (role === "STUDENT") {
