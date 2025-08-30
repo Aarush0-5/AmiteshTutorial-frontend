@@ -196,7 +196,7 @@ const handleFinish = async (event?: React.FormEvent) => {
     setEvaluated(true);
 
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       setLetEvaluate(false);
     }
 
