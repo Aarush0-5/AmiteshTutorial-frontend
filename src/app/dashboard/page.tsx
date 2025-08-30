@@ -153,6 +153,7 @@ const Dashboard: React.FC = () => {
             <span className="text-2xl text-gray-700 font-semibold">{username}</span>
             {role === 'STUDENT' && <span className="text-2xl text-gray-600 ml-2">{className}</span>}
           </div>
+          
           <button onClick={handleLogout} className="text-2xl p-3 border-black border-solid lg:bg-red-600 font-semibold text-black lg:hover:text-white"> 
             LogOut
           </button>

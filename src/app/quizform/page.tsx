@@ -59,6 +59,7 @@ const Quiz = () => {
   const [showLeaderBoard, setShowLeaderBoard]= useState<boolean>(true)
   const [leaderBoardData, setLeaderBoardData] = useState<LeaderboardData>([])
   const [syllabus, setSyllabus] = useState<SyllabusEntry[]>([]) 
+  const [letEvaluate , setLetEvaluate]= useState<boolean>(false)
   const router = useRouter();  
 
   useEffect(() => {
@@ -169,16 +170,19 @@ const response = await axios.post(
 const handleFinish = async (event?: React.FormEvent) => {
   event?.preventDefault();
   const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
-  const token = localStorage.getItem('accessToken');
-  
+  const token = localStorage.getItem("accessToken");
+
   if (!token) {
-    console.error('No access token found. Please log in.');
+    console.error("No access token found. Please log in.");
     return;
   }
 
   try {
+    // 🔒 disable button right away
+    setLetEvaluate(true);
+
     const response = await axios.post(
-      `${backendEval}`,
+      backendEval as string,
       { quiz: questions, answers },
       {
         headers: {
@@ -187,15 +191,21 @@ const handleFinish = async (event?: React.FormEvent) => {
       }
     );
 
-   
     setResult(response.data);
     setQuizStarted(false);
     setEvaluated(true);
 
+
+    if (response.status === 200) {
+      setLetEvaluate(false);
+    }
+
   } catch (error) {
-    console.error('An error occurred during quiz evaluation:', error);
+    console.error("An error occurred during quiz evaluation:", error);
+    setLetEvaluate(false);
   }
 };
+
  
  useEffect(() => {
   if (timer === 0 && mode && quizStarted) {
@@ -340,14 +350,18 @@ const handleFinish = async (event?: React.FormEvent) => {
                 Next
               </button>
             ) : (
-              <button
-                type="button"
-                onClick={handleFinish}
-                disabled={!answers[currentIndex]}
-                className="px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition disabled:bg-gray-500"
-              >
-                Finish
-              </button>
+             <button
+              type="button"
+              onClick={handleFinish}
+              disabled={!answers[currentIndex] || letEvaluate}
+              className="px-4 py-2 bg-green-600 rounded-lg shadow hover:bg-green-700 transition disabled:bg-gray-500 flex items-center justify-center"
+                >
+              {letEvaluate ? (
+                  "Evaluating..."
+              ) : (
+                "Finish")}
+             </button>
+
             )}
           </div>
         </div>
