@@ -1,14 +1,10 @@
 'use client'
 
+import {useState, useEffect, FormEvent} from "react";
+import axios, { AxiosError } from 'axios';
+import {useRouter} from "next/navigation"
 
-
-
-const Quiz = () => {
-  return (
-    <h2>The page is under ugradation for now, kindly revisit some other time. Thank you! Apologies for inconvenience :(</h2>)
-}
-
-/*type Question = {
+type Question = {
   question: string
   options: string[]
   correct_answer: string
@@ -433,6 +429,6 @@ const handleFinish = async (event?: React.FormEvent) => {
     </div>
     </>
   )
-}*/
+}
 
 export default Quiz
