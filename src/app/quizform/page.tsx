@@ -1,6 +1,11 @@
 'use client'
 
-import {useState, useEffect} from "react";
+const Quiz = () => {
+  return (
+    <h2>The page is under maintaince , try again after some time. Thank you! Apologies for any inconvenience" </h2>
+    )
+}
+/*mport {useState, useEffect} from "react";
 import axios from 'axios';
 import {useRouter} from "next/navigation"
 
@@ -41,8 +46,6 @@ type SyllabusEntry = {
 
 const Quiz = () => {
   const [topic, setTopic] = useState<string>('');
-  const [difficulty, setDifficulty] = useState<string>('');
-  const [numQuestions, setNumQuestions] = useState<number>(5);
   const [quizStarted, setQuizStarted] = useState<boolean>(false);
   const [form , setForm] = useState<boolean>(true);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -58,7 +61,10 @@ const Quiz = () => {
   const [showLeaderBoard, setShowLeaderBoard]= useState<boolean>(true)
   const [leaderBoardData, setLeaderBoardData] = useState<LeaderboardData>([])
   const [syllabus, setSyllabus] = useState<SyllabusEntry[]>([]) 
+  const [syllabusIndex, setSyllabusIndex] = useState(0); 
+  const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const [letEvaluate , setLetEvaluate]= useState<boolean>(false)
+  const [guidelines, setGuidelines] = useState<boolean>(true)
   const router = useRouter();  
 
   useEffect(() => {
@@ -124,7 +130,7 @@ const handleSubmit = async (event: React.FormEvent) => {
 setLoading(true)
 const response = await axios.post(
   `${backendQuiz}`,
-  { topic, difficulty, numQuestions },
+  { topic},
   {
     headers: {
       "Authorization": `Bearer ${token}`, 
@@ -137,16 +143,12 @@ const response = await axios.post(
     setQuestions(JSON.parse(cleanData))
     setForm(false)
     setShowLeaderBoard(false)
+    setGuidelines(false)
     setQuizStarted(true);
     setLoading(false)
   }
-  let duration = 0;
-  if (numQuestions == 5) duration = 300;
-  else if (numQuestions == 10) duration = 600;
-  else if (numQuestions == 15) duration = 900;
-  else if (numQuestions == 20) duration = 1200;
-  else if (numQuestions == 25) duration = 1500;
-  else if (numQuestions == 30) duration = 1800;
+  const duration = 36000;
+ ;
 
   setTimer(duration)
 };
@@ -177,7 +179,7 @@ const handleFinish = async (event?: React.FormEvent) => {
   }
 
   try {
-    // 🔒 disable button right away
+    
     setLetEvaluate(true);
 
     const response = await axios.post(
@@ -212,6 +214,7 @@ const handleFinish = async (event?: React.FormEvent) => {
     if (!answers){
       setForm(true);
       setShowLeaderBoard(true)
+      setGuidelines(true)
       setEvaluated(false);
       setResult(null);
       setQuestions([]);
@@ -232,8 +235,15 @@ const handleFinish = async (event?: React.FormEvent) => {
     < >
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-600 to-black text-white flex flex-col items-center justify-center p-4 font-inter">
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
-      {form && showLeaderBoard && (
+      {form && showLeaderBoard && guidelines &&(
         <div className="flex flex-col lg:flex-row gap-20 w-full max-w-6xl justify-center items-start">
+
+          <div className="lex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
+            <h2>General Guidelines</h2>
+            <p>1) You will begin from the first topic of your class and move ahead to the next one only when you have completed the previous chapter. </p>
+            <p>2) Each chapter will have 40 questions </p>
+          </div>
+
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
             <label className="text-white">Choose Topic</label>
@@ -244,21 +254,6 @@ const handleFinish = async (event?: React.FormEvent) => {
                 {t}
             </option>
             ))}
-            </select>
-            <label className="text-white">Difficulty</label>
-            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} className="p-2 rounded bg-gray-800 text-white">
-              <option value="easy">Beginner</option>
-              <option value="medium">Moderate</option>
-              <option value="hard">Advanced</option>
-            </select>
-            <label className="text-white">Number Of Questions</label>
-            <select value={numQuestions} onChange={(e) => setNumQuestions(Number(e.target.value))} className="p-2 rounded bg-gray-800 text-white">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25">25</option>
-              <option value="30">30</option>
             </select>
             <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
               {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
@@ -430,5 +425,5 @@ const handleFinish = async (event?: React.FormEvent) => {
     </>
   )
 }
-
+*/
 export default Quiz
