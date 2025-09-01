@@ -2,7 +2,7 @@
 
 const Quiz = () => {
   return (
-    <h2>The page is under maintaince , try again after some time. Thank you! Apologies for any inconvenience" </h2>
+    <h2>The page is under maintaince , try again after some time. Thank you! Apologies for any inconvenience </h2>
     )
 }
 /*mport {useState, useEffect} from "react";
