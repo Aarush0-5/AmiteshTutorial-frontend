@@ -1,11 +1,7 @@
 'use client'
 
-const Quiz = () => {
-  return (
-    <h2>The page is under maintaince , try again after some time. Thank you! Apologies for any inconvenience </h2>
-    )
-}
-/*mport {useState, useEffect} from "react";
+
+import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useRouter} from "next/navigation"
 
@@ -67,7 +63,7 @@ const Quiz = () => {
   const [guidelines, setGuidelines] = useState<boolean>(true)
   const router = useRouter();  
 
-  useEffect(() => {
+ /* useEffect(() => {
     if (typeof window === "undefined") return;
     const token = localStorage.getItem('accessToken');
     if (!token) {
@@ -91,23 +87,39 @@ const Quiz = () => {
     };
 
     fetchData();
-  }, []);
+  }, []);*/
     
-      useEffect(() => {
+   useEffect(() => {
     const loadSyllabus = async () => {
       try {
-        const res = await fetch('/syllabus.json');
+        const res = await fetch("/syllabus.json");
         const data: SyllabusEntry[] = await res.json();
         setSyllabus(data);
+
+        const topics = data.find((s) => s.class === classLevel)?.topics || [];
+        if (topics.length > 0) {
+          setActiveTopic(topics[0]);
+        }
       } catch (error) {
         console.error("Error loading syllabus", error);
       }
     };
     loadSyllabus();
-  }, []);
+  }, [classLevel]);
 
-     const classTopics =
-    syllabus.find((s) => s.class === classLevel)?.topics || []
+   const classTopics =
+    syllabus.find((s) => s.class === classLevel)?.topics || [];
+
+   const completeTopic = () => {
+    if (currentIndex < classTopics.length - 1) {
+      const nextIndex = currentIndex + 1;
+      setCurrentIndex(nextIndex);
+      setActiveTopic(classTopics[nextIndex]);
+    } else {
+      setActiveTopic(null); // finished all topics
+    }
+  };
+
 
  useEffect(() => {
     const fetchLeaderBoard = async () => {
@@ -146,6 +158,7 @@ const response = await axios.post(
     setGuidelines(false)
     setQuizStarted(true);
     setLoading(false)
+    setActiveTopic(false)
   }
   const duration = 36000;
  ;
@@ -238,11 +251,12 @@ const handleFinish = async (event?: React.FormEvent) => {
       {form && showLeaderBoard && guidelines &&(
         <div className="flex flex-col lg:flex-row gap-20 w-full max-w-6xl justify-center items-start">
 
-          <div className="lex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
-            <h2>General Guidelines</h2>
-            <p>1) You will begin from the first topic of your class and move ahead to the next one only when you have completed the previous chapter. </p>
+          <div className="lex text-white  flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
+            <h2 className='mb-2 text-center font-bold'>General Guidelines</h2>
+            <p className='mb-2'>1) You will begin from the first topic of your class and move ahead to the next one only when you have completed the previous chapter. </p>
             <p>2) Each chapter will have 40 questions </p>
           </div>
+            
 
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
@@ -425,5 +439,5 @@ const handleFinish = async (event?: React.FormEvent) => {
     </>
   )
 }
-*/
+
 export default Quiz
