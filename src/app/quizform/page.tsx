@@ -240,7 +240,6 @@ const handleFinish = async (event?: React.FormEvent) => {
 
           <div className="lex text-white  flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className='mb-2 text-center font-bold'>General Guidelines</h2>
-            <p className='mb-2'>1) You will begin from the first topic of your class and move ahead to the next one only when you have completed the previous chapter. </p>
             <p>2) Each chapter will have 40 questions </p>
           </div>
             
