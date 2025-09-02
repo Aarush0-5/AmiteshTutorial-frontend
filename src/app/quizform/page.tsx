@@ -248,7 +248,7 @@ const handleFinish = async (event?: React.FormEvent) => {
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
             <label className="text-white">Choose Topic</label>
-            <select value={topic} onChange={(e) => setTopic(e.target.value)}className="p-2 rounded bg-gray-800 text-white">
+            <select  value={topic} onChange={(e) => setTopic(e.target.value)}className="p-2 rounded bg-gray-800 text-white">
             <option value="">-- Select a Topic --</option>
             {classTopics.map((t, idx) => (
             <option key={idx} value={t}>
@@ -397,20 +397,6 @@ const handleFinish = async (event?: React.FormEvent) => {
       </div>
     )}
      <div className="mt-4 flex gap-4">
-  <button 
-    className="px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition"
-    onClick={() => {
-      setForm(true);
-      setEvaluated(false);
-      setResult(null);
-      setQuestions([]);
-      setAnswers({});
-      setCurrentIndex(0);
-      setShowLeaderBoard(true)
-    }}
-  >
-    Try Again
-  </button>
 
   <button 
     className="px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition"
