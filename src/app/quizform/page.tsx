@@ -1,13 +1,6 @@
 'use client'
 
-
-const Quiz = () => {
-  return (
-    <h2>The page is under maintainance, Kindly visit after some time </h2>
-    )
-}
-
-/*import {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useRouter} from "next/navigation"
 
@@ -77,7 +70,7 @@ const Quiz = () => {
     }
     const fetchData = async () => {
       try {
-        const backendGet =  process.env.NEXT_PUBLIC_QUIZ_GET_STUDENTS;
+        const backendGet =  process.env.QUIZ_STUDENTS_GET;
         const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -119,7 +112,7 @@ const Quiz = () => {
  useEffect(() => {
     const fetchLeaderBoard = async () => {
       try{
-        const leaderBoardUrl = process.env.NEXT_PUBLIC_LEADERBOARD_URL;
+        const leaderBoardUrl = process.env.LEADERBOARD_URL;
         const response = await axios.get(`${leaderBoardUrl}`)
         const data = response.data
         setLeaderBoardData(data)
@@ -132,7 +125,7 @@ const Quiz = () => {
 
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
-  const backendQuiz =  process.env.NEXT_PUBLIC_BACKEND_QUIZ;
+  const backendQuiz =  process.env.QUIZ_GENERATE;
   const token = localStorage.getItem("accessToken"); 
 setLoading(true)
 const response = await axios.post(
@@ -177,7 +170,7 @@ const response = await axios.post(
 
 const handleFinish = async (event?: React.FormEvent) => {
   event?.preventDefault();
-  const backendEval = process.env.NEXT_PUBLIC_BACKEND_EVALUATE;
+  const backendEval = process.env.QUIZ_EVALUATE;
   const token = localStorage.getItem("accessToken");
 
   if (!token) {
@@ -433,7 +426,5 @@ const handleFinish = async (event?: React.FormEvent) => {
     </>
   )
 }
-
-*/
 
 export default Quiz

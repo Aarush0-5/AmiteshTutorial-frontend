@@ -9,8 +9,8 @@ const Login = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
-  const [whereto, setWhereTo]= useState<boolean>(false); // controls choice popup
-  const [role, setRole] = useState<string | null>(null); // store role after login
+  const [whereto, setWhereTo]= useState<boolean>(false); 
+  const [role, setRole] = useState<string | null>(null); 
   const router = useRouter();
   
 
@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       setLoggingIn(true);
-      const backendPost= process.env.NEXT_PUBLIC_BACKEND_POST
+      const backendPost= process.env.LOGIN_POST
       const response = await axios.post( `${backendPost}`, {
         username,
         password,
@@ -39,14 +39,14 @@ const Login = () => {
         
         localStorage.setItem('accessToken', accessToken);
 
-        const backendGet = process.env.NEXT_PUBLIC_BACKEND_GET;
+        const backendGet = process.env.GET_ON_LOGIN;
         const userResponse = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         const roleFetched = userResponse.data.role;
         setRole(roleFetched);
 
-        // instead of redirecting immediately, show choice
+        
         setWhereTo(true);
       }
     } catch (error: unknown) {
