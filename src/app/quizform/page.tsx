@@ -57,8 +57,6 @@ const Quiz = () => {
   const [showLeaderBoard, setShowLeaderBoard]= useState<boolean>(true)
   const [leaderBoardData, setLeaderBoardData] = useState<LeaderboardData>([])
   const [syllabus, setSyllabus] = useState<SyllabusEntry[]>([]) 
-  const [syllabusIndex, setSyllabusIndex] = useState(0); 
-  const [activeTopic, setActiveTopic] = useState<string | null>(null);
   const [letEvaluate , setLetEvaluate]= useState<boolean>(false)
   const [guidelines, setGuidelines] = useState<boolean>(true)
   const router = useRouter();  
@@ -98,7 +96,6 @@ const Quiz = () => {
 
         const topics = data.find((s) => s.class === classLevel)?.topics || [];
         if (topics.length > 0) {
-          setActiveTopic(topics[0]);
         }
       } catch (error) {
         console.error("Error loading syllabus", error);
@@ -110,15 +107,7 @@ const Quiz = () => {
    const classTopics =
     syllabus.find((s) => s.class === classLevel)?.topics || [];
 
-   const completeTopic = () => {
-    if (currentIndex < classTopics.length - 1) {
-      const nextIndex = currentIndex + 1;
-      setCurrentIndex(nextIndex);
-      setActiveTopic(classTopics[nextIndex]);
-    } else {
-      setActiveTopic(null); // finished all topics
-    }
-  };
+   
 
 
  useEffect(() => {
@@ -158,7 +147,6 @@ const response = await axios.post(
     setGuidelines(false)
     setQuizStarted(true);
     setLoading(false)
-    setActiveTopic(false)
   }
   const duration = 36000;
  ;
