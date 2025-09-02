@@ -70,7 +70,7 @@ const Quiz = () => {
     }
     const fetchData = async () => {
       try {
-        const backendGet =  process.env.QUIZ_STUDENTS_GET;
+        const backendGet =  process.env.NEXT_PUBLIC_QUIZ_STUDENTS_GET;
         const response = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -112,7 +112,7 @@ const Quiz = () => {
  useEffect(() => {
     const fetchLeaderBoard = async () => {
       try{
-        const leaderBoardUrl = process.env.LEADERBOARD_URL;
+        const leaderBoardUrl = process.env.NEXT_PUBLIC_LEADERBOARD_URL;
         const response = await axios.get(`${leaderBoardUrl}`)
         const data = response.data
         setLeaderBoardData(data)
@@ -170,7 +170,7 @@ const response = await axios.post(
 
 const handleFinish = async (event?: React.FormEvent) => {
   event?.preventDefault();
-  const backendEval = process.env.QUIZ_EVALUATE;
+  const backendEval = process.env.NEXT_PUBLIC_QUIZ_EVALUATE;
   const token = localStorage.getItem("accessToken");
 
   if (!token) {

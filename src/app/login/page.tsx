@@ -39,7 +39,7 @@ const Login = () => {
         
         localStorage.setItem('accessToken', accessToken);
 
-        const backendGet = process.env.GET_ON_LOGIN ;
+        const backendGet = process.env.NEXT_PUBLIC_GET_ON_LOGIN ;
         const userResponse = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
