@@ -1,7 +1,13 @@
 'use client'
 
 
-import {useState, useEffect} from "react";
+const Quiz = () => {
+  return (
+    <h2>The page is under maintainance, Kindly visit after some time </h2>
+    )
+}
+
+/*import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useRouter} from "next/navigation"
 
@@ -427,5 +433,7 @@ const handleFinish = async (event?: React.FormEvent) => {
     </>
   )
 }
+
+*/
 
 export default Quiz
