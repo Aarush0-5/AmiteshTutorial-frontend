@@ -125,7 +125,7 @@ const Quiz = () => {
 
 const handleSubmit = async (event: React.FormEvent) => {
   event.preventDefault();
-  const backendQuiz =  process.env.QUIZ_GENERATE;
+  const backendQuiz =  process.env.NEXT_PUBLIC_QUIZ_GENERATE;
   const token = localStorage.getItem("accessToken"); 
 setLoading(true)
 const response = await axios.post(
