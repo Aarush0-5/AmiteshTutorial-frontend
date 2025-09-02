@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       setLoggingIn(true);
-      const backendPost= process.env.LOGIN_POST
+      const backendPost= process.env.NEXT_PUBLIC_LOGIN_POST
       const response = await axios.post( `${backendPost}`, {
         username,
         password,
@@ -39,14 +39,12 @@ const Login = () => {
         
         localStorage.setItem('accessToken', accessToken);
 
-        const backendGet = process.env.GET_ON_LOGIN;
+        const backendGet = process.env.GET_ON_LOGIN ;
         const userResponse = await axios.get(`${backendGet}`, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
         const roleFetched = userResponse.data.role;
         setRole(roleFetched);
-
-        
         setWhereTo(true);
       }
     } catch (error: unknown) {
