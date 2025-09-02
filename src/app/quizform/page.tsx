@@ -63,7 +63,7 @@ const Quiz = () => {
   const [guidelines, setGuidelines] = useState<boolean>(true)
   const router = useRouter();  
 
- /* useEffect(() => {
+ useEffect(() => {
     if (typeof window === "undefined") return;
     const token = localStorage.getItem('accessToken');
     if (!token) {
@@ -87,7 +87,7 @@ const Quiz = () => {
     };
 
     fetchData();
-  }, []);*/
+  }, []);
     
    useEffect(() => {
     const loadSyllabus = async () => {
