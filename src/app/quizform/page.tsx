@@ -58,6 +58,8 @@ const Quiz = () => {
   const [syllabus, setSyllabus] = useState<SyllabusEntry[]>([]) 
   const [letEvaluate , setLetEvaluate]= useState<boolean>(false)
   const [guidelines, setGuidelines] = useState<boolean>(true)
+  const [quotaAvailability, setQuotaAvailability] = useState<boolean>(false)
+  const [count, setCount]= useState<number>(0)
   const router = useRouter();  
 
  useEffect(() => {
@@ -165,7 +167,19 @@ const response = await axios.post(
   }
 }, [mode, quizStarted]);
 
+ useEffect(() => {
+    const checkMidnight = () => {
+      const now = new Date();
+      if (now.getHours() === 0 && now.getMinutes() === 0) {
+        setCount(0);
+        setQuotaAvailability(false)
+      }
+    };
 
+    const timer = setInterval(checkMidnight, 60 * 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
 
 const handleFinish = async (event?: React.FormEvent) => {
@@ -196,9 +210,13 @@ const handleFinish = async (event?: React.FormEvent) => {
     setQuizStarted(false);
     setEvaluated(true);
 
-
     if (response.status === 201) {
       setLetEvaluate(false);
+      setCount((prev) => prev + 1 ) 
+    }
+
+    if (count == 2 ) {
+      setQuotaAvailability(true)
     }
 
   } catch (error) {
@@ -240,7 +258,8 @@ const handleFinish = async (event?: React.FormEvent) => {
 
           <div className="lex text-white  flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className='mb-2 text-center font-bold'>General Guidelines</h2>
-            <p>2) Each chapter will have 40 questions </p>
+            <p>1) Each chapter will have 40 questions </p>
+            <p>2) Each students gets 2 quizes (80 questions) per day to maintain a smooth flow, make sure to read and answer each question you get everyday to get the best results </p>
           </div>
             
 
@@ -258,7 +277,7 @@ const handleFinish = async (event?: React.FormEvent) => {
             <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
               {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
             </button>
-            <button type="submit" className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading ? 'Getting Questions' : 'Bring it on'}</button>
+            <button type="submit" disabled={quotaAvailibilty} className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading ? 'Getting Questions' :'Bring it on'}</button>
             <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition" onClick={() => router.push('/')}>Home</button>
           </form>
           
