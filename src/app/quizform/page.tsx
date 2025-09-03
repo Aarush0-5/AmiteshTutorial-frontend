@@ -277,7 +277,7 @@ const handleFinish = async (event?: React.FormEvent) => {
             <button type="button" onClick={() => setMode(!mode)} className={`mt-2 px-4 py-2 rounded-lg shadow transition ${mode ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-600 hover:bg-gray-700'} text-white font-bold`}>
               {mode ? 'Exam Mode Enabled' : 'Enable Exam Mode'}
             </button>
-            <button type="submit" disabled={quotaAvailibilty} className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading ? 'Getting Questions' :'Bring it on'}</button>
+            <button type="submit" disabled={quotaAvailability} className="mt-4 px-4 py-2 bg-purple-700 rounded-lg shadow hover:bg-purple-800 transition">{loading ? 'Getting Questions' :'Bring it on'}</button>
             <button type="button" className="mt-2 px-4 py-2 border text-white rounded-lg hover:bg-white hover:text-black transition" onClick={() => router.push('/')}>Home</button>
           </form>
           
