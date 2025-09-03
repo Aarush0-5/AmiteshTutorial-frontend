@@ -212,11 +212,7 @@ const handleFinish = async (event?: React.FormEvent) => {
 
     if (response.status === 201) {
       setLetEvaluate(false);
-      setCount((prev) => prev + 1 ) 
-    }
-
-    if (count == 2 ) {
-      setQuotaAvailability(true)
+      setCount(prev => prev + 1 ) 
     }
 
   } catch (error) {
@@ -224,6 +220,13 @@ const handleFinish = async (event?: React.FormEvent) => {
     setLetEvaluate(false);
   }
 };
+
+  useEffect(() => {
+  if (count >= 2) {
+    setQuotaAvailability(true);
+  }
+}, [count]);
+
 
  
  useEffect(() => {
