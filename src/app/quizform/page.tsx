@@ -142,7 +142,6 @@ const response = await axios.post(
   if (response.status === 201) {
     const data = response.data;
     const cleanData= data.replace(/```json|```/g, '').trim();
-    console.log(cleanData, typeof )
     setQuestions(JSON.parse(cleanData))
     setForm(false)
     setShowLeaderBoard(false)
