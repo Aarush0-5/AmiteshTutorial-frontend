@@ -142,6 +142,7 @@ const response = await axios.post(
   if (response.status === 201) {
     const data = response.data;
     const cleanData= data.replace(/```json|```/g, '').trim();
+    console.log(cleanData, typeof )
     setQuestions(JSON.parse(cleanData))
     setForm(false)
     setShowLeaderBoard(false)
@@ -258,14 +259,6 @@ const handleFinish = async (event?: React.FormEvent) => {
       <h2 className="text-white font-extrabold text-4xl mb-6">Hello, {username || 'Guest'}</h2>
       {form && showLeaderBoard && guidelines &&(
         <div className="flex flex-col lg:flex-row gap-20 w-full max-w-6xl justify-center items-start">
-
-          <div className="lex text-white  flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
-            <h2 className='mb-2 text-center font-bold'>General Guidelines</h2>
-            <p>1) Each chapter will have 40 questions </p>
-            <p>2) Each students gets 2 quizes (80 questions) per day to maintain a smooth flow, make sure to read and answer each question you get everyday to get the best results </p>
-          </div>
-            
-
           <form onSubmit={handleSubmit} className="flex text-black flex-col gap-4 border p-8 rounded-2xl bg-black/50 backdrop-blur-md shadow-lg w-full max-w-md">
             <h2 className="text-white font-semibold text-2xl text-center">Welcome to the Quiz Section</h2>
             <label className="text-white">Choose Topic</label>

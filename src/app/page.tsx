@@ -41,16 +41,20 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  return (
-    <>
+return (
+  <>
+    {/* Page Metadata */}
     <Head>
       <title>Amitesh Tutorials</title>
-      <meta name="description" content="The home page of amitesh tutorials: coaching/tutorials in lucknow"/>
-      <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials"/>
-     
+      <meta name="description" content="A dedicated coaching center committed to nurturing the minds of young learners." />
+      <meta name="keywords" content="Coaching, Tutorials, Study, Amitesh Tutorials, Lucknow, Education" />
     </Head>
-    <div className='bg-blue-600'>
-      {showPopUp && (
+
+    {/* Main Container with Gradient Background */}
+    <div className="bg-gradient-to-br from-blue-900 to-indigo-900 min-h-screen text-white font-sans overflow-x-hidden">
+
+    {/* Modern Pop-up Modal */}
+        {showPopUp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div
             ref={popupRef}
@@ -67,263 +71,274 @@ const Home: React.FC = () => {
         </div>
       )}
 
-      <div>
-        <header className="bg-blue-800 text-white flex flex-col items-center p-3 text-xl lg:flex-row lg:text-xl ">
-          <div className="w-full flex justify-center items-center lg:justify-between">
-            <Image
-              src="/logo.jpg"
-              alt="logo"
-              className="hidden lg:block lg:w-1/6 h-auto"
-              width={767}
-              height={816}
-            />
-            <div className="flex flex-row justify-center items-center">
-              <Link
-                href="/login"
-                className="mr-4 hover:text-yellow-400 hover:underline hover:underline-offset-8 font-serif whitespace-nowrap"
-              >
-                Student Portal
-              </Link>
 
-              <a href="https://www.instagram.com/amiteshtutorials/">
-                <Image
-                  src="/instagramm.png"
-                  alt="instas logo"
-                  width={50}
-                  height={50}
-                  className="mr-2 lg:hidden"
-                />
-              </a>
-        <nav className= "hidden lg:flex gap-3">
-        {routes.map(route => (
-          <Link key={route.href} href={route.href} className="text-white hover:text-yellow-400 hover:underline hover:underline-offset-8">
-            {route.name}
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-xl sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.jpg" alt="Amitesh Tutorials Logo" width={70} height={70}  />
+            <span className="font-bold text-2xl lg:text-3xl text-yellow-300 gap-8">AMITESH TUTORIALS</span>
           </Link>
-        ))}
-      </nav>
 
-      <div className= "lg:hidden" >
-        <button onClick={toggleRoutes} className="p-2">
-          {showroutes ? <X className="w-6 h-6" /> : <MoreVertical className="w-6 h-6" />}
-        </button>
-
-        {showroutes && (
-          <div className="absolute right-4 top-14 bg-blue-700 shadow-lg rounded-lg p-4 w-48 z-50 flex flex-col gap-2">
+          {/* Navigation - Desktop */}
+          <nav className="hidden lg:flex items-center gap-6">
             {routes.map(route => (
-              <Link
-                key={route.href}
-                href={route.href}
-                onClick={() => setShowRoutes(false)}
-                className="text-white hover:text-yellow-500 px-2 py-1 rounded"
-              >
+              <Link key={route.href} href={route.href} className="text-white hover:text-yellow-400 font-medium text-lg transition duration-300 relative group">
                 {route.name}
+                <span className="absolute left-0 bottom-0 w-full h-0.5 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
+            <Link href="/login" className="bg-white text-blue-800 px-5 py-2 rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              Student Portal
+            </Link>
+            <a href="https://www.instagram.com/amiteshtutorials/" className="hidden lg:block">
+              <Image src="/instagramm.png" alt="Instagram" width={32} height={32} className="rounded-full hover:scale-110 transition duration-300" />
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden relative">
+            <button onClick={toggleRoutes} className="p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition">
+              {showroutes ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              )}
+            </button>
+            {showroutes && (
+              <div className="absolute right-0 top-12 bg-blue-800 bg-opacity-95 shadow-2xl rounded-xl p-4 w-48 z-50 flex flex-col gap-3 animate-fade-in-down">
+                {routes.map(route => (
+                  <Link
+                    key={route.href}
+                    href={route.href}
+                    onClick={() => setShowRoutes(false)}
+                    className="text-white hover:text-yellow-400 font-semibold px-2 py-1 rounded-lg transition"
+                  >
+                    {route.name}
+                  </Link>
+                ))}
+                <Link href="/login" className="bg-white text-blue-800 px-3 py-2 rounded-full font-bold text-center mt-2">
+                  Student Portal
+                </Link>
+                <a href="https://www.instagram.com/amiteshtutorials/" className="flex justify-center mt-2">
+                  <Image src="/instagramm.png" alt="Instagram" width={32} height={32} className="rounded-full" />
+                </a>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      <a href="https://www.instagram.com/amiteshtutorials/">
-          <Image
-            src="/instagramm.png"
-            alt="instas logo"
-            width={50}
-            height={50}
-            className="lg:ml-2 hidden lg:block"
-          />
-      </a>
-    </div>
-          </div>
-        </header>
+        </div>
+      </header>
 
-        <main>
-          <div className="flex flex-row gap-x-6 ">
-            <Image
-            src="/logo.jpg"
-            alt="logo"
-            className="lg:hidden w-1/4"
-            width={50}
-            height={100}
-          />
-          <div className="flex lg:hidden flex-col justify-center items-center" >
-             <h2 className="text-xl underline underline-offset-4 font-bold text-yellow-300">AMITESH TUTORIALS</h2>
-             <p className="text-white font-semibold">Manas Garden, Uttardhona</p>
-          </div>
-          </div>
-          
-
-       <div className='hidden lg:block'>
-       <Image
-        src="/centerimage.jpg"
-        alt="Centre Display"
-        layout="responsive"
-        width={100}
-        height={50}
-    
-        />
-      </div>
-
-
-          <div className=" border border-black border-solid bg-white mb-5">
-            <HorizontalScrollCarousel />
-          </div>
-
-          <h2 className="text-center bg-blue-600 text-white font-serif lg:text-black p-3 underline underline-offset-8 font-bold text-2xl lg:text-3xl">
-            Welcome to Amitesh Tutorials
-          </h2>
-
-          <p className="text-center bg-blue-600 text-white font-mono lg:text-black p-3  font-semibold text-xl lg:text-2xl">
-            A dedicated coaching center committed to nurturing the minds of
-            young learners. Our mission is to provide high-quality educational
-            guidance tailored to meet each students unique needs and
-            aspirations.
+      {/* Main Content Sections */}
+      <main className="max-w-7xl mx-auto px-4 py-12 space-y-16 lg:space-y-24">
+        {/* Hero Section */}
+        <section className="text-center space-y-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white animate-fade-in-up">
+            <span className="text-yellow-300">Nurturing Minds</span> for a Brighter Future
+          </h1>
+          <p className="text-lg md:text-xl font-light max-w-3xl mx-auto text-blue-200 animate-fade-in-up delay-100">
+            A dedicated coaching center committed to providing high-quality educational guidance tailored to meet each student's unique needs and aspirations.
           </p>
-
-          <div className="p-5 text-white bg-blue-600 flex flex-col mt-5">
-            <h2 className="font-bold text-3xl lg:text-4xl underline underline-offset-4 font-serif text-black text-center mb-3">
-              Programs Offered
-            </h2>
-            <div className="flex flex-col text-center gap-x-3 p-5 h-1/3 lg:flex-row ">
-              <div className="border border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Individual Tutoring
-                </h2>
-                <p className=" text-xl lg:text-2xl">
-                  Tailored one-on-one sessions to address specific learning
-                  needs.
-                </p>
-              </div>
-              <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Group Classes
-                </h2>
-                <p className="text-xl lg:text-2xl">
-                  Interactive classes encouraging peer learning and
-                  collaboration.
-                </p>
-              </div>
-              <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Exam Preparation
-                </h2>
-                <p className="text-xl lg:text-2xl">
-                  Focused coaching for competitive exams and school assessments
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="p-5 text-white bg-blue-600 flex flex-col mb-5">
-            <h2 className="font-bold text-3xl lg:text-4xl underline underline-offset-4 text-black text-center mb-3 font-serif">
-              Key features
-            </h2>
-            <div className="flex flex-col text-center gap-x-3 p-5 lg:flex-row ">
-              <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Personalized Learning Plans
-                </h2>
-                <p className="text-xl lg:text-2xl">
-                  Customized programs based on individual assessments.
-                </p>
-              </div>
-              <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Regular Progress Tracking
-                </h2>
-                <p className="text-xl lg:text-2xl">
-                  Frequent evaluations to monitor student development.
-                </p>
-              </div>
-              <div className="border  border-black transition-transform duration-300 ease-in-out transform hover:scale-110 hover:border-white border-r-4 p-5 bg-white text-black  hover:bg-black hover:text-white">
-                <h2 className="text-2xl lg:text-3xl mb-4 hover:underline hover:underline-offset-4 font-serif">
-                  Interactive Learning Environment
-                </h2>
-                <p className="text-xl lg:text-2xl">
-                  Utilizing modern teaching methods and technology
-                </p>
-              </div>
-            </div>
-          </div> 
-
-          <div className="flex flex-col md:flex-row justify-center items-center 
-                      space-y-4 md:space-y-0 md:space-x-6 
-                      p-4 sm:p-8
-                      max-w-full overflow-hidden mx-auto">
-            <a 
-              href="/prospectus.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="View Prospectus in a new tab"
-              className="block w-full md:w-auto text-center 
-                    px-6 py-3 sm:px-8 sm:py-4 bg-indigo-600 text-white text-xl font-semibold rounded-lg shadow-lg 
-                    hover:bg-indigo-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 
-                    focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              Prospectus
-            </a>
-            <a 
-              href="/timeschedule.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="View Timeschedule in a new tab"
-              className="block w-full md:w-auto text-center 
-                    px-6 py-3 sm:px-8 sm:py-4 bg-teal-600 text-white text-xl font-semibold rounded-lg shadow-lg 
-                    hover:bg-teal-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 
-                    focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50"
-            >
-              Timeschedule
-            </a>
-          </div>
-
-
-          <div className="bg-blue-600 mb-5 p-10"> 
-            <h2 className=" text-2xl lg:text-4xl text-center mb-6 font-semibold"> We are also partnered with <span className=" whitespace-nowrap font-bold underline underline-offset-8 font-serif"> Swastic Charitable Trust </span> </h2>
-            <div className="flex flex-col lg:flex-row">
-              <div className="h-2/4 w-2/4 flex justify-center items-center mx-auto lg:mx-0"> 
-                <Image src="/trust.jpg" alt="Trust's logo" height={197} width={199} layout="intrinsic" />
-              </div>
-              <div className="text-xl lg:text-2xl">
-                <p className="p-5 font-semibold">
-                  Swastic charitable trust is a public registered NGO under the Indian trust act 1882 which primarily focuses on child development, education and literacy, SHGs, rural development and women development and empowerment
-                </p> 
-                <Link className="flex justify-center" href ="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#">To know more, Click here</Link>
-              </div>
-            </div> 
-          </div>
-          <div className="bg-blue-600 ">
-            <h2 className="text-center underline underline-offset-4 text-4xl font-bold font-serif mt-6">
-              Announcements!{" "}
-            </h2>
-            <div className=" p-4 ">
-              <HorizontalScrollCarouselAnnoucement />
-            </div>
-          </div>
-
-          <div className="  flex justify-center text-2xl p-10">
+          <div className="mt-8 flex justify-center gap-4">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSfUrEphFuLz7JLLdcnKIjPHhG2eoH7qzCRKg7A848MJgkfuXg/viewform"
-              className=" flex justify-center p-3 bg-red-600 lg:w-1/6 hover:underline hover:text-white"
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg text-lg transition-all duration-300 transform hover:scale-105"
             >
               ENROLL NOW
             </a>
+            <a
+              href="/prospectus.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg text-lg transition-all duration-300 transform hover:scale-105"
+            >
+              Download Prospectus
+            </a>
           </div>
-        </main>
+        </section>
 
-        <footer className="text-black font-semibold text-xl">
-          <div className="flex flex-col lg:flex-row justify-between p-3 bg-gray-600">
-            <div className="text-center">
-              <h2>REGISTERED BRANCH:</h2>
-              <a href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5"> Near BBD UNIVERSITY,</a> 
-              <p>LUCKNOW</p> 
-              </div> 
-              <div className="flex flex-col justify-center items-center"> 
-                <p>📞: 6393169296</p> 
-                <p>📧: amiteshtutorials@gmail.com</p> 
-                </div> 
-              </div> 
-              <h2 className="text-center bg-gray-800 text-white p-4">&copy; Amitesh tutorials 2025</h2>
-               </footer> 
-            </div> 
-        </div> 
-       </> ) }
+        {/* Carousel Section */}
+        <section className="rounded-3xl shadow-2xl p-6 bg-white transform translate-y-2 animate-fade-in-up">
+          <HorizontalScrollCarousel />
+        </section>
+        
+{/* Programs Offered */}
+<section className="space-y-8 animate-fade-in-up">
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-white">Our Programs</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+            {
+                title: "Individual Tutoring",
+                desc: "Tailored one-on-one sessions to address specific learning needs.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <circle cx="12" cy="8" r="5"></circle>
+                        <path d="M20 21a8 8 0 0 0-16 0"></path>
+                    </svg>
+                ),
+            },
+            {
+                title: "Group Classes",
+                desc: "Interactive classes encouraging peer learning and collaboration.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                ),
+            },
+            {
+                title: "Exam Preparation",
+                desc: "Focused coaching for competitive exams and school assessments.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path>
+                        <path d="M12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"></path>
+                        <path d="M12 12v6"></path>
+                    </svg>
+                ),
+            },
+        ].map((item, idx) => (
+            <div
+                key={idx}
+                className="bg-white text-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300 flex flex-col items-center text-center"
+            >
+                <div className="mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-base text-gray-600">{item.desc}</p>
+            </div>
+        ))}
+    </div>
+</section>
+
+
+{/* Key Features */}
+<section className="space-y-8 animate-fade-in-up">
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-white">Key Features</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+            {
+                title: "Personalized Learning Plans",
+                desc: "Customized programs based on individual assessments.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                ),
+            },
+            {
+                title: "Regular Progress Tracking",
+                desc: "Frequent evaluations to monitor student development.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                ),
+            },
+            {
+                title: "Interactive Learning Environment",
+                desc: "Utilizing modern teaching methods and technology.",
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                ),
+            },
+        ].map((item, idx) => (
+            <div
+                key={idx}
+                className="bg-white text-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-transform transform hover:-translate-y-2 duration-300 flex flex-col items-center text-center"
+            >
+                <div className="mb-4">{item.icon}</div>
+                <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-base text-gray-600">{item.desc}</p>
+            </div>
+        ))}
+    </div>
+</section>
+        {/* Announcements */}
+        <section className="space-y-6 animate-fade-in-up">
+          <h2 className="text-4xl font-bold text-center text-yellow-300">Latest Announcements</h2>
+          <div className="bg-white rounded-3xl shadow-2xl p-6">
+            <HorizontalScrollCarouselAnnoucement />
+          </div>
+        </section>
+
+        {/* Swastic Trust Section */}
+        <section className="bg-blue-800 rounded-3xl p-8 shadow-2xl space-y-6 animate-fade-in-up">
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            <Image src="/trust.jpg" alt="Swastic Charitable Trust Logo" height={200} width={200} className="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300" />
+            <div className="text-white text-center lg:text-left space-y-4">
+              <h2 className="text-3xl font-semibold">
+                We are proud to partner with <span className="font-extrabold text-yellow-300">Swastic Charitable Trust</span>
+              </h2>
+              <p className="text-lg font-light text-blue-100">
+                Swastic Charitable Trust is a registered NGO focused on child development, education, rural upliftment, and women empowerment. Our partnership strengthens our commitment to community well-being.
+              </p>
+              <Link href="https://www.instagram.com/ngo_swastic/?igsh=MWlzZmE0MGJ3bXd0eA%3D%3D#" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 transform hover:scale-105">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Timeschedule */}
+        <div className="text-center animate-fade-in-up">
+          <a
+            href="/timeschedule.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-blue-800 px-8 py-3 rounded-full font-bold shadow-lg text-lg transition-all duration-300 transform hover:scale-105"
+          >
+            Download Timeschedule
+          </a>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-300 mt-16 p-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          {/* Logo & Slogan */}
+          <div className="flex flex-col items-center md:items-start space-y-4">
+            <Image src="/logo.jpg" alt="Amitesh Tutorials Logo" width={80} height={80} className="rounded-full" />
+            <p className="text-blue-200 text-sm">Empowering students, one lesson at a time.</p>
+          </div>
+          {/* Contact Info */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-white text-lg mb-2">Contact Us</h3>
+            <p className="flex items-center justify-center md:justify-start gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2 2A18.06 18.06 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2 11.23 11.23 0 0 0 5 10c-.79.79-1.58 1.58-2.37 2.37a2 2 0 0 0-.29 2.11z"></path></svg> 6393169296</p>
+            <p className="flex items-center justify-center md:justify-start gap-2 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> amiteshtutorials@gmail.com</p>
+          </div>
+          {/* Location & Social */}
+          <div className="space-y-2">
+            <h3 className="font-semibold text-white text-lg mb-2">Location</h3>
+            <a href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5" className="flex items-center justify-center md:justify-start gap-2 text-sm text-blue-400 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Near BBD University, Lucknow
+            </a>
+          </div>
+        </div>
+        <div className="mt-8 pt-4 border-t border-gray-700 text-center text-sm text-gray-500">
+          © Amitesh Tutorials 2025. All Rights Reserved.
+        </div>
+      </footer>
+    </div>
+  </>
+);
+
+}
 
   export default Home;

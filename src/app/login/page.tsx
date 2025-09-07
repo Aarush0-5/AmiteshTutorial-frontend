@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import Head from "next/head"
+import Image from 'next/image'
 
 const Login = () => {
   const [username, setUsername] = useState<string>('');
@@ -75,77 +76,101 @@ const Login = () => {
     }
   };
 
-  return (
-    <> 
-    <Head>
-          <title>LogIn</title>
-          <meta name="description" content="The login page of amitesh tutorials: coaching/tutorials in lucknow"/>
-          <meta name="keywords" content="Coaching, coaching, Tutorials, tutorials, study , amitesh tutorials, AmiteshTutorials, Amitesh tutorials, login"/>
-    </Head>
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-blue-600">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md transition-transform transform hover:scale-105"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          LogIn
-        </h2>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="username">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={loggingIn}
-          className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-        >
-          {loggingIn ? "Logging in..." : "Login"}
-        </button>
-      </form>
+return (
+    <>
+      <Head>
+        <title>Login | Amitesh Tutorials</title>
+        <meta name="description" content="The login page of Amitesh Tutorials: coaching/tutorials in Lucknow" />
+        <meta name="keywords" content="Coaching, tutorials, study, Amitesh Tutorials, login" />
+      </Head>
 
-      {whereto && (
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h3 className="text-lg font-semibold mb-4">Where do you want to go?</h3>
-            <div className="flex gap-4 justify-center">
-              <button
-                onClick={() => goTo("dashboard")}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-              >
-                Dashboard
-              </button>
-              <button
-                onClick={() => goTo("quizform")}
-                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
-              >
-                Quiz
-              </button>
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-700 to-blue-900 p-4">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md transition-all duration-500 ease-in-out transform hover:scale-105 border border-blue-100 animate-fade-in-up"
+        >
+          <div className="text-center mb-8">
+         
+             <Image src="/logo.jpg" alt="Logo" width={80} height={80} className="mx-auto mb-4" /> 
+            <h2 className="text-4xl font-extrabold text-gray-900">Welcome Back!</h2>
+            <p className="text-gray-600 mt-2">Sign in to continue</p>
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="username">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-gray-800"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+
+          <div className="mb-8">
+            <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-gray-800"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loggingIn}
+            className={`w-full py-3 px-4 rounded-lg font-bold text-white shadow-lg transition-all duration-300 ease-in-out
+              ${loggingIn
+                ? 'bg-blue-400 cursor-not-allowed'
+                : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+              }`}
+          >
+            {loggingIn ? (
+              <span className="flex items-center justify-center">
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Logging in...
+              </span>
+            ) : (
+              "Login"
+            )}
+          </button>
+        </form>
+
+        {whereto && (
+          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 animate-fade-in">
+            <div className="bg-white p-8 rounded-xl shadow-xl text-center max-w-sm w-full animate-scale-up">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Where do you want to go?</h3>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => goTo("dashboard")}
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => goTo("quizform")}
+                  className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+                >
+                  Quiz
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-   
+        )}
+      </div>
     </>
   );
 };
