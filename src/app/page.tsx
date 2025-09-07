@@ -6,7 +6,7 @@ import HorizontalScrollCarousel from "./components/imageslider";
 import HorizontalScrollCarouselAnnoucement from "./components/announcementslider";
 import Image from "next/image";
 import Head from "next/head";
-import {MoreVertical , X} from "lucide-react"
+
 
 const Home: React.FC = () => {
   const [showPopUp, setShowPopUp] = useState(true);
