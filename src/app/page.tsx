@@ -53,47 +53,37 @@ const Home: React.FC = () => {
       </Head>
 
       <div className="bg-gradient-to-br from-blue-900 to-indigo-900 min-h-screen text-white font-sans overflow-x-hidden">
-        {/* Modern Pop-up Modal */}
-        {showPopUp && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-in-out">
-            <div
-              ref={popupRef}
-              className="bg-white p-6 rounded-3xl shadow-2xl transform scale-95 md:scale-100 transition-transform duration-500 ease-in-out max-w-lg w-full relative max-h-[90vh] text-gray-900"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowPopUp(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors duration-300 z-10"
-                aria-label="Close"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '450 / 400' }}>
-                <Image
-                  src="/popUpp1.jpg"
-                  alt="Popup Image: Amitesh Tutorials Announcement"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                  className="rounded-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        )}
+        
 
+        {showPopUp && (
+
+ <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+
+<div
+
+ ref={popupRef}
+
+className="bg-white border border-black p-2 rounded-lg shadow-lg overflow-auto"
+
+ >
+
+ <Image
+ src="/popUpp1.jpg"
+
+alt="Popup Image"
+
+ width={450}
+
+height={400}
+className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
+
+/>
+
+ </div>
+
+</div>
+
+)}
         {/* Header */}
         <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-xl sticky top-0 z-40">
           <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
@@ -220,7 +210,7 @@ const Home: React.FC = () => {
               <span className="text-yellow-300">Nurturing Minds</span> for a Brighter Future
             </h1>
             <p className="text-lg md:text-xl font-light max-w-3xl mx-auto text-blue-200 animate-fade-in-up delay-100">
-              A dedicated coaching center committed to providing high-quality educational guidance tailored to meet each student's unique needs and aspirations.
+              A dedicated coaching center committed to providing high-quality educational guidance tailored to meet each students unique needs and aspirations.
             </p>
             <div className="mt-8 flex justify-center gap-4">
               <a
