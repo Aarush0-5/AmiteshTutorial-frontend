@@ -48,7 +48,7 @@ const About: React.FC = () => {
         <section className="bg-white text-gray-800 rounded-3xl shadow-2xl p-8 animate-fade-in-up delay-100">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-6">Meet The Founder</h2>
           <div className="flex flex-col lg:flex-row items-center gap-8 bg-yellow-400">
-            <Image src="/founder.jpg" alt="Photo of Amitesh Tripathi, the founder" width={400} height={400} className="w-full lg:w-1/3 h-auto rounded-2xl shadow-lg" />
+            <Image src="/founder2.1.png" alt="Photo of Amitesh Tripathi, the founder" width={400} height={400} className="w-full lg:w-1/3 h-auto rounded-2xl shadow-lg" />
             <div className="flex flex-col space-y-4 text-center lg:text-left">
               <p className="font-semibold text-lg md:text-xl leading-relaxed">
                 Founded by Amitesh Tripathi, an experienced educator with a passion for teaching, Amitesh Tutorials offers specialized coaching in various subjects, including Mathematics, Science, and English. Our team of qualified instructors brings a wealth of knowledge and experience, ensuring that students receive the best possible support on their academic journey.

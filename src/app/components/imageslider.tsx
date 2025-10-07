@@ -36,7 +36,8 @@ const HorizontalScrollCarousel: React.FC = () => {
       className="overflow-hidden flex lg:space-x-4"
       style={{ scrollBehavior: 'smooth', width: '100%' }}
     >
-      <Image src="/gallery/sd2510.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/gallery/sd2510.jpg" alt="Image 2" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/images/pic10.jpg" alt="Image 3" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic4.jpg" alt="Image 4" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic8.jpg" alt="Image 5" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
        <Image src="/gallery/sd255.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>

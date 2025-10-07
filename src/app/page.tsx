@@ -106,7 +106,7 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
     {/* Right-aligned content: Mobile Menu Button and Desktop Nav */}
     <div className="flex items-center justify-end"> {/* Use flexbox to align items to the right */}
       {/* Navigation - Desktop (remains the same) */}
-      <nav className="hidden lg:flex items-center gap-6">
+      <nav className="hidden lg:flex items-center gap-4">
         {routes.map((route) => (
           <Link
             key={route.href}
@@ -135,6 +135,18 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
             className="rounded-full hover:scale-110 transition duration-300"
           />
         </a>
+        <a
+              href="https://www.youtube.com/@Amiteshtutorialslive/videos"
+              className="hidden lg:block"
+            >
+              <Image
+                src="/youtube.png"
+                alt="youtube"
+                width={32}
+                height={32}
+                className="rounded-full hover:scale-110 transition duration-300"
+              />
+            </a>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -206,6 +218,18 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
                 className="rounded-full"
               />
             </a>
+            <a
+              href="https://www.youtube.com/@Amiteshtutorialslive/videos"
+              className="flex justify-center mt-2"
+            >
+              <Image
+                src="/youtube.png"
+                alt="youtube"
+                width={32}
+                height={32}
+                className="rounded-full"
+              />
+            </a>
           </div>
         )}
       </div>
@@ -215,7 +239,6 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
         
         {/* Main Content Sections */}
         <main className="max-w-7xl mx-auto px-4 py-12 space-y-16 lg:space-y-24">
-          {/* Hero Section */}
           <section className="text-center space-y-4">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white animate-fade-in-up">
               <span className="text-yellow-300">Nurturing Minds</span> for a Brighter Future
@@ -239,6 +262,15 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
                 Download Prospectus
               </a>
             </div>
+          </section>
+          <section className="mb-0 rounded-3xl shadow-2xl p-6 bg-white transform translate-y-2 animate-fade-in-up">
+            <Image
+              src="/images/pic9.jpg"
+              alt="Classroom"
+              width={1200}
+              height={100}
+              className="w-full h-auto rounded-2xl shadow-lg"
+            />
           </section>
 
           {/* Carousel Section */}
@@ -381,9 +413,79 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
                     </svg>
                   ),
                 },
+                 {
+                  title: "Air Conditioned Classroom",
+                  desc: "Providing a comfortable learning atmosphere.",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-blue-600"
+                    >
+                      <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path>
+                      <path d="M12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"></path>
+                      <path d="M12 12v6"></path>
+                    </svg>
+                  ),
+                },
                 {
                   title: "Interactive Learning Environment",
                   desc: "Utilizing modern teaching methods and technology.",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-blue-600"
+                    >
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  ),
+                },
+                 {
+                  title: "Practical Experiments",
+                  desc: "Hands-on learning to reinforce theoretical concepts.",
+                  icon: (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-blue-600"
+                    >
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                  ),
+                },
+                 {
+                  title: "Experiential Learning",
+                  desc: "Learning through real-world experiences and activities.",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
