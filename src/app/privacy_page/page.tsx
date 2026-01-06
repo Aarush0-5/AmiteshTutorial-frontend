@@ -3,11 +3,11 @@ import React from "react";
 
 export default function PrivacyPage() {
   return (
-    <main style={{ padding: "2rem", maxWidth: "800px", margin: "auto" }}>
+    <main className="max-w-3xl mx-auto p-6 space-y-6 text-gray-800 bg-white">
       <h1>Privacy Policy</h1>
 
       <p>
-        Welcome to <strong>XYZ Tutorials</strong>. Your privacy is important to us. This
+        Welcome to <strong>Amitesh Tutorials</strong>. Your privacy is important to us. This
         page explains what data we collect and how we use it.
       </p>
 
