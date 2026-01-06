@@ -42,7 +42,6 @@ const Home: React.FC = () => {
     <>
       <Head>
         <title>Amitesh Tutorials</title>
-        <meta name="google-site-verification" content="Qi0A94H9ZZKhlBdkyDOaWK-wS8sKffBC2kV4iEmN3nw" />
         <meta
           name="description"
           content="A dedicated coaching center committed to nurturing the minds of young learners."
