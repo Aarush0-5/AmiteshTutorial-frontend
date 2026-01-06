@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from "nextjs-google-analytics";
 
 
 const geistSans = Geist({
@@ -40,7 +39,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics trackPageViews gaMeasurementId="G-EY5VNFQ0X2" />
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY5VNFQ0X2"></script>
+        <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-EY5VNFQ0X2');
+           </script>
         {children}
       </body>
     </html>
