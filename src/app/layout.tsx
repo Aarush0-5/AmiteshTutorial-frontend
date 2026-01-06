@@ -39,14 +39,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EY5VNFQ0X2"></script>
-        <script>
-           window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);}
-           gtag('js', new Date());
-           gtag('config', 'G-EY5VNFQ0X2');
-           </script>
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EY5VNFQ0X2');
+    `,
+  }}
+/>
         {children}
       </body>
     </html>
