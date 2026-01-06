@@ -36,6 +36,7 @@ const Contact: NextPage = () => {
           </div>
 
           <Link className="flex justify-center hover:text-red-600" href="/">HOME</Link>
+          <Link className="flex justify-center hover:text-red-600" href="/privacy_page">Privacy Policy</Link>
         </div>
       </div>
     </div>
