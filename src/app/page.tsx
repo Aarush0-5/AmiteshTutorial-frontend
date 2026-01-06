@@ -638,7 +638,7 @@ className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
               </a>
             </div>
           </div>
-          <div className="mt-8 pt-4 gap-4 border-t border-gray-700 text-center text-sm text-gray-500">
+          <div className="mt-8 pt-4 flex justify-between border-t border-gray-700 text-center text-sm text-gray-500">
             © Amitesh Tutorials 2026. All Rights Reserved.
             <Link href="/privacy_page">Privacy Policy</Link>
           </div>
