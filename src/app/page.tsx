@@ -56,33 +56,29 @@ const Home: React.FC = () => {
         
 
         {showPopUp && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div
+      ref={popupRef}
+      className="relative bg-white border border-black p-2 rounded-lg shadow-lg overflow-auto"
+    >
+      {/* Close Button */}
+      <button
+        onClick={() => setShowPopUp(false)}
+        className="absolute top-2 right-2 text-red-600 hover:text-black text-3xl font-bold leading-none z-10 p-1"
+        aria-label="Close"
+      >
+        &times;
+      </button>
 
- <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-
-<div
-
- ref={popupRef}
-
-className="bg-white border border-black p-2 rounded-lg shadow-lg overflow-auto"
-
- >
-
- <Image
- src="/popUpp1.jpg"
-
-alt="Popup Image"
-
- width={450}
-
-height={400}
-className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
-
-/>
-
- </div>
-
-</div>
-
+      <Image
+        src="/popUpp1.jpg"
+        alt="Popup Image"
+        width={450}
+        height={400}
+        className="w-auto h-auto max-h-[85vh] max-w-[90vw]"
+      />
+    </div>
+  </div>
 )}
         {/* Header */}
       <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-xl sticky top-0 z-40">
