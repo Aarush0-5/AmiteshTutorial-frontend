@@ -40,12 +40,15 @@ const FlashcardFilterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
+    <div className="flex flex-col  bg-gray-100 font-sans">
       <header className="bg-white shadow-sm p-4 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.jpg" alt="Logo" width={40} height={40} className="rounded-full" />
             <span className="font-bold text-xl text-blue-800">AMITESH TUTORIALS</span>
+          </Link>
+          <Link href="/" className="hover:text-red-600 text-black">
+          Home
           </Link>
         </div>
       </header>

@@ -18,12 +18,16 @@ const Flashcard = ({ question, answer }: { question: string; answer: string }) =
           </h2>
           <p className="mt-4 text-sm text-gray-400">Click to reveal answer</p>
         </div>
-        <div className="absolute w-full h-full backface-hidden bg-blue-600 text-white rounded-2xl flex flex-col items-center justify-center p-8 my-rotate-y-180 shadow-inner overflow-y-auto">
-          <span className="text-blue-200 font-bold uppercase tracking-widest text-xs mb-2">Answer</span>
-          <p className="text-base leading-relaxed text-center">
-            {answer}
-          </p>
-        </div>
+                  <div className="absolute w-full h-full backface-hidden bg-blue-600 text-white rounded-2xl flex flex-col items-center justify-start p-6 my-rotate-y-180 shadow-inner">
+            <span className="text-blue-200 font-bold uppercase tracking-widest text-[10px] mb-2 sticky top-0 bg-blue-600 w-full text-center pb-2">
+              Answer
+            </span>
+            <div className="overflow-y-auto w-full pr-1 custom-scrollbar">
+              <p className="text-sm md:text-base leading-relaxed text-center whitespace-pre-line">
+                {answer}
+              </p>
+            </div>
+          </div>
 
       </div>
     </div>

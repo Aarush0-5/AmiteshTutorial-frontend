@@ -80,28 +80,25 @@ const Home: React.FC = () => {
     </div>
   </div>
 )}
-        {/* Header */}
+
       <header className="bg-gradient-to-r from-blue-800 to-indigo-900 shadow-xl sticky top-0 z-40">
-  {/* Main Container - Adjusted for mobile grid layout */}
+
   <div className="max-w-7xl mx-auto p-4 grid grid-cols-3 items-center lg:flex lg:justify-between">
 
-    {/* Left-aligned content: Logo */}
     <div className="flex items-center justify-start">
       <Link href="/" className="flex items-center gap-2">
         <Image src="/logo.jpg" alt="Amitesh Tutorials Logo" width={70} height={70} />
       </Link>
     </div>
 
-    {/* Center-aligned content: Title */}
     <div className="flex items-center justify-center">
       <span className="font-bold ml-5 lg:ml-0 text-3xl lg:text-3xl text-yellow-300">
         AMITESH TUTORIALS
       </span>
     </div>
 
-    {/* Right-aligned content: Mobile Menu Button and Desktop Nav */}
-    <div className="flex items-center justify-end"> {/* Use flexbox to align items to the right */}
-      {/* Navigation - Desktop (remains the same) */}
+    <div className="flex items-center justify-end"> 
+     
       <nav className="hidden lg:flex items-center gap-4">
         {routes.map((route) => (
           <Link
@@ -145,7 +142,6 @@ const Home: React.FC = () => {
             </a>
       </nav>
 
-      {/* Mobile Menu Button */}
       <div className="lg:hidden relative">
         <button
           onClick={toggleRoutes}
@@ -233,7 +229,6 @@ const Home: React.FC = () => {
   </div>
 </header>
         
-        {/* Main Content Sections */}
         <main className="max-w-7xl mx-auto px-4 py-12 space-y-16 lg:space-y-24">
           <section className="text-center space-y-4">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white animate-fade-in-up">
