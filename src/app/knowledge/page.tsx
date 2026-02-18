@@ -1,175 +1,119 @@
 'use client';
 import { useState } from 'react';
-import type { NextPage } from 'next';
-import Head from 'next/head';
+import { useRouter } from 'next/navigation';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
-interface FlashcardProps {
-  question: string;
-  answer: string;
-}
 
-const FlashcardList = ({ flashcards }: { flashcards: FlashcardProps[] }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleIndex = (index: number) => {
-    setOpenIndex(prev => (prev === index ? null : index));
-  };
-
-  return (
-    <div className="space-y-6 max-w-4xl mx-auto mt-10">
-      {flashcards.map((card, idx) => (
-        <div
-          key={`${idx}-${card.question}`}
-          className="border border-gray-200 rounded-xl shadow-lg bg-white overflow-hidden cursor-pointer transform transition-transform duration-200 hover:scale-105 hover:shadow-xl"
-          onClick={() => toggleIndex(idx)}
-        >
-          <div className="p-6 text-xl font-semibold text-gray-900 bg-gray-50 flex justify-between items-center">
-            <span>{card.question}</span>
-            <svg
-              className={`w-6 h-6 text-gray-500 transition-transform duration-300 ${
-                openIndex === idx ? 'rotate-180' : 'rotate-0'
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </div>
-          {openIndex === idx && (
-            <div className="p-6 text-gray-700 bg-white border-t border-gray-200 animate-fade-in-down">
-              <p className="whitespace-pre-line leading-relaxed">{card.answer}</p>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
+const menuConfig: Record<string, Record<string, string[]>> = {
+  "7": {
+    "biology": ["Nutrition in Plants", "Respiration in Organisms", "Reproduction in Plants"],
+    "socialscience": ["Environment", "Our Changing Earth", "Human Environment"],
+    "history": ["Tracing Changes", "New Kings and Kingdoms"]
+  },
+  "8": {
+    "biology": ["Cell Structure", "Microorganisms"],
+    "socialscience": ["Resources", "Land and Soil"],
+    "history": ["How When and Where", "From Trade to Territory"]
+  },
+  "9": {
+    "biology": ["Aids-to-Health","Dentition","Digestive System","Diversity In Living Organisms", "Economic Importance of Bacteria and Fungi","Flower", "Health Hygiene","Waste Management","Nutrition","Pollination and Fertilisation","Skeleton","Respiratory System","Respiration in Plants","Skin","Structure and Germination of Seeds","The Fundamental Unit of Life", "Tissues"],
+    "socialscience": ["Contemporary India", "Economics"],
+    "history": ["The French Revolution", "Nazism and the Rise of Hitler"],
+    "physics": ["Motion in one dimension", "Laws of Motion", "Current Electricity", "Energy", "Sound Waves","Fluid Dynamics","Magnetism"],
+  }
 };
 
-const FlashcardPage: NextPage = () => {
+const FlashcardFilterPage = () => {
+  const router = useRouter();
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('');
-  const [flashcards, setFlashcards] = useState<FlashcardProps[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [selectedChapter, setSelectedChapter] = useState('');
 
-  const fetchFlashcards = async () => {
-    if (!selectedClass || !selectedSubject) {
-      setError('Please select both a class and a subject.');
-      return;
-    }
-    setIsLoading(true);
-    setError(null);
-    setFlashcards([]);
-
-    try {
-      const filePath = `/flashcards/${selectedClass}_${selectedSubject}.json`;
-      const res = await fetch(filePath);
-      
-      if (!res.ok) {
-        throw new Error(`Failed to load flashcards. Please check if the file exists: ${res.status}`);
-      }
-
-      const json = await res.json();
-      setFlashcards(json);
-    } catch (err) {
-      console.error('Error loading flashcards:', err);
-      setError('An error occurred while loading flashcards. Please try again.');
-    } finally {
-      setIsLoading(false);
+ 
+  const handleNavigation = () => {
+    if (selectedClass && selectedSubject && selectedChapter) {
+      const chapterSlug = encodeURIComponent(selectedChapter.replace(/\s+/g, '-'));
+      router.push(`/knowledge/${selectedClass}/${selectedSubject}/${chapterSlug}`);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
-      <Head>
-        <title>Flashcards | Amitesh Tutorials</title>
-      </Head>
-
       <header className="bg-white shadow-sm p-4 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/logo.jpg" alt="Amitesh Tutorials Logo" width={40} height={40} className="rounded-full" />
+            <Image src="/logo.jpg" alt="Logo" width={40} height={40} className="rounded-full" />
             <span className="font-bold text-xl text-blue-800">AMITESH TUTORIALS</span>
           </Link>
-          <nav>
-            <Link href="/" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-               Home
-            </Link>
-          </nav>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Flashcards</h1>
-          <p className="text-lg text-gray-600">Master key concepts with interactive flashcards.</p>
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Study Materials</h1>
+          <p className="text-lg text-gray-600">Select your criteria to view specialized flashcards.</p>
         </div>
 
-        <div className="max-w-2xl mx-auto bg-blue-50 shadow-lg p-8 rounded-2xl border border-blue-100 space-y-6">
-          <h2 className="text-2xl text-gray-800 font-bold text-center">Select Your Subject</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="max-w-2xl mx-auto bg-white shadow-xl p-8 rounded-2xl border border-gray-200 space-y-6">
+          <h2 className="text-2xl text-gray-800 font-bold text-center">Filter by Topic</h2>
+          
+          <div className="grid grid-cols-1 gap-6">
             <div className="flex flex-col">
-              <label htmlFor="class-select" className="mb-2 text-sm font-medium text-gray-600">
-                Class
-              </label>
+              <label className="mb-2 text-sm font-medium text-gray-600">Select Class</label>
               <select 
-                id="class-select"
                 value={selectedClass} 
-                onChange={e => setSelectedClass(e.target.value)} 
-                className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                onChange={e => { setSelectedClass(e.target.value); setSelectedSubject(''); setSelectedChapter(''); }} 
+                className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               >
-                <option value="">Select Class</option>
-                <option value="7">Class 7</option>
-                <option value="8">Class 8</option>
-                <option value="9">Class 9</option>
+                <option value="">-- Choose Class --</option>
+                {Object.keys(menuConfig).map(c => <option key={c} value={c}>Class {c}</option>)}
               </select>
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="subject-select" className="mb-2 text-sm font-medium text-gray-600">
-                Subject
-              </label>
+
+            <div className={`flex flex-col transition-opacity ${!selectedClass ? 'opacity-50' : 'opacity-100'}`}>
+              <label className="mb-2 text-sm font-medium text-gray-600">Select Subject</label>
               <select 
-                id="subject-select"
+                disabled={!selectedClass}
                 value={selectedSubject} 
-                onChange={e => setSelectedSubject(e.target.value)} 
-                className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                onChange={e => { setSelectedSubject(e.target.value); setSelectedChapter(''); }} 
+                className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
               >
-                <option value="">Select Subject</option>
-                <option value="biology">Biology</option>
-                <option value="socialscience">Social science</option>
-                <option value="history">History</option>
+                <option value="">-- Choose Subject --</option>
+                {selectedClass && Object.keys(menuConfig[selectedClass]).map(s => (
+                  <option key={s} value={s} className="capitalize">{s}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className={`flex flex-col transition-opacity ${!selectedSubject ? 'opacity-50' : 'opacity-100'}`}>
+              <label className="mb-2 text-sm font-medium text-gray-600">Select Chapter</label>
+              <select 
+                disabled={!selectedSubject}
+                value={selectedChapter} 
+                onChange={e => setSelectedChapter(e.target.value)} 
+                className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              >
+                <option value="">-- Choose Chapter --</option>
+                {selectedSubject && menuConfig[selectedClass][selectedSubject].map(ch => (
+                  <option key={ch} value={ch}>{ch}</option>
+                ))}
               </select>
             </div>
           </div>
 
           <button
-            className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300"
-            onClick={fetchFlashcards}
-            disabled={isLoading}
+            className="w-full bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transform transition-all active:scale-95"
+            onClick={handleNavigation}
+            disabled={!selectedChapter}
           >
-            {isLoading ? 'Loading...' : 'PRESENT THE QUESTIONS!'}
+            GO TO FLASHCARDS →
           </button>
-          
-          {error && (
-            <div className="bg-red-100 text-red-700 p-4 rounded-lg text-center">
-              {error}
-            </div>
-          )}
         </div>
-
-        {flashcards.length > 0 && <FlashcardList flashcards={flashcards} />}
       </main>
-
-      <footer className="bg-gray-900 text-gray-400 mt-16 p-8 text-center text-sm">
-        <p>© 2025 Amitesh Tutorials. All Rights Reserved.</p>
-      </footer>
     </div>
   );
 };
 
-export default FlashcardPage;
+export default FlashcardFilterPage;
