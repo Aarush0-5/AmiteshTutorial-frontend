@@ -22,6 +22,7 @@ const menuConfig: Record<string, Record<string, string[]>> = {
     "socialscience": ["Contemporary India", "Economics"],
     "history": ["The French Revolution", "Nazism and the Rise of Hitler"],
     "physics": ["Motion in one Dimension", "Laws of Motion", "Current Electricity", "Energy", "Sound Waves","Fluid Dynamics","Magnetism"],
+    "chemistry": ["Chemical Changes and Reactions", "Water", "Language of Chemistry"]
   }
 };
 
