@@ -21,7 +21,7 @@ const menuConfig: Record<string, Record<string, string[]>> = {
     "biology": ["Aids-to-Health","Dentition","Digestive System","Diversity In Living Organisms", "Economic Importance of Bacteria and Fungi","Flower", "Health Hygiene","Waste Management","Nutrition","Pollination and Fertilisation","Skeleton","Respiratory System","Respiration in Plants","Skin","Structure and Germination of Seeds","The Fundamental Unit of Life", "Tissues"],
     "socialscience": ["Contemporary India", "Economics"],
     "history": ["The French Revolution", "Nazism and the Rise of Hitler"],
-    "physics": ["Motion in one dimension", "Laws of Motion", "Current Electricity", "Energy", "Sound Waves","Fluid Dynamics","Magnetism"],
+    "physics": ["Motion in one Dimension", "Laws of Motion", "Current Electricity", "Energy", "Sound Waves","Fluid Dynamics","Magnetism"],
   }
 };
 
