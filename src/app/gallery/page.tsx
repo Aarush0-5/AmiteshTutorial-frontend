@@ -159,9 +159,29 @@ const Gallery: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="font-semibold text-white text-lg mb-2">Location</h3>
-              <a href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5" className="flex items-center justify-center md:justify-start gap-2 text-sm text-blue-400 hover:underline">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                Near BBD University, Lucknow
+               <a href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5" className="flex items-center justify-center md:justify-start gap-2 text-sm text-blue-400 hover:underline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+             Branch 1: Near BBD University, Lucknow
+            </a>
+              <a
+                href=""
+                className="flex items-center justify-center md:justify-start gap-2 text-sm text-blue-400 hover:underline"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Branch 2: Omega Shopping Centre, Omega Green Park, Lucknow
               </a>
             </div>
           </div>

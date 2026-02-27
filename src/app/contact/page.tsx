@@ -33,6 +33,12 @@ const Contact: NextPage = () => {
               Near BBD university,<br />
               Lucknow
             </p>
+            <p className="text-sm text-black font-bold">Registered Branch 2 📍</p>
+            <p className="text-lg text-gray-700 font-semi-bold">
+              Omega Shopping Centre,<br />
+              Omega Green Park,<br />
+              Lucknow
+            </p>
           </div>
 
           <Link className="flex justify-center hover:text-red-600" href="/">HOME</Link>

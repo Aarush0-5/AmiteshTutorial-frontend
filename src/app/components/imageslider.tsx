@@ -33,14 +33,15 @@ const HorizontalScrollCarousel: React.FC = () => {
   return (
     <div
       ref={containerRef} 
-      className="overflow-hidden flex lg:space-x-4"
+      className="overflow-hidden flex lg:space-x-4 "
       style={{ scrollBehavior: 'smooth', width: '100%' }}
     >
       <Image src="/gallery/sd2510.jpg" alt="Image 2" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/board.jpg" alt="Image 9" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic10.jpg" alt="Image 3" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic4.jpg" alt="Image 4" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic8.jpg" alt="Image 5" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
-       <Image src="/gallery/sd255.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
+      <Image src="/gallery/sd255.jpg" alt="Image 1" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic6.jpg" alt="Image 6" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/images/pic3.jpg" alt="Image 7" width={700} height={500} className='w-full md:w-1/4 object-cover'/>
       <Image src="/gallery/st256.jpg" alt="Image 8" width={700} height={500} className='w-full md:w-1/4 object-cover'/>

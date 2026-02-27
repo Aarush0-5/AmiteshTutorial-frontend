@@ -16,17 +16,27 @@ const products: Product[] = [
   {
     id: 1,
     name: 'Polo colour premium T-shirt',
-    discount_price: '₹ 450 Only',
+    actual_price: '₹ 450',
+    discount_price: '₹ 299 ONLY',
     image: ['/shop/tshirt.jpg', '/shop/tshirtback.png'],
   },
   {
     id: 2,
     name: 'Unruled A4 Premium Notebook (150pg)',
     actual_price: '₹ 150',
-    discount_price: '₹ 99 Only',
+    discount_price: '₹ 99 ONLY',
     image: ['/shop/notebook.png'],
   },
 ];
+
+// Helper to calculate discount percentage from strings like "₹ 450"
+const getDiscountPercentage = (actual?: string, discount?: string) => {
+  if (!actual || !discount) return null;
+  const actualNum = parseInt(actual.replace(/\D/g, ''));
+  const discountNum = parseInt(discount.replace(/\D/g, ''));
+  if (isNaN(actualNum) || isNaN(discountNum)) return null;
+  return Math.round(((actualNum - discountNum) / actualNum) * 100);
+};
 
 export default function ShopPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -85,54 +95,77 @@ export default function ShopPage() {
 
       {orderSent && (
         <div className="bg-green-100 text-green-700 p-4 rounded-lg text-center font-semibold mb-8">
-          <p>
-            Order Noted! You will receive the order at the center shortly. Thank you!
-          </p>
+          <p>Order Noted! You will receive the order at the center shortly. Thank you!</p>
         </div>
       )}
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className="bg-white text-gray-900 shadow-xl rounded-2xl p-6 space-y-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-          >
-            <div className="w-full h-80 overflow-y-scroll rounded-xl border border-gray-200">
-              {product.image.map((image, index) => (
-                <div key={index} className="relative w-full h-full">
-                  <Image
-                    src={image}
-                    alt={`${product.name} image ${index + 1}`}
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </div>
-              ))}
-            </div>
-            <h2 className="text-2xl text-center font-bold mt-4">
-              {product.name}
-            </h2>
-            <div className="flex justify-center items-center gap-x-4">
-              {product.actual_price && (
-                <span className="text-xl text-gray-500 line-through">
-                  {product.actual_price}
-                </span>
-              )}
-              <span className="text-2xl font-bold text-red-600">
-                {product.discount_price}
-              </span>
-            </div>
-            <button
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              onClick={() => {
-                setSelectedProduct(product);
-                setOrderSent(false);
-              }}
+        {products.map((product) => {
+          const discountPercent = getDiscountPercentage(product.actual_price, product.discount_price);
+          
+          return (
+            <div
+              key={product.id}
+              className="relative bg-white text-gray-900 shadow-xl rounded-2xl p-6 space-y-4 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              Shop Now
-            </button>
-          </div>
-        ))}
+              
+              {discountPercent && (
+                <div className="absolute -top-4 -right-4 z-20 group">
+                  <div className="relative overflow-hidden bg-red-600 text-white text-base font-extrabold px-5 py-2.5 rounded-full shadow-2xl transform -rotate-6 border-2 border-white/80 transition-transform duration-300 hover:rotate-0 hover:scale-110">
+                    
+                    {discountPercent}% OFF
+
+                    {/* The Shine Effect */}
+                    <div className="absolute top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full group-hover:animate-[shine_1s_ease-in-out_infinite]" />
+                    
+                    {/* The Glow Effect */}
+                    <div className="absolute inset-0 bg-white/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  </div>
+                </div>
+              )}
+              
+
+              <div className="w-full h-80 overflow-y-scroll rounded-xl border border-gray-200">
+                {product.image.map((image, index) => (
+                  <div key={index} className="relative w-full h-full">
+                    <Image
+                      src={image}
+                      alt={`${product.name} image ${index + 1}`}
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <h2 className="text-2xl text-center font-bold mt-4">
+                {product.name}
+              </h2>
+
+              <div className="flex justify-center items-center gap-x-4">
+                {product.actual_price && (
+                  <span className="text-xl text-gray-500 line-through">
+                    {product.actual_price}
+                  </span>
+                )}
+                <span className="text-2xl font-bold text-red-600">
+                  {product.discount_price}
+                </span>
+              </div>
+
+              <button
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                onClick={() => {
+                  setSelectedProduct(product);
+                  setOrderSent(false);
+                }}
+              >
+                Shop Now
+              </button>
+            </div>
+          );
+        })}
       </div>
 
       {selectedProduct && (
@@ -141,7 +174,7 @@ export default function ShopPage() {
             <h3 className="text-2xl font-bold text-center text-gray-900">
               Order {selectedProduct.name}
             </h3>
-            <div className="overflow-y-auto max-h-[80vh] px-2 py-4"> {/* Added scrollable container here */}
+            <div className="overflow-y-auto max-h-[60vh] px-2 py-4"> 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <input
                   type="text"
@@ -151,7 +184,7 @@ export default function ShopPage() {
                   className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                   required
                 />
-                {selectedProduct.name.includes('T-shirt') && (
+                {selectedProduct.name.toLowerCase().includes('t-shirt') && (
                   <input
                     type="text"
                     placeholder="Size (e.g., S, M, L, XL)"
@@ -227,11 +260,11 @@ export default function ShopPage() {
               </form>
             </div>
             
-            <div className="flex justify-between items-center mt-6">
+            <div className="flex justify-between items-center gap-4 mt-2">
               <button
                 type="submit"
                 onClick={handleSubmit}
-                disabled={!payment}
+                disabled={!payment || !name}
                 className="flex-1 bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 Confirm Order
@@ -239,7 +272,7 @@ export default function ShopPage() {
               <button
                 type="button"
                 onClick={() => setSelectedProduct(null)}
-                className="flex-1 ml-4 bg-red-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-300"
+                className="flex-1 bg-red-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-red-600 transition-colors duration-300"
               >
                 Cancel
               </button>

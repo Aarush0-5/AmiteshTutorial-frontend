@@ -13,9 +13,8 @@ const menuConfig: Record<string, Record<string, string[]>> = {
     "history": ["Tracing Changes", "New Kings and Kingdoms"]
   },
   "8": {
-    "biology": ["Cell Structure", "Microorganisms"],
-    "socialscience": ["Resources", "Land and Soil"],
-    "history": ["How When and Where", "From Trade to Territory"]
+    "biology": ["Circulatory System","Control and Coordination","Ecosystem","Food-Production","Health and Hygiene","Reproduction in Plants and Animals","Transportation in plants"],
+    "chemistry": ["Carbon and its Compounds", "Water", "Chemical Reactions", "Language of Chemistry", "Atomic Structure", "Hydrogen", "Element Compounds Mixtures","Matter", "Physical and Chemical Changes", ],
   },
   "9": {
     "biology": ["Aids-to-Health","Dentition","Digestive System","Diversity In Living Organisms", "Economic Importance of Bacteria and Fungi","Flower", "Health Hygiene","Waste Management","Nutrition","Pollination and Fertilisation","Skeleton","Respiratory System","Respiration in Plants","Skin","Structure and Germination of Seeds","The Fundamental Unit of Life", "Tissues"],

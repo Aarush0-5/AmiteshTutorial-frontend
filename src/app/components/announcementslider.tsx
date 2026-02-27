@@ -66,8 +66,8 @@ const HorizontalScrollCarouselAnnoucement: React.FC = () => {
       className="overflow-x-scroll no-scrollbar flex lg:justify-center lg:space-x-4 space-x-2 snap-x snap-mandatory"
       style={{ scrollBehavior: 'smooth', width: '100%' }}
     >
-      <Image src="/offer1.jpg" alt='Announcement1' width={500} height={500} className='w-full object-cover rounded-xl shadow-md snap-center lg:max-w-xl' />
-      <Image src="/offer2.jpg" alt='Announcement2' width={500} height={500} className='w-full object-cover rounded-xl shadow-md snap-center lg:max-w-xl' />
+      <Image src="/Announcement1.jpg" alt='Announcement1' width={500} height={500} className='w-full object-cover rounded-xl shadow-md snap-center lg:max-w-xl' />
+      <Image src="/Announcement2.jpg" alt='Announcement2' width={500} height={500} className='w-full object-cover rounded-xl shadow-md snap-center lg:max-w-xl' />
     </div>
   );
 };

@@ -428,7 +428,7 @@ const Home: React.FC = () => {
                 },
                 {
                   title: "Interactive Learning Environment",
-                  desc: "Utilizing modern teaching methods and technology.",
+                  desc: "Utilizing modern teaching methods and technology such as digital board",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -531,7 +531,7 @@ const Home: React.FC = () => {
               />
               <div className="text-white text-center lg:text-left space-y-4">
                 <h2 className="text-3xl font-semibold">
-                  We are proud to partner with <span className="font-extrabold text-yellow-300">Swastic Charitable Trust</span>
+                  We are honored to support the mission of <span className="font-extrabold text-yellow-300">Swastic Charitable Trust</span>
                 </h2>
                 <p className="text-lg font-light text-blue-100">
                   Swastic Charitable Trust is a registered NGO focused on child development, education, rural upliftment, and women empowerment. Our partnership strengthens our commitment to community well-being.
@@ -605,7 +605,7 @@ const Home: React.FC = () => {
               </p>
             </div>
             {/* Location & Social */}
-            <div className="space-y-2">
+            <div className="space-y-2 flex flex-col">
               <h3 className="font-semibold text-white text-lg mb-2">Location</h3>
               <a
                 href="https://maps.app.goo.gl/8F73q8mDTj3Zktcz5"
@@ -625,7 +625,27 @@ const Home: React.FC = () => {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                Near BBD University, Lucknow
+                Branch 1: Near BBD University, Lucknow
+              </a>
+                <a
+                href=""
+                className="flex items-center justify-center md:justify-start gap-2 text-sm text-blue-400 hover:underline"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Branch 2: Omega Shopping Centre, Omega Green Park, Lucknow
               </a>
             </div>
           </div>
